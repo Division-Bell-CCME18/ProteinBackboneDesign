@@ -1,5 +1,4 @@
-from .common import MultiLayerPerceptron
-from .gin import GraphIsomorphismNetwork
+from .gin import MultiLayerPerceptron, GraphIsomorphismNetwork
 
 __all__ = ["MultiLayerPerceptron", "GraphIsomorphismNetwork"
         ]
