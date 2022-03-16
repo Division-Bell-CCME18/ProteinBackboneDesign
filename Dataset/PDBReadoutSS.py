@@ -1,30 +1,20 @@
 import os
 from Bio.PDB import PDBParser
-from Bio.PDB.DSSP import DSSP
-from multiprocessing.dummy import Pool
+from Bio.PDB.DSSP import DSSP, ss_to_index, dssp_dict_from_pdb_file
+# from multiprocessing.dummy import Pool
 
-dir = 'D:\文件\北大\github\ProteinBackboneDesign\Dataset\PDBDataset_raw_chain'
-list = os.listdir(dir)
-mis_list = []
+dir = 'D:\文件\北大\github\ProteinBackboneDesign\Dataset'
+file_name = '1NWZ_A.pdb'
 
-def read_ss(file_name):
-    p = PDBParser()
-    structure = p.get_structure(file_name[:4], dir+'\\'+file_name)
-    model = structure[0]
-    try:
-        dssp = DSSP(model, dir+'\\'+file_name)
-    except:
-        mis_list.append(file_name)
+# def get_dssp_dict(pdb_file):
 
 
+p = PDBParser()
+structure = p.get_structure(file_name[:4], dir+'\\'+file_name)
+model = structure[0]
+dssp = DSSP(model, dir+'\\'+file_name)
 
-with Pool(15) as pool:
-    pool.map(read_ss, list)
-
-print(mis_list)
-
-
-
-
-
+a_key = list(dssp.keys())
+for i in a_key:
+    print(ss_to_index(dssp[i][2]))
 
