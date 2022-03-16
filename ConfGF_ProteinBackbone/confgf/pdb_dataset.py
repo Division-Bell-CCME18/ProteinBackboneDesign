@@ -16,9 +16,9 @@ def set_dir(dir):
         dir
     )
 
-def get_num_aa(pdb_file):
+def get_amino_acid_(pdb_file):
     # aa: amino acid
-    return 0
+    
     
 def get_ss(pdb_file):
     return 0
@@ -29,8 +29,8 @@ def get_pos(pdb_file):
 
 
 def pdb_to_data(pdb_file):
-    get_ss(pdb_file)
-    get_pos(pdb_file)
+    aa_number = []
+
 
 
 def process_pdb_dataset():
