@@ -1,3 +1,4 @@
+from ctypes import Structure
 import os
 import copy
 from tqdm import tqdm
@@ -10,30 +11,29 @@ from torch_geometric.data import Data, Dataset
 from torch_geometric.transforms import Compose
 from torch_scatter import scatter
 
+from Bio.PDB.PDBParser import PDBParser
+
 
 def set_dir(dir):
     os.chdir(
         dir
     )
 
-def get_amino_acid_(pdb_file):
-    # aa: amino acid
-    
-    
-def get_ss(pdb_file):
-    return 0
-
-def get_pos(pdb_file):
-    return 0
-
 
 
 def pdb_to_data(pdb_file):
-    aa_number = []
+    p = PDBParser(PERMISSIVE=1)
+    structure = p.get_structure(pdb_file[:4], pdb_file)
+    model = structure[0]
+    chain = model[pdb_file[5]]
+    
+
+
 
 
 
 def process_pdb_dataset():
+    return 0
     
     
 
