@@ -1,6 +1,5 @@
 import os
 import copy
-from re import L, search
 from tqdm import tqdm
 
 import numpy as np
@@ -117,7 +116,7 @@ def pdb_to_data(pdb_file):
     return data
     
 
-print(pdb_to_data(pdb_file))
+# print(pdb_to_data(pdb_file))
 
 
 
@@ -150,6 +149,8 @@ def preprocess_pdb_dataset(dataset_dir=dataset_dir):
         print(i)
 
     return all_train
+
+preprocess_pdb_dataset(dataset_dir=dataset_dir)
 
 
 
