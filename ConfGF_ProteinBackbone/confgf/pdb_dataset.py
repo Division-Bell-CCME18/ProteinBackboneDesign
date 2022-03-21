@@ -1,14 +1,14 @@
 import os
-import copy
 from tqdm import tqdm
+import warnings
+import pickle
+import argparse
 
 import numpy as np
-import random
 
 import torch
-from torch_geometric.data import Data, Dataset
-from torch_geometric.transforms import Compose
-from torch_scatter import scatter
+from torch_geometric.data import Data
+
 
 from Bio.PDB.PDBParser import PDBParser
 from Bio.PDB.DSSP import DSSP
@@ -17,7 +17,7 @@ from Bio.PDB.Selection import unfold_entities
 
 
 dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset'
-pdb_file = '1US0_A.pdb'
+# pdb_file = '2YKZ_A.pdb'
 
 
 def set_working_dir(dir):
@@ -42,6 +42,7 @@ def pdb_to_data(pdb_file):
 
     dssp = DSSP(model, pdb_file)
     dssp_keys = list(dssp.keys())
+
 
     chain_len = 0
     pos_list = []
@@ -124,7 +125,7 @@ def pdb_to_data(pdb_file):
 
 dataset_dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset\PDBDataset_test'
 
-def preprocess_pdb_dataset(dataset_dir=dataset_dir):
+def preprocess_pdb_dataset(dataset_dir):
     """
     preprocess pdb dataset
     """
@@ -133,26 +134,57 @@ def preprocess_pdb_dataset(dataset_dir=dataset_dir):
 
     print('process train...')
     all_train = []
+    warning_case = []
     bad_case = []
+
+    warnings.filterwarnings('error')    # catch warnings
+
     for i in tqdm(range(len(pdb_list))):
         pdb = pdb_list[i]
         try:
             data = pdb_to_data(pdb)
             all_train.append(data)
+        except Warning:
+            warning_case.append(pdb)
         except:
             bad_case.append(pdb)
 
 
     print('Train | find %d pdb files as training data' % len(all_train))
-    print('Train | find %d bad cases:' % len(bad_case))
-    for i in bad_case:
+    print('Train | find %d warning cases:' % len(warning_case))
+    for i in warning_case:
         print(i)
+    print('Train | find %d bad cases:' % len(bad_case))
+    for j in bad_case:
+        print(j)
+
 
     return all_train
 
-preprocess_pdb_dataset(dataset_dir=dataset_dir)
+
+
+# preprocess_pdb_dataset(dataset_dir=dataset_dir)
+
+def save_pickle_dataset(dataset_dir, pickle_dir):
+    """
+    transform the preprocessed pdb dataset into pickle form
+    """
+    all_train = preprocess_pdb_dataset(dataset_dir=dataset_dir)
+    with open(os.path.join(pickle_dir, 'pdb_train_processed.pkl'), 'wb') as fout:
+        pickle.dump(all_train, fout)
+
+    print('save train done!')
 
 
 
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='process the pdb dataset')
+    parser.add_argument('--dataset_dir', type=str, required=True)
+    parser.add_argument('--pickle_dir', type=str, default=os.getcwd())
+    args = parser.parse_args()
+    dataset_dir = args.dataset_dir
+    pickle_dir = args.pickle_dir
+
+    save_pickle_dataset(dataset_dir, pickle_dir)
 
 

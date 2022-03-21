@@ -7,7 +7,7 @@ from Bio.PDB.DSSP import DSSP, ss_to_index, dssp_dict_from_pdb_file
 os.chdir(
     'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset'
 )
-pdb_file = '1US0_A.pdb'
+pdb_file = '2YKZ_A.pdb'
 
 
 
@@ -20,19 +20,43 @@ dssp_keys = list(dssp.keys())
 
 print(dssp_keys)
 
+res_1st = dssp_keys[0][1][1]    # labeled number of the first residue in pdb file (sometimes not starting from 1)
+
+
+# print(res_1st)
+print(len(dssp_keys))
+
+
+
 chain_len = 0
 pos_list = []
 ss_list = []
 
 
+
+
+
+
+
 for res in chain.get_residues():
-    print(res)
+    
+
+
     if res.id[0] == ' ':
+        print(res.id)
         chain_len += 1
         print(chain_len)
 
+
         # 1. obtain secondary structure type
+        print(dssp_keys[chain_len-1])
+        print(dssp[dssp_keys[chain_len-1]])
+
+
+#########################################
+
         ss_type = dssp[dssp_keys[chain_len-1]][2]
+
 
         print(ss_type)
             
