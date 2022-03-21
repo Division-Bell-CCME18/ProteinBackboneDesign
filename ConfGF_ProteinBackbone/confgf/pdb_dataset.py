@@ -56,7 +56,7 @@ def pdb_to_data(pdb_file):
             # 1. obtain secondary structure type
             ss_type = dssp[dssp_keys[chain_len-1]][2]
             
-            if ss_type == ('H' or 'G' or 'I'):
+            if ss_type == 'H':
                 ss_list.append(0)
             elif ss_type == 'E':
                 ss_list.append(1)
