@@ -132,8 +132,8 @@ def preprocess_pdb_dataset(dataset_dir):
     set_working_dir(dataset_dir)
     pdb_list = os.listdir(dataset_dir)
 
-    print('process train...')
-    all_train = []
+    print('process dataset...')
+    all_data = []
     warning_case = []
     bad_case = []
 
@@ -143,23 +143,23 @@ def preprocess_pdb_dataset(dataset_dir):
         pdb = pdb_list[i]
         try:
             data = pdb_to_data(pdb)
-            all_train.append(data)
+            all_data.append(data)
         except Warning:
             warning_case.append(pdb)
         except:
             bad_case.append(pdb)
 
 
-    print('Train | find %d pdb files as training data' % len(all_train))
-    print('Train | find %d warning cases:' % len(warning_case))
+    print('Process Dataset | find %d pdb files as training data' % len(all_data))
+    print('Process Dataset | find %d warning cases:' % len(warning_case))
     for i in warning_case:
         print(i)
-    print('Train | find %d bad cases:' % len(bad_case))
+    print('Process Dataset | find %d bad cases:' % len(bad_case))
     for j in bad_case:
         print(j)
 
 
-    return all_train
+    return all_data
 
 
 
@@ -167,13 +167,13 @@ def preprocess_pdb_dataset(dataset_dir):
 
 def save_pickle_dataset(dataset_dir, pickle_dir):
     """
-    transform the preprocessed pdb dataset into pickle form
+    transform the preprocessed pdb dataset into pickle format
     """
-    all_train = preprocess_pdb_dataset(dataset_dir=dataset_dir)
-    with open(os.path.join(pickle_dir, 'pdb_train_processed.pkl'), 'wb') as fout:
-        pickle.dump(all_train, fout)
+    all_data = preprocess_pdb_dataset(dataset_dir=dataset_dir)
+    with open(os.path.join(pickle_dir, 'pdb_dataset_processed.pkl'), 'wb') as fout:
+        pickle.dump(all_data, fout)
 
-    print('save train done!')
+    print('save processed dataset done!')
 
 
 
