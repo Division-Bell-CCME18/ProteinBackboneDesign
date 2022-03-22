@@ -1,4 +1,5 @@
 import os
+import sys
 from tqdm import tqdm
 import warnings
 import pickle
@@ -185,6 +186,11 @@ if __name__ == '__main__':
     dataset_dir = args.dataset_dir
     pickle_dir = args.pickle_dir
 
+    log_file = open('pdb_dataset.log', mode='w', encoding='utf-8')
+    sys.stdout = log_file
+    
     save_pickle_dataset(dataset_dir, pickle_dir)
+
+    log_file.close()
 
 
