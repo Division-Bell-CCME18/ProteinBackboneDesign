@@ -1,6 +1,6 @@
 train:
   batch_size: 128
-  seed: 2021
+  seed: 2022
   epochs: 300  
   shuffle: true
   resume_train: false
@@ -8,12 +8,12 @@ train:
   num_workers: 0
   gpus:
     - 0
-    - null
-    - null
-    - null
+    - 1
+    - 2
+    - 3
   anneal_power: 2.0
   save: true
-  save_path: /home/shichenc/scratch/confgf/train
+  save_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/confgf_run2/train
   resume_checkpoint: null
   resume_epoch: null
   log_interval: 400
@@ -31,9 +31,9 @@ train:
     
 
 test:
-  init_checkpoint: /home/shichenc/scratch/confgf/train/drugs_default
-  output_path: /home/shichenc/scratch/confgf/test
-  epoch: 284
+  init_checkpoint: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/confgf_run2/train/drugs_default
+  output_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/confgf_run2/test
+  epoch: 283
   gen:
     dg_step_size: 3.0
     dg_num_steps: 1000  
@@ -47,7 +47,7 @@ test:
 
 
 data:
-  base_path: /home/shichenc/scratch/dataset/GEOM_new
+  base_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/GEOM
   dataset: drugs
   train_set: train_data_39k.pkl
   val_set: val_data_5k.pkl
