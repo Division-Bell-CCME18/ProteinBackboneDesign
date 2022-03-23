@@ -9,7 +9,7 @@ import numpy as np
 import torch
 from torch_geometric.data import Dataset
 
-from . import distgeom, torch_utils, default_runner
+from . import distgeom, torch_utils, runner
 
 
 # define dataset object
@@ -41,7 +41,7 @@ class PDBDataset(Dataset):
     def _edge_types(self):
         """All edge types."""
         edge_types = set(0)
-        # NOTICE distinguish connected from disconnected?
+        # NOTE: distinguish connected from disconnected?
         return sorted(edge_types)
 
 
@@ -116,7 +116,7 @@ if __name__ == '__main__':
     optimizer = torch_utils.get_optimizer(config.train.optimizer, model)
     scheduler = torch_utils.get_scheduler(config.train.scheduler, optimizer)
 
-    solver = default_runner.DefaultRunner(train_data, val_data, test_data, model, optimizer, scheduler, gpus, config)
+    solver = runner.DefaultRunner(train_data, val_data, test_data, model, optimizer, scheduler, gpus, config)
     if config.train.resume_train:
         solver.load(config.train.resume_checkpoint, epoch=config.train.resume_epoch, load_optimizer=True, load_scheduler=True)
     solver.train()
