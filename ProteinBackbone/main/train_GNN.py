@@ -9,7 +9,9 @@ import numpy as np
 import torch
 from torch_geometric.data import Dataset
 
-from . import distgeom, torch_utils, runner
+
+
+from utils import torch_utils, runner, scorenet
 
 
 # define dataset object
@@ -35,12 +37,12 @@ class PDBDataset(Dataset):
         
     def _ss_types(self):
         """All secondary structure types."""
-        ss_types = set(0, 1, 2)
+        ss_types = set([0, 1, 2])
         return sorted(ss_types)
 
     def _edge_types(self):
         """All edge types."""
-        edge_types = set(0)
+        edge_types = set([0])
         # NOTE: distinguish connected from disconnected?
         return sorted(edge_types)
 
@@ -89,7 +91,7 @@ if __name__ == '__main__':
     print('set seed for random, numpy and torch')
 
     # load data
-    load_path = os.path.join(config.data.base_path, 'pdb_dataset_processed.pkl')
+    load_path = config.data.base_path
     print('loading data from %s' % load_path)
 
 
@@ -112,7 +114,7 @@ if __name__ == '__main__':
     val_data = PDBDataset(data=val_data, transform=transform)
     test_data = PDBDataset(data=test_data, transform=transform)
 
-    model = distgeom.DistanceScoreMatch(config)
+    model = scorenet.DistanceScoreMatch(config)
     optimizer = torch_utils.get_optimizer(config.train.optimizer, model)
     scheduler = torch_utils.get_scheduler(config.train.scheduler, optimizer)
 
