@@ -1,4 +1,5 @@
 import os
+import sys
 import random
 import pickle
 import argparse
@@ -20,6 +21,8 @@ if __name__ == '__main__':
     test_dir = args.test_dir
     train_ratio = args.train_ratio
 
+    log_file = open('dataset_split.log', mode='w', encoding='utf-8')
+    sys.stdout = log_file
 
     # split train, val, test sets
     print('load dataset...')
@@ -51,6 +54,7 @@ if __name__ == '__main__':
         pickle.dump(test_data, fout)
     print('save test set at %s done! size: %d' % (test_dir, test_size))
 
+    log_file.close()
 
 
 

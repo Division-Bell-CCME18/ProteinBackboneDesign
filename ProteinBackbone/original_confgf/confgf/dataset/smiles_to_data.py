@@ -53,8 +53,6 @@ def smiles_to_data(smiles):
         col += [end, start]
         edge_type += 2 * [utils.BOND_TYPES[bond.GetBondType()]]
 
-    print(row)
-    print(col)
     print(edge_type)
 
 
@@ -79,8 +77,8 @@ def smiles_to_data(smiles):
         utils.AddEdgeName()
     ])
     
-    print(data)
-    print(transform(data))
+    # print(data)
+    # print(transform(data))
 
 
 smiles_to_data('CC1=C(C(=O)C[C@@H]1OC(=O)[C@@H]2[C@H](C2(C)C)/C=C(\C)/C(=O)OC)C/C=C\C=C')

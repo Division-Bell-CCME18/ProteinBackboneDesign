@@ -15,7 +15,7 @@ class DistanceScoreMatch(torch.nn.Module):
         self.config = config
         self.anneal_power = self.config.train.anneal_power
         self.hidden_dim = self.config.model.hidden_dim
-        #self.order = self.config.model.order
+        self.order = self.config.model.order
         self.noise_type = self.config.model.noise_type
 
         self.node_emb = torch.nn.Embedding(100, self.hidden_dim)
@@ -62,7 +62,7 @@ class DistanceScoreMatch(torch.nn.Module):
         Output:
             log-likelihood gradient of distance, tensor with shape (num_edge, 1)         
         """
-        node_attr = self.node_emb(data.atom_type) # (num_node, hidden)
+        node_attr = self.node_emb(data.x) # (num_node, hidden)
         edge_attr = self.edge_emb(data.edge_type) # (num_edge, hidden)      
         d_emb = self.input_mlp(d) # (num_edge, hidden)
         edge_attr = d_emb * edge_attr # (num_edge, hidden)
@@ -133,7 +133,7 @@ class DistanceScoreMatch(torch.nn.Module):
         target = -1 / (used_sigmas ** 2) * (perturbed_d - d) # (num_edge, 1)
 
         # estimate scores
-        node_attr = self.node_emb(data.atom_type) # (num_node, hidden)
+        node_attr = self.node_emb(data.x) # (num_node, hidden)
         edge_attr = self.edge_emb(data.edge_type) # (num_edge, hidden)
         d_emb = self.input_mlp(perturbed_d) # (num_edge, hidden)
         edge_attr = d_emb * edge_attr # (num_edge, hidden)

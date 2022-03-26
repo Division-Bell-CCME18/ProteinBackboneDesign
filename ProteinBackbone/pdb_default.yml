@@ -13,7 +13,7 @@ train:
     - 3
   anneal_power: 2.0
   save: true
-  save_path: /lhlai_test/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/RunTest/Run1/train
+  save_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run1/train
   resume_checkpoint: null
   resume_epoch: null
   log_interval: 400
@@ -31,8 +31,8 @@ train:
     
 
 test:
-  init_checkpoint: /lhlai_test/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/RunTest/Run1/train/pdb_default
-  output_path: /lhlai_test/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/RunTest/Run1/test
+  init_checkpoint: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run1/train/pdb_default
+  output_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run1/test
   epoch: 283
   gen:
     dg_step_size: 3.0
@@ -47,7 +47,7 @@ test:
 
 
 data:
-  base_path: /lhlai_test/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/Dataset/PDB
+  base_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB
   dataset: pdb
   train_set: pdb_dataset_train.pkl
   val_set: pdb_dataset_val.pkl

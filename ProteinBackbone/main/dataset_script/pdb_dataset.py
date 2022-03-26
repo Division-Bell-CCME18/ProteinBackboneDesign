@@ -17,8 +17,8 @@ from Bio.PDB.NeighborSearch import NeighborSearch
 from Bio.PDB.Selection import unfold_entities
 
 
-dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset'
-# pdb_file = '2YKZ_A.pdb'
+# dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset'
+# pdb_file = '1NWZ_A.pdb'
 
 
 def set_working_dir(dir):
@@ -72,6 +72,7 @@ def pdb_to_data(pdb_file):
 
     # 3. construct edges
     edge_list = []
+    edge_type = []
 
 
     # i) coordinate-based neighbors
@@ -86,6 +87,7 @@ def pdb_to_data(pdb_file):
         if (res_1[0] == ' ') and (res_2[0] == ' '):
             edge_list.append([res_1[1], res_2[1]])
             edge_list.append([res_2[1], res_1[1]])
+            edge_type += 2 * [1]
 
 
     # ii) sequence-based neighbors 
@@ -95,6 +97,7 @@ def pdb_to_data(pdb_file):
             if ((j-i) & (j-i-1) == 0) and ([i, j] not in edge_list):
                 edge_list.append([i, j])
                 edge_list.append([j, i])
+                edge_type += 2 * [1]
 
 
     # iii) random neighbors (rand-size to be decided)
@@ -105,15 +108,17 @@ def pdb_to_data(pdb_file):
         if (rand_1 != rand_2) and ([rand_1, rand_2] not in edge_list):
             edge_list.append([rand_1, rand_2])
             edge_list.append([rand_2, rand_1])
+            edge_type += 2 * [1]
             k += 1
         
 
     node_feature = torch.tensor(ss_list, dtype=torch.long)
     pos = torch.tensor(pos_list, dtype=torch.float32)
     edge_index = torch.tensor(edge_list, dtype=torch.long).t().contiguous()
+    edge_type = torch.tensor(edge_type)
     graph_label = pdb_file[:6]
 
-    data = Data(x=node_feature, edge_index=edge_index, pos=pos, y=graph_label)
+    data = Data(x=node_feature, edge_index=edge_index, edge_type=edge_type, pos=pos, y=graph_label)
 
     return data
     
@@ -124,7 +129,7 @@ def pdb_to_data(pdb_file):
 
 
 
-dataset_dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset\PDBDataset_test'
+# dataset_dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset\PDBDataset_test'
 
 def preprocess_pdb_dataset(dataset_dir):
     """
