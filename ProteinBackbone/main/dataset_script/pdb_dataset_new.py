@@ -18,7 +18,7 @@ from Bio.PDB.Selection import unfold_entities
 
 
 # dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset'
-# pdb_file = '1NWZ_A.pdb'
+# pdb_file = '1JHJ_A.pdb'
 
 
 def set_working_dir(dir):
@@ -74,7 +74,7 @@ def pdb_to_data(pdb_file):
     edge_list = []
     edge_type = []
 
-    """
+    
     # i) coordinate-based neighbors
     # neighbor search, radius in angstrom (to be decided)
     atom_list = unfold_entities(chain, 'A')
@@ -84,11 +84,11 @@ def pdb_to_data(pdb_file):
     for pair in contact_list:
         # exclude water and HETATM
         res_1, res_2 = pair[0].id, pair[1].id
-        if (res_1[0] == ' ') and (res_2[0] == ' '):
+        if (res_1[0] == ' ') and (res_2[0] == ' ') and (res_1[1] in range(1, chain_len+1)) and (res_2[1] in range(1, chain_len+1)):
             edge_list.append([res_1[1]-1, res_2[1]-1])
             edge_list.append([res_2[1]-1, res_1[1]-1])
             edge_type += 2 * [0]
-    """
+    
     
     # ii) sequence-based neighbors 
     # 2^m sequence separation
