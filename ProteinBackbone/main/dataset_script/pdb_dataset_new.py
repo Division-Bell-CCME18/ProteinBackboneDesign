@@ -74,7 +74,7 @@ def pdb_to_data(pdb_file):
     edge_list = []
     edge_type = []
 
-
+    """
     # i) coordinate-based neighbors
     # neighbor search, radius in angstrom (to be decided)
     atom_list = unfold_entities(chain, 'A')
@@ -88,8 +88,8 @@ def pdb_to_data(pdb_file):
             edge_list.append([res_1[1]-1, res_2[1]-1])
             edge_list.append([res_2[1]-1, res_1[1]-1])
             edge_type += 2 * [0]
-
-
+    """
+    
     # ii) sequence-based neighbors 
     # 2^m sequence separation
     for i in range(1, chain_len+1):
@@ -98,8 +98,8 @@ def pdb_to_data(pdb_file):
                 edge_list.append([i-1, j-1])
                 edge_list.append([j-1, i-1])
                 edge_type += 2 * [0]
-
-
+    
+    
     # iii) random neighbors (rand-size to be decided)
     k = 0
     rand_size = 0.01
@@ -110,7 +110,7 @@ def pdb_to_data(pdb_file):
             edge_list.append([rand_2-1, rand_1-1])
             edge_type += 2 * [0]
             k += 1
-        
+
 
     node_feature = torch.tensor(ss_list, dtype=torch.long)
     pos = torch.tensor(pos_list, dtype=torch.float32)
