@@ -53,7 +53,7 @@ def smiles_to_data(smiles):
         col += [end, start]
         edge_type += 2 * [utils.BOND_TYPES[bond.GetBondType()]]
 
-    print(edge_type)
+    # print(edge_type)
 
 
     edge_index = torch.tensor([row, col], dtype=torch.long)
@@ -68,7 +68,7 @@ def smiles_to_data(smiles):
     data = Data(atom_type=z, pos=pos, edge_index=edge_index, edge_type=edge_type,
                 rdmol=copy.deepcopy(mol), smiles=smiles)
 
-    # print(edge_index)
+    print(edge_index)
     
     transform = Compose([
         utils.AddHigherOrderEdges(order=3),
