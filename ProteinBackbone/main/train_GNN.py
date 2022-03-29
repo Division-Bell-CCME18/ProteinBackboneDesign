@@ -7,7 +7,7 @@ from easydict import EasyDict
 
 import numpy as np
 import torch
-from torch_geometric.data import Dataset
+from torch_geometric.data import Data, Dataset
 
 
 
@@ -102,10 +102,10 @@ if __name__ == '__main__':
 
     if config.data.train_set is not None:          
         with open(os.path.join(load_path, config.data.train_set), "rb") as fin:
-            train_data = pickle.load(fin)
+            train_data = [Data.from_dict(i) for i in pickle.load(fin)]
     if config.data.val_set is not None:
         with open(os.path.join(load_path, config.data.val_set), "rb") as fin:
-            val_data = pickle.load(fin)
+            val_data = [Data.from_dict(i) for i in pickle.load(fin)]
     print('train size : %d  ||  val size: %d  ||  test size: %d ' % (len(train_data), len(val_data), len(test_data)))
     print('loading data done!')
 

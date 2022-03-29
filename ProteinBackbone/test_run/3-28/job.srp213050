@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH -J pyt213050
+#SBATCH -p gpu_4l
+#SBATCH -N 1 
+#SBATCH -o pyt213050_%j.out
+#SBATCH -e pyt213050_%j.err
+#SBATCH --no-requeue
+#SBATCH -A lhlai_g1
+#SBATCH --qos=lhlaig4c
+#SBATCH --gres=gpu:4
+#SBATCH --exclusive
+pkurun python -u train_GNN_new.py --config_path pdb_default.yml
