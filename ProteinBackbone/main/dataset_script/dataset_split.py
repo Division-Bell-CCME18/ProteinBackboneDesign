@@ -12,7 +12,7 @@ if __name__ == '__main__':
     parser.add_argument('--train_dir', type=str, default=os.getcwd())
     parser.add_argument('--val_dir', type=str, default=os.getcwd())
     parser.add_argument('--test_dir', type=str, default=os.getcwd())
-    parser.add_argument('--train_ratio', type=float, default=0.8)
+    parser.add_argument('--train_ratio', type=float, default=0.9)
 
     args = parser.parse_args()
     pickle_dir = args.pickle_dir
