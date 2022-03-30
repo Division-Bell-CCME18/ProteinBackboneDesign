@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J pyt222714
+#SBATCH -p gpu_4l
+#SBATCH -N 1 
+#SBATCH -o pyt222714_%j.out
+#SBATCH -e pyt222714_%j.err
+#SBATCH --no-requeue
+#SBATCH -A lhlai_g1
+#SBATCH --qos=lhlaig4c
+#SBATCH --gres=gpu:1
+#SBATCH --overcommit
+#SBATCH --mincpus=7
+pkurun python -u train_GNN.py --config_path pdb_default_Run2.yml

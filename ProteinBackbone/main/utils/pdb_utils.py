@@ -1,9 +1,7 @@
 import os
-import sys
 from tqdm import tqdm
 import warnings
 import pickle
-import argparse
 
 import numpy as np
 
@@ -11,14 +9,12 @@ import torch
 from torch_geometric.data import Data
 
 
-from Bio.PDB.PDBParser import PDBParser
-from Bio.PDB.DSSP import DSSP
-from Bio.PDB.NeighborSearch import NeighborSearch
+from Bio.PDB import PDBParser, PDBIO, DSSP, NeighborSearch
 from Bio.PDB.Selection import unfold_entities
 
 
 # dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset'
-# pdb_file = '1JHJ_A.pdb'
+# pdb_file = '1NWZ_A.pdb'
 
 
 def set_working_dir(dir):
@@ -35,7 +31,7 @@ def set_working_dir(dir):
 
 def pdb_to_data(pdb_file):
     """
-    Covert a .pdb file to a pyg object that can be fed into GNN
+    Covert a pdb file to a pyg object that can be fed into GNN
     """
     p = PDBParser(PERMISSIVE=1)
     model = p.get_structure(pdb_file[:4], pdb_file)[0]
@@ -120,7 +116,7 @@ def pdb_to_data(pdb_file):
 
     data = Data(x=node_feature, edge_index=edge_index, edge_type=edge_type, pos=pos, y=graph_label)
 
-    return data.to_dict()
+    return data
     
 
 # pdb_to_data(pdb_file)
@@ -128,9 +124,9 @@ def pdb_to_data(pdb_file):
 
 # dataset_dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset\PDBDataset_test'
 
-def process_pdb_dataset(dataset_dir):
+def process_pdb_dataset(dataset_dir, pickle_dir):
     """
-    process pdb dataset
+    process pdb dataset and save in pickle format
     """
     set_working_dir(dataset_dir)
     pdb_list = os.listdir(dataset_dir)
@@ -145,7 +141,7 @@ def process_pdb_dataset(dataset_dir):
     for i in tqdm(range(len(pdb_list))):
         pdb = pdb_list[i]
         try:
-            data = pdb_to_data(pdb)
+            data = pdb_to_data(pdb).to_dict()
             all_data.append(data)
         except Warning:
             warning_case.append(pdb)
@@ -162,37 +158,43 @@ def process_pdb_dataset(dataset_dir):
         print(j)
 
 
-    return all_data
-
-
-
-# process_pdb_dataset(dataset_dir=dataset_dir)
-
-def save_pickle_dataset(dataset_dir, pickle_dir):
-    """
-    transform the preprocessed pdb dataset into pickle format
-    """
-    all_data = process_pdb_dataset(dataset_dir=dataset_dir)
     with open(os.path.join(pickle_dir, 'pdb_dataset_processed.pkl'), 'wb') as fout:
         pickle.dump(all_data, fout)
 
     print('save processed dataset done!')
 
 
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='process the pdb dataset')
-    parser.add_argument('--dataset_dir', type=str, required=True)
-    parser.add_argument('--pickle_dir', type=str, default=os.getcwd())
-    args = parser.parse_args()
-    dataset_dir = args.dataset_dir
-    pickle_dir = args.pickle_dir
-
-    log_file = open('pdb_dataset.log', mode='w', encoding='utf-8')
-    sys.stdout = log_file
-    
-    save_pickle_dataset(dataset_dir, pickle_dir)
-
-    log_file.close()
+# process_pdb_dataset(dataset_dir=dataset_dir)
 
 
+pdb_file='1NWZ_A.pdb'
+data = pdb_to_data(pdb_file=pdb_file)
+set_working_dir(os.getcwd())
+
+def update_pdb_info(data, pdb_file):
+    """
+    update position information of the original pdb file 
+    """
+    p = PDBParser(PERMISSIVE=1)
+    model = p.get_structure(pdb_file[:4], pdb_file)[0]
+    chain = model[pdb_file[5]]
+
+    i = 0
+
+    for res in chain:
+        for atom in res:
+            try:
+                atom.set_coord(data.pos[i].tolist())
+                anum = atom.get_serial_number()
+                atom.set_serial_number(int(anum))
+                i += 1
+            except IndexError:
+                pass
+            
+
+    io = PDBIO()
+    io.set_structure(chain)
+    io.save('%s_new.pdb' % pdb_file[:6])
+
+
+update_pdb_info(data, pdb_file)
