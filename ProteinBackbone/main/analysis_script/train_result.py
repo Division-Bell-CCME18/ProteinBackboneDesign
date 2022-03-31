@@ -147,13 +147,13 @@ def draw_scatter_and_fit(subplot, x, y, scatter_color, s=5):
 
         
 ax=f.add_subplot(111)
-epoch, train_loss, val_loss = fileread('pyt222714_14250507.out')
+epoch, train_loss, val_loss = fileread('pyt201410_14259936.out')
 plt.xlabel(r'$\rm epoch$')
-plt.ylabel(r'$val\ \ loss$')
-draw_plot_and_scatter(ax, epoch, val_loss)
+plt.ylabel(r'$\rm train\ \ loss$')
+draw_plot_and_scatter(ax, epoch, train_loss)
 
 
 f.set_size_inches(6,5)
-plt.savefig('val-3-29.jpg',dpi=1000, bbox_inches='tight')
+plt.savefig('train-3-30-3.jpg',dpi=1000, bbox_inches='tight')
 plt.show()
 
