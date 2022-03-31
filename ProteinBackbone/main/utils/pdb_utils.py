@@ -2,6 +2,7 @@ import os
 from tqdm import tqdm
 import warnings
 import pickle
+from shutil import copy
 
 import numpy as np
 
@@ -75,7 +76,7 @@ def pdb_to_data(pdb_file):
     # neighbor search, radius in angstrom (to be decided)
     atom_list = unfold_entities(chain, 'A')
     neighbor_search = NeighborSearch(atom_list)
-    contact_list = neighbor_search.search_all(radius=5, level='R')
+    contact_list = neighbor_search.search_all(radius=7, level='R')
 
     for pair in contact_list:
         # exclude water and HETATM
@@ -85,7 +86,7 @@ def pdb_to_data(pdb_file):
             edge_list.append([res_2[1]-1, res_1[1]-1])
             edge_type += 2 * [0]
     
-    
+    """ 
     # ii) sequence-based neighbors 
     # 2^m sequence separation
     for i in range(1, chain_len+1):
@@ -95,7 +96,7 @@ def pdb_to_data(pdb_file):
                 edge_list.append([j-1, i-1])
                 edge_type += 2 * [0]
     
-    """
+    
     # iii) random neighbors (rand-size to be decided)
     k = 0
     rand_size = 0.01
@@ -123,6 +124,47 @@ def pdb_to_data(pdb_file):
 
 
 # dataset_dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset\PDBDataset_test'
+
+def filter_pdb_dataset(dataset_dir, save_dir, res_min=30, res_max=60):
+    """
+    filter structures of limited amount of residues
+    """
+    set_working_dir(dataset_dir)
+    pdb_list = os.listdir(dataset_dir)
+
+    print('filter structures with %d - %d residues...' % (res_min, res_max))
+    filter_list = []
+
+    for i in tqdm(range(len(pdb_list))):
+        pdb = pdb_list[i]
+
+        p = PDBParser(PERMISSIVE=1)
+        model = p.get_structure(pdb[:4], pdb)[0]
+        chain = model[pdb[5]]
+
+        chain_len = 0
+        for res in chain.get_residues():
+            if res.id[0] == ' ':
+                chain_len += 1
+
+        if (chain_len >= res_min) and (chain_len <= res_max):
+            filter_list.append(pdb)
+            try:
+                copy(pdb, save_dir)
+            except IOError as e:
+                print('unable to copy %s file. %s' % (pdb, e))
+            except:
+                print('unable to copy %s file. unexpected error' % pdb)
+
+    print('save filtered dataset at %s done! size: %d' % (save_dir, len(filter_list)))
+    print('filtered pdb files:')
+    for pdb in filter_list:
+        print(pdb[:6])
+
+# filter_pdb_dataset(dataset_dir=dataset_dir, save_dir='D:\文件\北大\MDL\ProteinBackboneDesign\ProteinBackbone\pdb_dataset\\test')
+
+    
+
 
 def process_pdb_dataset(dataset_dir, pickle_dir):
     """
