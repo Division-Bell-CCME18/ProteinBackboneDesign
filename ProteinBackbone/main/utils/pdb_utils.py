@@ -14,7 +14,7 @@ from Bio.PDB import PDBParser, PDBIO, DSSP, NeighborSearch
 from Bio.PDB.Selection import unfold_entities
 
 
-# dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset'
+# dir = 'D:\ProteinBackboneDesign\Dataset'
 # pdb_file = '1NWZ_A.pdb'
 
 
@@ -123,7 +123,7 @@ def pdb_to_data(pdb_file):
 # pdb_to_data(pdb_file)
 
 
-# dataset_dir = 'D:\文件\北大\MDL\ProteinBackboneDesign\Dataset\PDBDataset_test'
+# dataset_dir = 'D:\ProteinBackboneDesign\Dataset\PDBDataset_test'
 
 def filter_pdb_dataset(dataset_dir, save_dir, res_min=30, res_max=60):
     """
@@ -161,7 +161,7 @@ def filter_pdb_dataset(dataset_dir, save_dir, res_min=30, res_max=60):
     for pdb in filter_list:
         print(pdb[:6])
 
-# filter_pdb_dataset(dataset_dir=dataset_dir, save_dir='D:\文件\北大\MDL\ProteinBackboneDesign\ProteinBackbone\pdb_dataset\\test')
+# filter_pdb_dataset(dataset_dir=dataset_dir, save_dir='D:\ProteinBackboneDesign\ProteinBackbone\pdb_dataset\\test')
 
     
 
