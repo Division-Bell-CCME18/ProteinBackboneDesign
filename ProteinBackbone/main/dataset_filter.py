@@ -2,7 +2,7 @@ import warnings
 import sys
 import argparse
 
-from utils import filter_pdb_dataset
+from pdb_utils import filter_pdb_dataset
 
 
 if __name__ == '__main__':

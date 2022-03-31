@@ -2,7 +2,7 @@ import os
 import sys
 import argparse
 
-from utils import pdb_utils
+from pdb_utils import process_pdb_dataset
 
 
 
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     log_file = open('pdb_dataset.log', mode='w', encoding='utf-8')
     sys.stdout = log_file
     
-    pdb_utils.process_pdb_dataset(dataset_dir, pickle_dir)
+    process_pdb_dataset(dataset_dir, pickle_dir)
 
     log_file.close()
 

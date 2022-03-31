@@ -16,7 +16,7 @@ from torch.autograd import Variable
 from torch_geometric.data import Data, Dataset
 from torch_geometric.transforms import Compose
 
-from utils import models, dataset, runner, utils
+from network_utils import models, dataset, runner, utils
 
 
 

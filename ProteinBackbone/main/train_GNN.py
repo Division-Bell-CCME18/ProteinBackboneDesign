@@ -11,7 +11,7 @@ from torch_geometric.data import Data, Dataset
 
 
 
-from utils import torch_utils, runner, scorenet
+from network_utils import torch_utils, runner, scorenet
 
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
