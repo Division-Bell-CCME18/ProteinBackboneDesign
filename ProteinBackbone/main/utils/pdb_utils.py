@@ -95,7 +95,7 @@ def pdb_to_data(pdb_file):
                 edge_list.append([j-1, i-1])
                 edge_type += 2 * [0]
     
-    
+    """
     # iii) random neighbors (rand-size to be decided)
     k = 0
     rand_size = 0.01
@@ -106,7 +106,7 @@ def pdb_to_data(pdb_file):
             edge_list.append([rand_2-1, rand_1-1])
             edge_type += 2 * [0]
             k += 1
-
+    """
 
     node_feature = torch.tensor(ss_list, dtype=torch.long)
     pos = torch.tensor(pos_list, dtype=torch.float32)
@@ -167,9 +167,9 @@ def process_pdb_dataset(dataset_dir, pickle_dir):
 # process_pdb_dataset(dataset_dir=dataset_dir)
 
 
-pdb_file='1NWZ_A.pdb'
-data = pdb_to_data(pdb_file=pdb_file)
-set_working_dir(os.getcwd())
+# pdb_file='1NWZ_A.pdb'
+# data = pdb_to_data(pdb_file=pdb_file)
+# set_working_dir(os.getcwd())
 
 def update_pdb_info(data, pdb_file):
     """
@@ -197,4 +197,4 @@ def update_pdb_info(data, pdb_file):
     io.save('%s_new.pdb' % pdb_file[:6])
 
 
-update_pdb_info(data, pdb_file)
+# update_pdb_info(data, pdb_file)
