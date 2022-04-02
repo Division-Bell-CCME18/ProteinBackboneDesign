@@ -1,0 +1,120 @@
+Let's use 1 GPUs!
+Using device cuda:0 as main device
+{'train': {'batch_size': 16, 'seed': 2022, 'epochs': 50, 'shuffle': True, 'resume_train': False, 'eval': True, 'num_workers': 0, 'gpus': [0], 'anneal_power': 2.0, 'save': True, 'save_path': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\test_run\\Run1\\train\\pdb_default', 'resume_checkpoint': None, 'resume_epoch': None, 'log_interval': 400, 'optimizer': {'type': 'Adam', 'lr': 0.001, 'weight_decay': 0.0, 'dropout': 0.0}, 'scheduler': {'type': 'plateau', 'factor': 0.6, 'patience': 10, 'min_lr': '1e-4'}, 'device': device(type='cuda', index=0)}, 'test': {'init_checkpoint': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\test_run\\Run1\\train\\pdb_default', 'output_path': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\test_run\\Run1\\test', 'epoch': 50, 'gen': {'dg_step_size': 3.0, 'dg_num_steps': 1000, 'steps_d': 100, 'step_lr_d': 2e-06, 'steps_pos': 100, 'step_lr_pos': 2.4e-06, 'clip': 1000, 'min_sigma': 0.0, 'verbose': 1}}, 'data': {'base_path': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\pdb_dataset\\debug', 'dataset': 'pdb', 'train_set': 'pdb_dataset_train.pkl', 'val_set': 'pdb_dataset_val.pkl', 'test_set': 'pdb_dataset_test.pkl'}, 'model': {'name': 'pdb_default', 'hidden_dim': 256, 'num_convs': 4, 'sigma_begin': 0.01, 'sigma_end': 0.001, 'num_noise_level': 50, 'order': 3, 'mlp_act': 'relu', 'gnn_act': 'relu', 'cutoff': 10.0, 'short_cut': True, 'concat_hidden': False, 'noise_type': 'symmetry', 'edge_encoder': 'mlp'}}
+set seed for random, numpy and torch
+loading data from D:\ProteinBackboneDesign\ProteinBackbone\pdb_dataset\debug
+train size : 341  ||  val size: 14  ||  test size: 0 
+loading data done!
+start training...
+Epoch: 0 | Step: 1 | loss: 16124363648749036035858220711936.00000 | Lr: 0.00100
+Epoch: 0 | Step: 2 | loss: 28988561789288448.00000 | Lr: 0.00100
+Epoch: 0 | Step: 3 | loss: 838199701453930496.00000 | Lr: 0.00100
+Epoch: 0 | Step: 4 | loss: 93225357536133120.00000 | Lr: 0.00100
+Epoch: 0 | Step: 5 | loss: 20829976920064.00000 | Lr: 0.00100
+Epoch: 0 | Step: 6 | loss: 423259097056411648.00000 | Lr: 0.00100
+Epoch: 0 | Step: 7 | loss: 3695612662906880.00000 | Lr: 0.00100
+Epoch: 0 | Step: 8 | loss: 123877396666384384.00000 | Lr: 0.00100
+Epoch: 0 | Step: 9 | loss: 17654516757299200.00000 | Lr: 0.00100
+Epoch: 0 | Step: 10 | loss: 8584944913743872.00000 | Lr: 0.00100
+Epoch: 0 | Train Loss: 732925620397762281963169775616.00000 | Time: 0.84112
+Evaluate val Loss: 12454585893388288.00000 | Time: 0.01196
+Epoch: 1 | Train Loss: 14107382119302306959712059392.00000 | Time: 0.60234
+Evaluate val Loss: 666826824482816.00000 | Time: 0.00997
+Epoch: 2 | Train Loss: 37834892764394715262790664192.00000 | Time: 0.60782
+Evaluate val Loss: 3527137202012160.00000 | Time: 0.01196
+Epoch: 3 | Train Loss: 11792983791909171132113092608.00000 | Time: 0.60629
+Evaluate val Loss: 6526439566344192.00000 | Time: 0.00900
+Epoch: 4 | Train Loss: 11743701175293110084849106944.00000 | Time: 0.61598
+Evaluate val Loss: 1314858469425152.00000 | Time: 0.01003
+Epoch: 5 | Train Loss: 11779903695362400790870228992.00000 | Time: 0.59267
+Evaluate val Loss: 615574979739648.00000 | Time: 0.01103
+Epoch: 6 | Train Loss: 11787425137251439861999599616.00000 | Time: 0.56624
+Evaluate val Loss: 703132652797952.00000 | Time: 0.01300
+Epoch: 7 | Train Loss: 11808498053722158417406066688.00000 | Time: 0.59611
+Evaluate val Loss: 628482027552768.00000 | Time: 0.01000
+Epoch: 8 | Train Loss: 11798443706174076649235021824.00000 | Time: 0.60090
+Evaluate val Loss: 614511438462976.00000 | Time: 0.01397
+Epoch: 9 | Train Loss: 11845547165310472878035042304.00000 | Time: 0.59376
+Evaluate val Loss: 494591119720448.00000 | Time: 0.01000
+Epoch: 10 | Train Loss: 11920606175413381406780293120.00000 | Time: 0.64428
+Evaluate val Loss: 442764051349504.00000 | Time: 0.01000
+Epoch: 11 | Train Loss: 11876742259684224958503845888.00000 | Time: 0.60637
+Evaluate val Loss: 178913036730368.00000 | Time: 0.01300
+Epoch: 12 | Train Loss: 11920352884847476037564497920.00000 | Time: 0.59869
+Evaluate val Loss: 554455850287104.00000 | Time: 0.01005
+Epoch: 13 | Train Loss: 11937140468388034128881123328.00000 | Time: 0.54595
+Evaluate val Loss: 268036913233920.00000 | Time: 0.00903
+Epoch: 14 | Train Loss: 11941173369364396009800597504.00000 | Time: 0.53275
+Evaluate val Loss: 458881587216384.00000 | Time: 0.00900
+Epoch: 15 | Train Loss: 12193129652079338264719261696.00000 | Time: 0.56658
+Evaluate val Loss: 365849273696256.00000 | Time: 0.01000
+Epoch: 16 | Train Loss: 11960426028209012055918772224.00000 | Time: 0.56215
+Evaluate val Loss: 299005355491328.00000 | Time: 0.00900
+Epoch: 17 | Train Loss: 12116058913854727267112976384.00000 | Time: 0.55491
+Evaluate val Loss: 275345924161536.00000 | Time: 0.00997
+Epoch: 18 | Train Loss: 12156138926112972438295805952.00000 | Time: 0.55200
+Evaluate val Loss: 155001729056768.00000 | Time: 0.00903
+Epoch: 19 | Train Loss: 12106766155228533397238317056.00000 | Time: 0.69310
+Evaluate val Loss: 159916497043456.00000 | Time: 0.01022
+Epoch: 20 | Train Loss: 12173835779854531073304166400.00000 | Time: 0.63160
+Evaluate val Loss: 36784897523712.00000 | Time: 0.00954
+Epoch: 21 | Train Loss: 12483442712592334961875353600.00000 | Time: 0.59481
+Evaluate val Loss: 218824792080384.00000 | Time: 0.01000
+Epoch: 22 | Train Loss: 12399605252503826255212183552.00000 | Time: 0.59570
+Evaluate val Loss: 36305488576512.00000 | Time: 0.01004
+Epoch: 23 | Train Loss: 12456038390586190117189189632.00000 | Time: 0.57081
+Evaluate val Loss: 61380459757568.00000 | Time: 0.01000
+Epoch: 24 | Train Loss: 12398786995184139523126722560.00000 | Time: 0.58204
+Evaluate val Loss: 45383833092096.00000 | Time: 0.00903
+Epoch: 25 | Train Loss: 12480605858254245404193325056.00000 | Time: 0.58555
+Evaluate val Loss: 40365444825088.00000 | Time: 0.01600
+Epoch: 26 | Train Loss: 12493581204125003796638072832.00000 | Time: 0.58211
+Evaluate val Loss: 58726107054080.00000 | Time: 0.01000
+Epoch: 27 | Train Loss: 12317660173456791395746447360.00000 | Time: 0.60868
+Evaluate val Loss: 26884521852928.00000 | Time: 0.01200
+Epoch: 28 | Train Loss: 12455873537065330978001518592.00000 | Time: 0.61500
+Evaluate val Loss: 35661327368192.00000 | Time: 0.01000
+Epoch: 29 | Train Loss: 12245501554986454023021789184.00000 | Time: 0.57915
+Evaluate val Loss: 27279881142272.00000 | Time: 0.00900
+Epoch: 30 | Train Loss: 12452609093907577143323262976.00000 | Time: 0.55214
+Evaluate val Loss: 31618695692288.00000 | Time: 0.01000
+Epoch: 31 | Train Loss: 12479819369581863242951557120.00000 | Time: 0.55903
+Evaluate val Loss: 25439468781568.00000 | Time: 0.01003
+Epoch: 32 | Train Loss: 12414868799588536948262699008.00000 | Time: 0.55974
+Evaluate val Loss: 28496378200064.00000 | Time: 0.00900
+Epoch: 33 | Train Loss: 12452207263450450143643435008.00000 | Time: 0.55659
+Evaluate val Loss: 32803940990976.00000 | Time: 0.00897
+Epoch: 34 | Train Loss: 12437464893903020305145659392.00000 | Time: 0.56022
+Evaluate val Loss: 24977942249472.00000 | Time: 0.01000
+Epoch: 35 | Train Loss: 12455727573010409914464468992.00000 | Time: 0.54900
+Evaluate val Loss: 25644517818368.00000 | Time: 0.01000
+Epoch: 36 | Train Loss: 12435012697780276068979048448.00000 | Time: 0.64872
+Evaluate val Loss: 28880465297408.00000 | Time: 0.01000
+Epoch: 37 | Train Loss: 12477208330222851239264124928.00000 | Time: 0.56747
+Evaluate val Loss: 26956647104512.00000 | Time: 0.01103
+Epoch: 38 | Train Loss: 12481979637594747759858024448.00000 | Time: 0.58045
+Evaluate val Loss: 29298201198592.00000 | Time: 0.01400
+Epoch: 39 | Train Loss: 12455363521485198648504483840.00000 | Time: 0.60700
+Evaluate val Loss: 33374280351744.00000 | Time: 0.01000
+Epoch: 40 | Train Loss: 12476850288982253335203545088.00000 | Time: 0.55997
+Evaluate val Loss: 32765707812864.00000 | Time: 0.01000
+Epoch: 41 | Train Loss: 12418893114444026681797640192.00000 | Time: 0.57195
+Evaluate val Loss: 39266805612544.00000 | Time: 0.01300
+Epoch: 42 | Train Loss: 12305710869030968198799818752.00000 | Time: 0.56913
+Evaluate val Loss: 141408124010496.00000 | Time: 0.01003
+Epoch: 43 | Train Loss: 12472554652707011549684826112.00000 | Time: 0.55681
+Evaluate val Loss: 32287043354624.00000 | Time: 0.00900
+Epoch: 44 | Train Loss: 12414454089950131414320021504.00000 | Time: 0.57944
+Evaluate val Loss: 83353344671744.00000 | Time: 0.01000
+Epoch: 45 | Train Loss: 12436064497587832104677277696.00000 | Time: 0.61800
+Evaluate val Loss: 56340437270528.00000 | Time: 0.01400
+Epoch: 46 | Train Loss: 12443755944670338045918052352.00000 | Time: 0.60471
+Evaluate val Loss: 66691467837440.00000 | Time: 0.00900
+Epoch: 47 | Train Loss: 12472616472777327954444156928.00000 | Time: 0.54623
+Evaluate val Loss: 76423708540928.00000 | Time: 0.01000
+Epoch: 48 | Train Loss: 12374180889972129886078238720.00000 | Time: 0.54209
+Evaluate val Loss: 57374681333760.00000 | Time: 0.01000
+Epoch: 49 | Train Loss: 12446811745090747626254499840.00000 | Time: 0.58431
+Evaluate val Loss: 38120141619200.00000 | Time: 0.00903
+optimization finished.
+Total time elapsed: 30.03645s

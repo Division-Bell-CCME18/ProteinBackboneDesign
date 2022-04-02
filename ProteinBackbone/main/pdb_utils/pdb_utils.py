@@ -86,17 +86,18 @@ def pdb_to_data(pdb_file):
             edge_list.append([res_2[1]-1, res_1[1]-1])
             edge_type += 2 * [0]
     
-    """ 
+    
     # ii) sequence-based neighbors 
     # 2^m sequence separation
     for i in range(1, chain_len+1):
         for j in range(i+1, chain_len+1):
-            if ((j-i) & (j-i-1) == 0) and ([i-1, j-1] not in edge_list):
+            # if ((j-i) & (j-i-1) == 0) and ([i-1, j-1] not in edge_list):
+            if (((j-i) == 1) or ((j-i) == 2) or ((j-i) == 3)) and ([i-1, j-1] not in edge_list):
                 edge_list.append([i-1, j-1])
                 edge_list.append([j-1, i-1])
                 edge_type += 2 * [0]
     
-    
+    """ 
     # iii) random neighbors (rand-size to be decided)
     k = 0
     rand_size = 0.01

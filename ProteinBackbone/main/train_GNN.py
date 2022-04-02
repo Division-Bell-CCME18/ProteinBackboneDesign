@@ -1,4 +1,5 @@
 import os
+import sys
 import pickle
 import argparse
 import yaml
@@ -55,6 +56,7 @@ if __name__ == '__main__':
     
     parser.add_argument('--config_path', type=str, required=True)
     parser.add_argument('--seed', type=int, default=2022)
+    parser.add_argument('--log_path', type=str, default=os.getcwd())
 
     args = parser.parse_args()
     with open(args.config_path, 'r') as f:
@@ -69,6 +71,8 @@ if __name__ == '__main__':
         if not os.path.exists(config.train.save_path):
             os.makedirs(config.train.save_path)
 
+    log_file = open(os.path.join(args.log_path, 'train_GNN.log'), mode='w', encoding='utf-8')
+    sys.stdout = log_file
 
     # check device
     gpus = list(filter(lambda x: x is not None, config.train.gpus))
@@ -123,6 +127,8 @@ if __name__ == '__main__':
     if config.train.resume_train:
         solver.load(config.train.resume_checkpoint, epoch=config.train.resume_epoch, load_optimizer=True, load_scheduler=True)
     solver.train()
+
+    log_file.close()
 
 
 
