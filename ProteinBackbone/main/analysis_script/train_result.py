@@ -149,7 +149,8 @@ def draw_scatter_and_fit(subplot, x, y, scatter_color, s=5):
 ax=f.add_subplot(111)
 epoch, train_loss, val_loss = fileread('train_GNN.log')
 plt.xlabel(r'$\rm epoch$')
-plt.ylabel(r'$\rm train\ \ loss$')
+# plt.ylabel(r'$\log_{10} ({\rm val\_loss})$')
+plt.ylabel(r'$\log_{10} ({\rm train\_loss})$')
 draw_plot_and_scatter(ax, epoch, train_loss)
 
 
