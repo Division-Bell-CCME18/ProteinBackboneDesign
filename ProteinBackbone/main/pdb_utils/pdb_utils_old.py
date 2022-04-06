@@ -71,7 +71,7 @@ def pdb_to_data(pdb_file):
     edge_list = []
     edge_type = []
 
-    """
+    
     # i) coordinate-based neighbors
     # neighbor search, radius in angstrom (to be decided)
     atom_list = unfold_entities(chain, 'A')
@@ -85,7 +85,7 @@ def pdb_to_data(pdb_file):
             edge_list.append([res_1[1]-1, res_2[1]-1])
             edge_list.append([res_2[1]-1, res_1[1]-1])
             edge_type += 2 * [0]
-    """
+    
     
     # ii) sequence-based neighbors 
     # 2^m sequence separation

@@ -28,12 +28,13 @@ def fileread(filename):
             lines = lines.split()
             if (lines[0] == 'Epoch:') and ('Train' in lines):
                 epoch_0 = int(lines[1])
-                train_loss_0 = float(lines[5])
-                # train_loss_0 = np.log10(float(lines[5]))
+                # train_loss_0 = float(lines[5])
+                train_loss_0 = np.log10(float(lines[5]))
                 epoch.append(epoch_0)  
                 train_loss.append(train_loss_0)
             elif lines[0] == 'Evaluate':
-                val_loss_0 = float(lines[3])
+                # val_loss_0 = float(lines[3])
+                val_loss_0 = np.log10(float(lines[3]))
                 val_loss.append(val_loss_0)
 
         epoch = np.array(epoch) 
@@ -148,14 +149,15 @@ def draw_scatter_and_fit(subplot, x, y, scatter_color, s=5):
 
         
 ax=f.add_subplot(111)
-epoch, train_loss, val_loss = fileread('train_GNN.log')
+epoch, train_loss, val_loss = fileread('pyt104933_14290927.out')
 plt.xlabel(r'$\rm epoch$')
-# plt.ylabel(r'$\log_{10} ({\rm val\_loss})$')
-plt.ylabel(r'$\log_{10} ({\rm train\_loss})$')
-draw_plot_and_scatter(ax, epoch, train_loss)
+plt.ylabel(r'$\log_{10} ({\rm val\_loss})$')
+# plt.ylabel(r'$\log_{10} ({\rm train\_loss})$')
+draw_plot_and_scatter(ax, epoch, val_loss)
+#draw_plot_and_scatter(ax, epoch, train_loss)
 
 
 f.set_size_inches(6,5)
-plt.savefig('train-4-2-1.jpg',dpi=1000, bbox_inches='tight')
+plt.savefig('train-4-3-3.jpg',dpi=1000, bbox_inches='tight')
 plt.show()
 
