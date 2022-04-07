@@ -28,12 +28,13 @@ def fileread(filename):
             lines = lines.split()
             if (lines[0] == 'Epoch:') and ('Train' in lines):
                 epoch_0 = int(lines[1])
-                train_loss_0 = float(lines[5])
-                #train_loss_0 = np.log10(float(lines[5]))
+                # train_loss_0 = float(lines[5])
+                train_loss_0 = np.log10(float(lines[5]))
                 epoch.append(epoch_0)  
                 train_loss.append(train_loss_0)
             elif lines[0] == 'Evaluate':
-                val_loss_0 = float(lines[3])
+                # val_loss_0 = float(lines[3])
+                val_loss_0 = np.log10(float(lines[3]))
                 val_loss.append(val_loss_0)
 
         epoch = np.array(epoch) 

@@ -1,5 +1,5 @@
 train:
-  batch_size: 128
+  batch_size: 16
   seed: 2022
   epochs: 300
   shuffle: true
@@ -19,12 +19,12 @@ train:
   log_interval: 400
   optimizer:
     type: Adam
-    lr: 0.01
+    lr: 0.001
     weight_decay: 0.000
     dropout: 0.0
   scheduler:
     type: plateau
-    factor: 0.9999
+    factor: 0.9
     # factor: 0.95
     patience: 10
     min_lr: 1e-4
