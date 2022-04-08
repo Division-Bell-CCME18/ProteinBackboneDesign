@@ -153,7 +153,7 @@ epoch, train_loss, val_loss = fileread('train_GNN.log')
 plt.xlabel(r'$\rm epoch$')
 # plt.ylabel(r'$\log_{10} ({\rm val\_loss})$')
 plt.ylabel(r'$\log_{10} ({\rm train\_loss})$')
-draw_plot_and_scatter(ax, epoch, train_loss)
+draw_plot_and_scatter(ax, epoch, val_loss)
 
 
 f.set_size_inches(6,5)
