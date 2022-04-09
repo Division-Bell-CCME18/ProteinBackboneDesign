@@ -1,7 +1,7 @@
 train:
   batch_size: 16
   seed: 2022
-  epochs: 100
+  epochs: 2500
   shuffle: true
   resume_train: false
   eval: true
@@ -24,7 +24,7 @@ train:
     dropout: 0.0
   scheduler:
     type: plateau
-    factor: 0.4
+    factor: 0.95
     # factor: 0.95
     patience: 10
     min_lr: 1e-4
@@ -47,8 +47,7 @@ test:
 
 
 data:
-  base_path: D:\ProteinBackboneDesign\ProteinBackbone\pdb_dataset\debug
-  dataset: pdb
+  base_path: D:\ProteinBackboneDesign\ProteinBackbone\pdb_dataset\coord+seq
   train_set: pdb_dataset_train.pkl
   val_set: pdb_dataset_val.pkl
   test_set: pdb_dataset_test.pkl
@@ -58,8 +57,8 @@ model:
   name: pdb_default
   hidden_dim: 256
   num_convs: 4
-  sigma_begin: 0.01
-  sigma_end: 0.001
+  sigma_begin: 10
+  sigma_end: 0.01
   num_noise_level: 50
   order: 3
   mlp_act: relu

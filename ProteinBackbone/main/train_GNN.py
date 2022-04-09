@@ -39,13 +39,16 @@ class PDBDataset(Dataset):
         
     def _ss_types(self):
         """All secondary structure types."""
-        ss_types = set([0, 1, 2])
+        ss_types = set()
+        for graph in self.data:
+            ss_types.update(graph.x.tolist())
         return sorted(ss_types)
 
     def _edge_types(self):
         """All edge types."""
-        edge_types = set([0])
-        # NOTE: distinguish connected from disconnected?
+        edge_types = set()
+        for graph in self.data:
+            edge_types.update(graph.edge_type.tolist())
         return sorted(edge_types)
 
 

@@ -72,30 +72,49 @@ def pdb_to_data(pdb_file):
     edge_type = []
 
     
-    # i) coordinate-based neighbors
-    # neighbor search, radius in angstrom (to be decided)
-    atom_list = unfold_entities(chain, 'A')
-    neighbor_search = NeighborSearch(atom_list)
-    contact_list = neighbor_search.search_all(radius=7, level='R')
-
-    for pair in contact_list:
-        # exclude water and HETATM
-        res_1, res_2 = pair[0].id, pair[1].id
-        if (res_1[0] == ' ') and (res_2[0] == ' ') and (res_1[1] in range(1, chain_len+1)) and (res_2[1] in range(1, chain_len+1)):
-            edge_list.append([res_1[1]-1, res_2[1]-1])
-            edge_list.append([res_2[1]-1, res_1[1]-1])
-            edge_type += 2 * [0]
-    
-    
-    # ii) sequence-based neighbors 
+    # i) sequence-based neighbors 
     # 2^m sequence separation
     for i in range(1, chain_len+1):
         for j in range(i+1, chain_len+1):
             # if ((j-i) & (j-i-1) == 0) and ([i-1, j-1] not in edge_list):
-            if (((j-i) == 1) or ((j-i) == 2) or ((j-i) == 3)) and ([i-1, j-1] not in edge_list):
+            if ((j-i) == 1) and ([i-1, j-1] not in edge_list):
                 edge_list.append([i-1, j-1])
                 edge_list.append([j-1, i-1])
                 edge_type += 2 * [0]
+            elif ((j-i) == 2) and ([i-1, j-1] not in edge_list):
+                edge_list.append([i-1, j-1])
+                edge_list.append([j-1, i-1])
+                edge_type += 2 * [1]
+            elif ((j-i) == 3) and ([i-1, j-1] not in edge_list):
+                edge_list.append([i-1, j-1])
+                edge_list.append([j-1, i-1])
+                edge_type += 2 * [2]
+            elif ((j-i) == 4) and ([i-1, j-1] not in edge_list):
+                edge_list.append([i-1, j-1])
+                edge_list.append([j-1, i-1])
+                edge_type += 2 * [3]
+
+    
+    # ii) coordinate-based neighbors
+    # neighbor search, radius in angstrom (to be decided)
+    atom_list = unfold_entities(chain, 'A')
+    neighbor_search = NeighborSearch(atom_list)
+    contact_list = neighbor_search.search_all(radius=2.8, level='R')
+
+    # hbond_list = []
+
+    for pair in contact_list:
+        # exclude water and HETATM
+        res_1, res_2 = pair[0].id, pair[1].id
+        if (res_1[0] == ' ') and (res_2[0] == ' ') and (res_1[1] in range(1, chain_len+1)) and (res_2[1] in range(1, chain_len+1)) and ([res_1[1]-1, res_2[1]-1] not in edge_list):
+            edge_list.append([res_1[1]-1, res_2[1]-1])
+            edge_list.append([res_2[1]-1, res_1[1]-1])
+            edge_type += 2 * [4]
+            # hbond_list.append([res_1[1], res_2[1], ss_list[res_1[1]-1], ss_list[res_2[1]-1]])
+    
+    # print(hbond_list)
+    # print(len(hbond_list))
+
     
     """ 
     # iii) random neighbors (rand-size to be decided)
