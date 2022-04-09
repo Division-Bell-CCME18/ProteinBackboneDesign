@@ -1,0 +1,1220 @@
+Let's use 1 GPUs!
+Using device cuda:0 as main device
+{'train': {'batch_size': 16, 'seed': 2022, 'epochs': 300, 'shuffle': True, 'resume_train': False, 'eval': True, 'num_workers': 0, 'gpus': [0], 'anneal_power': 2.0, 'save': True, 'save_path': '/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run1/train/pdb_default', 'resume_checkpoint': None, 'resume_epoch': None, 'log_interval': 400, 'optimizer': {'type': 'Adam', 'lr': 0.001, 'weight_decay': 0.0, 'dropout': 0.0}, 'scheduler': {'type': 'plateau', 'factor': 0.95, 'patience': 10, 'min_lr': '1e-4'}, 'device': device(type='cuda', index=0)}, 'test': {'init_checkpoint': '/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run1/train/pdb_default', 'output_path': '/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run1/test', 'epoch': 283, 'gen': {'dg_step_size': 3.0, 'dg_num_steps': 1000, 'steps_d': 100, 'step_lr_d': 2e-06, 'steps_pos': 100, 'step_lr_pos': 2.4e-06, 'clip': 1000, 'min_sigma': 0.0, 'verbose': 1}}, 'data': {'base_path': '/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/new', 'dataset': 'pdb', 'train_set': 'pdb_dataset_train.pkl', 'val_set': 'pdb_dataset_val.pkl', 'test_set': 'pdb_dataset_test.pkl'}, 'model': {'name': 'pdb_default', 'hidden_dim': 256, 'num_convs': 4, 'sigma_begin': 10, 'sigma_end': 0.01, 'num_noise_level': 50, 'order': 3, 'mlp_act': 'relu', 'gnn_act': 'relu', 'cutoff': 10.0, 'short_cut': True, 'concat_hidden': False, 'noise_type': 'symmetry', 'edge_encoder': 'mlp'}}
+set seed for random, numpy and torch
+loading data from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/new
+train size : 13377  ||  val size: 564  ||  test size: 0 
+loading data done!
+start training...
+Epoch: 0 | Step: 1 | loss: 133452938608640.00000 | Lr: 0.00100
+Epoch: 0 | Step: 2 | loss: 6001621943189504.00000 | Lr: 0.00100
+Epoch: 0 | Step: 3 | loss: 255118071037952.00000 | Lr: 0.00100
+Epoch: 0 | Step: 4 | loss: 7194296188928.00000 | Lr: 0.00100
+Epoch: 0 | Step: 5 | loss: 1238288039936.00000 | Lr: 0.00100
+Epoch: 0 | Step: 6 | loss: 2002860900352.00000 | Lr: 0.00100
+Epoch: 0 | Step: 7 | loss: 3452152315904.00000 | Lr: 0.00100
+Epoch: 0 | Step: 8 | loss: 1075159760896.00000 | Lr: 0.00100
+Epoch: 0 | Step: 9 | loss: 31698561531904.00000 | Lr: 0.00100
+Epoch: 0 | Step: 10 | loss: 400202166960128.00000 | Lr: 0.00100
+Epoch: 0 | Step: 400 | loss: 255554208.00000 | Lr: 0.00100
+Epoch: 0 | Step: 800 | loss: 306387776.00000 | Lr: 0.00100
+Epoch: 0 | Train Loss: 9057540640551.40039 | Time: 31.61002
+Evaluate val Loss: 318889314.77778 | Time: 0.41346
+Epoch: 1 | Step: 400 | loss: 99172456.00000 | Lr: 0.00100
+Epoch: 1 | Step: 800 | loss: 19671350.00000 | Lr: 0.00100
+Epoch: 1 | Train Loss: 228330679.68877 | Time: 23.90367
+Evaluate val Loss: 58514704.12500 | Time: 0.41037
+Epoch: 2 | Step: 400 | loss: 441336992.00000 | Lr: 0.00100
+Epoch: 2 | Step: 800 | loss: 36617532.00000 | Lr: 0.00100
+Epoch: 2 | Train Loss: 64398121.35424 | Time: 23.68238
+Evaluate val Loss: 115199137.05556 | Time: 0.42556
+Epoch: 3 | Step: 400 | loss: 38165960.00000 | Lr: 0.00100
+Epoch: 3 | Step: 800 | loss: 7953255.50000 | Lr: 0.00100
+Epoch: 3 | Train Loss: 107570056.65920 | Time: 24.03182
+Evaluate val Loss: 24314697.11806 | Time: 0.40231
+Epoch: 4 | Step: 400 | loss: 34736684.00000 | Lr: 0.00100
+Epoch: 4 | Step: 800 | loss: 13248638.00000 | Lr: 0.00100
+Epoch: 4 | Train Loss: 61870843.64315 | Time: 23.40290
+Evaluate val Loss: 37444160.43056 | Time: 0.40378
+Epoch: 5 | Step: 400 | loss: 18876680.00000 | Lr: 0.00100
+Epoch: 5 | Step: 800 | loss: 2538371.00000 | Lr: 0.00100
+Epoch: 5 | Train Loss: 27417950.86156 | Time: 23.45379
+Evaluate val Loss: 11953946.57639 | Time: 0.40482
+Epoch: 6 | Step: 400 | loss: 6481309.50000 | Lr: 0.00100
+Epoch: 6 | Step: 800 | loss: 3822705.50000 | Lr: 0.00100
+Epoch: 6 | Train Loss: 15626824.12455 | Time: 24.06971
+Evaluate val Loss: 9535780.03472 | Time: 0.42605
+Epoch: 7 | Step: 400 | loss: 1599079.75000 | Lr: 0.00100
+Epoch: 7 | Step: 800 | loss: 1076648576.00000 | Lr: 0.00100
+Epoch: 7 | Train Loss: 36472204902.87881 | Time: 23.77600
+Evaluate val Loss: 57198861.44792 | Time: 0.40308
+Epoch: 8 | Step: 400 | loss: 4947847.00000 | Lr: 0.00100
+Epoch: 8 | Step: 800 | loss: 503362.65625 | Lr: 0.00100
+Epoch: 8 | Train Loss: 7757012.14931 | Time: 23.47918
+Evaluate val Loss: 2214335.50304 | Time: 0.40643
+Epoch: 9 | Step: 400 | loss: 492860.84375 | Lr: 0.00100
+Epoch: 9 | Step: 800 | loss: 638407.37500 | Lr: 0.00100
+Epoch: 9 | Train Loss: 3079405.46922 | Time: 23.54370
+Evaluate val Loss: 1428400.63238 | Time: 0.40628
+Epoch: 10 | Step: 400 | loss: 295889.56250 | Lr: 0.00100
+Epoch: 10 | Step: 800 | loss: 236210.35938 | Lr: 0.00100
+Epoch: 10 | Train Loss: 1546881.12158 | Time: 23.52206
+Evaluate val Loss: 2754712.23698 | Time: 0.39953
+Epoch: 11 | Step: 400 | loss: 1057774.00000 | Lr: 0.00100
+Epoch: 11 | Step: 800 | loss: 516224.56250 | Lr: 0.00100
+Epoch: 11 | Train Loss: 1357435.12220 | Time: 23.43973
+Evaluate val Loss: 1663204.15441 | Time: 0.40027
+Epoch: 12 | Step: 400 | loss: 689226.25000 | Lr: 0.00100
+Epoch: 12 | Step: 800 | loss: 1391094.62500 | Lr: 0.00100
+Epoch: 12 | Train Loss: 1263452.37163 | Time: 24.26164
+Evaluate val Loss: 619492.70671 | Time: 0.45437
+Epoch: 13 | Step: 400 | loss: 184479.84375 | Lr: 0.00100
+Epoch: 13 | Step: 800 | loss: 593146.87500 | Lr: 0.00100
+Epoch: 13 | Train Loss: 1377370.90520 | Time: 24.56925
+Evaluate val Loss: 2161283.52257 | Time: 0.43080
+Epoch: 14 | Step: 400 | loss: 513592.21875 | Lr: 0.00100
+Epoch: 14 | Step: 800 | loss: 137575.25000 | Lr: 0.00100
+Epoch: 14 | Train Loss: 1507204.20483 | Time: 24.77042
+Evaluate val Loss: 365117.35796 | Time: 0.41083
+Epoch: 15 | Step: 400 | loss: 765763.31250 | Lr: 0.00100
+Epoch: 15 | Step: 800 | loss: 477708.37500 | Lr: 0.00100
+Epoch: 15 | Train Loss: 518286.70563 | Time: 24.48445
+Evaluate val Loss: 215307.18424 | Time: 0.43019
+Epoch: 16 | Step: 400 | loss: 121526.73438 | Lr: 0.00100
+Epoch: 16 | Step: 800 | loss: 882558.68750 | Lr: 0.00100
+Epoch: 16 | Train Loss: 253761.70984 | Time: 24.42939
+Evaluate val Loss: 242282.28643 | Time: 0.41318
+Epoch: 17 | Step: 400 | loss: 252179.56250 | Lr: 0.00100
+Epoch: 17 | Step: 800 | loss: 363123.06250 | Lr: 0.00100
+Epoch: 17 | Train Loss: 207736.93467 | Time: 24.09478
+Evaluate val Loss: 141781.90761 | Time: 0.41374
+Epoch: 18 | Step: 400 | loss: 71926.37500 | Lr: 0.00100
+Epoch: 18 | Step: 800 | loss: 147850.40625 | Lr: 0.00100
+Epoch: 18 | Train Loss: 302457.03345 | Time: 24.11843
+Evaluate val Loss: 275485.80116 | Time: 0.40457
+Epoch: 19 | Step: 400 | loss: 296316.93750 | Lr: 0.00100
+Epoch: 19 | Step: 800 | loss: 187278.62500 | Lr: 0.00100
+Epoch: 19 | Train Loss: 108190.20426 | Time: 23.75972
+Evaluate val Loss: 77960.43517 | Time: 0.40465
+Epoch: 20 | Step: 400 | loss: 58387.54297 | Lr: 0.00100
+Epoch: 20 | Step: 800 | loss: 87132.71094 | Lr: 0.00100
+Epoch: 20 | Train Loss: 85490.37813 | Time: 23.64222
+Evaluate val Loss: 78578.94168 | Time: 0.40402
+Epoch: 21 | Step: 400 | loss: 32117.40039 | Lr: 0.00100
+Epoch: 21 | Step: 800 | loss: 22656.63672 | Lr: 0.00100
+Epoch: 21 | Train Loss: 72044.99916 | Time: 23.57730
+Evaluate val Loss: 101859.07775 | Time: 0.40195
+Epoch: 22 | Step: 400 | loss: 143941.06250 | Lr: 0.00100
+Epoch: 22 | Step: 800 | loss: 19783.78906 | Lr: 0.00100
+Epoch: 22 | Train Loss: 15327321.69818 | Time: 23.49363
+Evaluate val Loss: 49869.21897 | Time: 0.41093
+Epoch: 23 | Step: 400 | loss: 19577.07422 | Lr: 0.00100
+Epoch: 23 | Step: 800 | loss: 8409.88477 | Lr: 0.00100
+Epoch: 23 | Train Loss: 21762.73727 | Time: 23.45099
+Evaluate val Loss: 13687.82362 | Time: 0.40065
+Epoch: 24 | Step: 400 | loss: 6894.15771 | Lr: 0.00100
+Epoch: 24 | Step: 800 | loss: 5051.81152 | Lr: 0.00100
+Epoch: 24 | Train Loss: 13495.24765 | Time: 23.64498
+Evaluate val Loss: 9537.51081 | Time: 0.40328
+Epoch: 25 | Step: 400 | loss: 8709.43359 | Lr: 0.00100
+Epoch: 25 | Step: 800 | loss: 31890.75977 | Lr: 0.00100
+Epoch: 25 | Train Loss: 13091.48762 | Time: 23.51479
+Evaluate val Loss: 14721.90443 | Time: 0.40325
+Epoch: 26 | Step: 400 | loss: 4724.38379 | Lr: 0.00100
+Epoch: 26 | Step: 800 | loss: 5196.93555 | Lr: 0.00100
+Epoch: 26 | Train Loss: 8172.98568 | Time: 23.42082
+Evaluate val Loss: 4868.53445 | Time: 0.40023
+Epoch: 27 | Step: 400 | loss: 5104.40674 | Lr: 0.00100
+Epoch: 27 | Step: 800 | loss: 2653.26855 | Lr: 0.00100
+Epoch: 27 | Train Loss: 10796.72978 | Time: 23.37754
+Evaluate val Loss: 4688.74211 | Time: 0.40486
+Epoch: 28 | Step: 400 | loss: 3934.90625 | Lr: 0.00100
+Epoch: 28 | Step: 800 | loss: 4036.15186 | Lr: 0.00100
+Epoch: 28 | Train Loss: 4596.85064 | Time: 23.43751
+Evaluate val Loss: 2738.86267 | Time: 0.40068
+Epoch: 29 | Step: 400 | loss: 3257.10059 | Lr: 0.00100
+Epoch: 29 | Step: 800 | loss: 2217.79150 | Lr: 0.00100
+Epoch: 29 | Train Loss: 2728.41625 | Time: 23.38197
+Evaluate val Loss: 2267.91462 | Time: 0.40758
+Epoch: 30 | Step: 400 | loss: 1473.39990 | Lr: 0.00100
+Epoch: 30 | Step: 800 | loss: 1512.96716 | Lr: 0.00100
+Epoch: 30 | Train Loss: 2832.97468 | Time: 23.37309
+Evaluate val Loss: 1915.59466 | Time: 0.40229
+Epoch: 31 | Step: 400 | loss: 1446.34436 | Lr: 0.00100
+Epoch: 31 | Step: 800 | loss: 1868.76880 | Lr: 0.00100
+Epoch: 31 | Train Loss: 2091.32102 | Time: 23.09342
+Evaluate val Loss: 1582.10243 | Time: 0.39972
+Epoch: 32 | Step: 400 | loss: 895.14032 | Lr: 0.00100
+Epoch: 32 | Step: 800 | loss: 1354.75366 | Lr: 0.00100
+Epoch: 32 | Train Loss: 2767.87327 | Time: 23.12829
+Evaluate val Loss: 3083.09051 | Time: 0.39201
+Epoch: 33 | Step: 400 | loss: 1551.71460 | Lr: 0.00100
+Epoch: 33 | Step: 800 | loss: 678.26868 | Lr: 0.00100
+Epoch: 33 | Train Loss: 1398.31533 | Time: 23.08355
+Evaluate val Loss: 1159.00810 | Time: 0.39504
+Epoch: 34 | Step: 400 | loss: 1227.89355 | Lr: 0.00100
+Epoch: 34 | Step: 800 | loss: 2328.44849 | Lr: 0.00100
+Epoch: 34 | Train Loss: 1494.26420 | Time: 23.21677
+Evaluate val Loss: 1934.68826 | Time: 0.40302
+Epoch: 35 | Step: 400 | loss: 1225.66162 | Lr: 0.00100
+Epoch: 35 | Step: 800 | loss: 805.76465 | Lr: 0.00100
+Epoch: 35 | Train Loss: 1189.22618 | Time: 23.33990
+Evaluate val Loss: 974.86367 | Time: 0.40447
+Epoch: 36 | Step: 400 | loss: 754.98315 | Lr: 0.00100
+Epoch: 36 | Step: 800 | loss: 1017.81976 | Lr: 0.00100
+Epoch: 36 | Train Loss: 945.69051 | Time: 23.39024
+Evaluate val Loss: 885.86521 | Time: 0.39922
+Epoch: 37 | Step: 400 | loss: 1479.05444 | Lr: 0.00100
+Epoch: 37 | Step: 800 | loss: 1366.81787 | Lr: 0.00100
+Epoch: 37 | Train Loss: 934.26541 | Time: 23.36506
+Evaluate val Loss: 846.34964 | Time: 0.40727
+Epoch: 38 | Step: 400 | loss: 1184.62793 | Lr: 0.00100
+Epoch: 38 | Step: 800 | loss: 744.45923 | Lr: 0.00100
+Epoch: 38 | Train Loss: 866.34288 | Time: 23.45492
+Evaluate val Loss: 789.48449 | Time: 0.40292
+Epoch: 39 | Step: 400 | loss: 1048.93213 | Lr: 0.00100
+Epoch: 39 | Step: 800 | loss: 928.80469 | Lr: 0.00100
+Epoch: 39 | Train Loss: 820.40551 | Time: 23.35599
+Evaluate val Loss: 1149.97634 | Time: 0.40624
+Epoch: 40 | Step: 400 | loss: 675.86646 | Lr: 0.00100
+Epoch: 40 | Step: 800 | loss: 794.05310 | Lr: 0.00100
+Epoch: 40 | Train Loss: 826.02478 | Time: 23.34007
+Evaluate val Loss: 806.52766 | Time: 0.40158
+Epoch: 41 | Step: 400 | loss: 877.25385 | Lr: 0.00100
+Epoch: 41 | Step: 800 | loss: 71799.64062 | Lr: 0.00100
+Epoch: 41 | Train Loss: 45945.93395 | Time: 23.32873
+Evaluate val Loss: 1288.88096 | Time: 0.39943
+Epoch: 42 | Step: 400 | loss: 796.43915 | Lr: 0.00100
+Epoch: 42 | Step: 800 | loss: 964.71521 | Lr: 0.00100
+Epoch: 42 | Train Loss: 873.94031 | Time: 23.32823
+Evaluate val Loss: 812.94571 | Time: 0.40128
+Epoch: 43 | Step: 400 | loss: 944.99646 | Lr: 0.00100
+Epoch: 43 | Step: 800 | loss: 778.79443 | Lr: 0.00100
+Epoch: 43 | Train Loss: 783.58089 | Time: 23.34090
+Evaluate val Loss: 767.02393 | Time: 0.40040
+Epoch: 44 | Step: 400 | loss: 863.11145 | Lr: 0.00100
+Epoch: 44 | Step: 800 | loss: 632.33508 | Lr: 0.00100
+Epoch: 44 | Train Loss: 758.94101 | Time: 23.32807
+Evaluate val Loss: 726.14381 | Time: 0.40190
+Epoch: 45 | Step: 400 | loss: 430.61017 | Lr: 0.00100
+Epoch: 45 | Step: 800 | loss: 754.26917 | Lr: 0.00100
+Epoch: 45 | Train Loss: 742.75025 | Time: 23.33237
+Evaluate val Loss: 727.03930 | Time: 0.39993
+Epoch: 46 | Step: 400 | loss: 538.94788 | Lr: 0.00100
+Epoch: 46 | Step: 800 | loss: 697.63770 | Lr: 0.00100
+Epoch: 46 | Train Loss: 719.95750 | Time: 22.80300
+Evaluate val Loss: 697.21910 | Time: 0.39767
+Epoch: 47 | Step: 400 | loss: 320.76575 | Lr: 0.00100
+Epoch: 47 | Step: 800 | loss: 516.92883 | Lr: 0.00100
+Epoch: 47 | Train Loss: 705.16803 | Time: 23.03979
+Evaluate val Loss: 664.80446 | Time: 0.39380
+Epoch: 48 | Step: 400 | loss: 677.90222 | Lr: 0.00100
+Epoch: 48 | Step: 800 | loss: 697.13458 | Lr: 0.00100
+Epoch: 48 | Train Loss: 691.06546 | Time: 23.03873
+Evaluate val Loss: 665.83078 | Time: 0.39274
+Epoch: 49 | Step: 400 | loss: 646.75293 | Lr: 0.00100
+Epoch: 49 | Step: 800 | loss: 827.28076 | Lr: 0.00100
+Epoch: 49 | Train Loss: 673.74224 | Time: 23.18508
+Evaluate val Loss: 654.74493 | Time: 0.40008
+Epoch: 50 | Step: 400 | loss: 665.56818 | Lr: 0.00100
+Epoch: 50 | Step: 800 | loss: 464.41797 | Lr: 0.00100
+Epoch: 50 | Train Loss: 657.12567 | Time: 23.57620
+Evaluate val Loss: 643.51878 | Time: 0.41657
+Epoch: 51 | Step: 400 | loss: 588.12469 | Lr: 0.00100
+Epoch: 51 | Step: 800 | loss: 725.99457 | Lr: 0.00100
+Epoch: 51 | Train Loss: 643.38814 | Time: 23.60254
+Evaluate val Loss: 604.65590 | Time: 0.40118
+Epoch: 52 | Step: 400 | loss: 663.93378 | Lr: 0.00100
+Epoch: 52 | Step: 800 | loss: 488.76010 | Lr: 0.00100
+Epoch: 52 | Train Loss: 643.96649 | Time: 23.32236
+Evaluate val Loss: 698.47082 | Time: 0.40626
+Epoch: 53 | Step: 400 | loss: 913.92084 | Lr: 0.00100
+Epoch: 53 | Step: 800 | loss: 629.40167 | Lr: 0.00100
+Epoch: 53 | Train Loss: 636.56531 | Time: 23.32014
+Evaluate val Loss: 633.56961 | Time: 0.40131
+Epoch: 54 | Step: 400 | loss: 606.46643 | Lr: 0.00100
+Epoch: 54 | Step: 800 | loss: 667.95319 | Lr: 0.00100
+Epoch: 54 | Train Loss: 614.73267 | Time: 23.31904
+Evaluate val Loss: 569.85881 | Time: 0.40454
+Epoch: 55 | Step: 400 | loss: 513.32135 | Lr: 0.00100
+Epoch: 55 | Step: 800 | loss: 585.38477 | Lr: 0.00100
+Epoch: 55 | Train Loss: 610.18739 | Time: 23.32256
+Evaluate val Loss: 622.76701 | Time: 0.40139
+Epoch: 56 | Step: 400 | loss: 648.02979 | Lr: 0.00100
+Epoch: 56 | Step: 800 | loss: 714.61426 | Lr: 0.00100
+Epoch: 56 | Train Loss: 596.94549 | Time: 23.33215
+Evaluate val Loss: 572.58476 | Time: 0.40035
+Epoch: 57 | Step: 400 | loss: 673.47058 | Lr: 0.00100
+Epoch: 57 | Step: 800 | loss: 610.38306 | Lr: 0.00100
+Epoch: 57 | Train Loss: 599.77119 | Time: 23.30180
+Evaluate val Loss: 591.26346 | Time: 0.39835
+Epoch: 58 | Step: 400 | loss: 500.53714 | Lr: 0.00100
+Epoch: 58 | Step: 800 | loss: 1001.50415 | Lr: 0.00100
+Epoch: 58 | Train Loss: 584.13064 | Time: 23.30715
+Evaluate val Loss: 546.90357 | Time: 0.39827
+Epoch: 59 | Step: 400 | loss: 512.34668 | Lr: 0.00100
+Epoch: 59 | Step: 800 | loss: 506.31183 | Lr: 0.00100
+Epoch: 59 | Train Loss: 574.59868 | Time: 23.30242
+Evaluate val Loss: 572.25035 | Time: 0.40769
+Epoch: 60 | Step: 400 | loss: 429.83215 | Lr: 0.00100
+Epoch: 60 | Step: 800 | loss: 488.00790 | Lr: 0.00100
+Epoch: 60 | Train Loss: 569.37132 | Time: 23.30957
+Evaluate val Loss: 532.24479 | Time: 0.40026
+Epoch: 61 | Step: 400 | loss: 615.15906 | Lr: 0.00100
+Epoch: 61 | Step: 800 | loss: 694.35083 | Lr: 0.00100
+Epoch: 61 | Train Loss: 565.70083 | Time: 23.08256
+Evaluate val Loss: 590.68735 | Time: 0.40120
+Epoch: 62 | Step: 400 | loss: 472.13400 | Lr: 0.00100
+Epoch: 62 | Step: 800 | loss: 462.53864 | Lr: 0.00100
+Epoch: 62 | Train Loss: 556.85064 | Time: 23.07497
+Evaluate val Loss: 527.69893 | Time: 0.39337
+Epoch: 63 | Step: 400 | loss: 561.64227 | Lr: 0.00100
+Epoch: 63 | Step: 800 | loss: 630.18494 | Lr: 0.00100
+Epoch: 63 | Train Loss: 552.66040 | Time: 23.05318
+Evaluate val Loss: 556.63901 | Time: 0.39756
+Epoch: 64 | Step: 400 | loss: 792.98450 | Lr: 0.00100
+Epoch: 64 | Step: 800 | loss: 482.87637 | Lr: 0.00100
+Epoch: 64 | Train Loss: 543.83326 | Time: 23.19741
+Evaluate val Loss: 587.99490 | Time: 0.40119
+Epoch: 65 | Step: 400 | loss: 311.69623 | Lr: 0.00100
+Epoch: 65 | Step: 800 | loss: 512.45563 | Lr: 0.00100
+Epoch: 65 | Train Loss: 543.90662 | Time: 23.33767
+Evaluate val Loss: 523.82006 | Time: 0.40043
+Epoch: 66 | Step: 400 | loss: 707.90857 | Lr: 0.00100
+Epoch: 66 | Step: 800 | loss: 510.44995 | Lr: 0.00100
+Epoch: 66 | Train Loss: 533.99813 | Time: 23.30786
+Evaluate val Loss: 620.45885 | Time: 0.40521
+Epoch: 67 | Step: 400 | loss: 534.78046 | Lr: 0.00100
+Epoch: 67 | Step: 800 | loss: 659.09436 | Lr: 0.00100
+Epoch: 67 | Train Loss: 528.04056 | Time: 23.31892
+Evaluate val Loss: 517.83022 | Time: 0.39939
+Epoch: 68 | Step: 400 | loss: 679.26422 | Lr: 0.00100
+Epoch: 68 | Step: 800 | loss: 747.42432 | Lr: 0.00100
+Epoch: 68 | Train Loss: 529.30888 | Time: 23.38120
+Evaluate val Loss: 526.47315 | Time: 0.40061
+Epoch: 69 | Step: 400 | loss: 363.39423 | Lr: 0.00100
+Epoch: 69 | Step: 800 | loss: 449.62793 | Lr: 0.00100
+Epoch: 69 | Train Loss: 528.57096 | Time: 23.38166
+Evaluate val Loss: 607.24048 | Time: 0.39819
+Epoch: 70 | Step: 400 | loss: 669.06830 | Lr: 0.00100
+Epoch: 70 | Step: 800 | loss: 443.18903 | Lr: 0.00100
+Epoch: 70 | Train Loss: 525.33114 | Time: 23.78675
+Evaluate val Loss: 504.00106 | Time: 0.40197
+Epoch: 71 | Step: 400 | loss: 438.89368 | Lr: 0.00100
+Epoch: 71 | Step: 800 | loss: 385.21426 | Lr: 0.00100
+Epoch: 71 | Train Loss: 525.65193 | Time: 23.30234
+Evaluate val Loss: 517.06500 | Time: 0.39604
+Epoch: 72 | Step: 400 | loss: 251.84796 | Lr: 0.00100
+Epoch: 72 | Step: 800 | loss: 441.68500 | Lr: 0.00100
+Epoch: 72 | Train Loss: 512.46531 | Time: 23.16450
+Evaluate val Loss: 499.60677 | Time: 0.39566
+Epoch: 73 | Step: 400 | loss: 506.48401 | Lr: 0.00100
+Epoch: 73 | Step: 800 | loss: 398.40302 | Lr: 0.00100
+Epoch: 73 | Train Loss: 513.08588 | Time: 23.17342
+Evaluate val Loss: 499.76599 | Time: 0.39631
+Epoch: 74 | Step: 400 | loss: 400.82623 | Lr: 0.00100
+Epoch: 74 | Step: 800 | loss: 605.45312 | Lr: 0.00100
+Epoch: 74 | Train Loss: 513.00217 | Time: 23.17983
+Evaluate val Loss: 466.26761 | Time: 0.39766
+Epoch: 75 | Step: 400 | loss: 571.15161 | Lr: 0.00100
+Epoch: 75 | Step: 800 | loss: 370.31070 | Lr: 0.00100
+Epoch: 75 | Train Loss: 516.40052 | Time: 23.19038
+Evaluate val Loss: 523.29886 | Time: 0.39540
+Epoch: 76 | Step: 400 | loss: 469.99121 | Lr: 0.00100
+Epoch: 76 | Step: 800 | loss: 455.99625 | Lr: 0.00100
+Epoch: 76 | Train Loss: 512.48609 | Time: 22.95244
+Evaluate val Loss: 510.40734 | Time: 0.39150
+Epoch: 77 | Step: 400 | loss: 741.32452 | Lr: 0.00100
+Epoch: 77 | Step: 800 | loss: 498.75531 | Lr: 0.00100
+Epoch: 77 | Train Loss: 508.01970 | Time: 22.95904
+Evaluate val Loss: 500.27025 | Time: 0.39220
+Epoch: 78 | Step: 400 | loss: 612.96527 | Lr: 0.00100
+Epoch: 78 | Step: 800 | loss: 559.44324 | Lr: 0.00100
+Epoch: 78 | Train Loss: 505.04645 | Time: 22.96784
+Evaluate val Loss: 489.87478 | Time: 0.39445
+Epoch: 79 | Step: 400 | loss: 679.45782 | Lr: 0.00100
+Epoch: 79 | Step: 800 | loss: 587.54456 | Lr: 0.00100
+Epoch: 79 | Train Loss: 502.89638 | Time: 23.12631
+Evaluate val Loss: 484.40178 | Time: 0.40106
+Epoch: 80 | Step: 400 | loss: 621.79041 | Lr: 0.00100
+Epoch: 80 | Step: 800 | loss: 465.42490 | Lr: 0.00100
+Epoch: 80 | Train Loss: 496.01306 | Time: 23.18896
+Evaluate val Loss: 506.80813 | Time: 0.39717
+Epoch: 81 | Step: 400 | loss: 620.71143 | Lr: 0.00100
+Epoch: 81 | Step: 800 | loss: 439.51511 | Lr: 0.00100
+Epoch: 81 | Train Loss: 505.91480 | Time: 23.17845
+Evaluate val Loss: 490.82968 | Time: 0.40207
+Epoch: 82 | Step: 400 | loss: 395.50943 | Lr: 0.00100
+Epoch: 82 | Step: 800 | loss: 473.94458 | Lr: 0.00100
+Epoch: 82 | Train Loss: 494.11058 | Time: 23.19386
+Evaluate val Loss: 495.19170 | Time: 0.39735
+Epoch: 83 | Step: 400 | loss: 342.81046 | Lr: 0.00100
+Epoch: 83 | Step: 800 | loss: 437.73962 | Lr: 0.00100
+Epoch: 83 | Train Loss: 502.64463 | Time: 23.20614
+Evaluate val Loss: 503.14863 | Time: 0.39808
+Epoch: 84 | Step: 400 | loss: 516.47607 | Lr: 0.00100
+Epoch: 84 | Step: 800 | loss: 515.93768 | Lr: 0.00100
+Epoch: 84 | Train Loss: 505.26870 | Time: 23.69937
+Evaluate val Loss: 512.51508 | Time: 0.39634
+Epoch: 85 | Step: 400 | loss: 535.15814 | Lr: 0.00100
+Epoch: 85 | Step: 800 | loss: 454.34317 | Lr: 0.00100
+Epoch: 85 | Train Loss: 489.55275 | Time: 23.21947
+Evaluate val Loss: 485.27246 | Time: 0.39568
+Epoch: 86 | Step: 400 | loss: 353.17975 | Lr: 0.00095
+Epoch: 86 | Step: 800 | loss: 482.01001 | Lr: 0.00095
+Epoch: 86 | Train Loss: 500.18721 | Time: 23.19270
+Evaluate val Loss: 504.04911 | Time: 0.39660
+Epoch: 87 | Step: 400 | loss: 351.34930 | Lr: 0.00095
+Epoch: 87 | Step: 800 | loss: 589.08325 | Lr: 0.00095
+Epoch: 87 | Train Loss: 496.61941 | Time: 23.21537
+Evaluate val Loss: 476.64779 | Time: 0.39715
+Epoch: 88 | Step: 400 | loss: 642.08685 | Lr: 0.00095
+Epoch: 88 | Step: 800 | loss: 443.50198 | Lr: 0.00095
+Epoch: 88 | Train Loss: 494.93909 | Time: 23.18535
+Evaluate val Loss: 492.71658 | Time: 0.39755
+Epoch: 89 | Step: 400 | loss: 500.64438 | Lr: 0.00095
+Epoch: 89 | Step: 800 | loss: 464.33911 | Lr: 0.00095
+Epoch: 89 | Train Loss: 489.20985 | Time: 23.19795
+Evaluate val Loss: 470.26239 | Time: 0.39664
+Epoch: 90 | Step: 400 | loss: 514.73083 | Lr: 0.00095
+Epoch: 90 | Step: 800 | loss: 471.36002 | Lr: 0.00095
+Epoch: 90 | Train Loss: 494.71311 | Time: 23.21383
+Evaluate val Loss: 474.98597 | Time: 0.39921
+Epoch: 91 | Step: 400 | loss: 339.13037 | Lr: 0.00095
+Epoch: 91 | Step: 800 | loss: 431.72488 | Lr: 0.00095
+Epoch: 91 | Train Loss: 489.45841 | Time: 22.91279
+Evaluate val Loss: 452.22222 | Time: 0.39285
+Epoch: 92 | Step: 400 | loss: 389.00858 | Lr: 0.00095
+Epoch: 92 | Step: 800 | loss: 497.77130 | Lr: 0.00095
+Epoch: 92 | Train Loss: 491.84139 | Time: 22.89745
+Evaluate val Loss: 477.93159 | Time: 0.38551
+Epoch: 93 | Step: 400 | loss: 616.10779 | Lr: 0.00095
+Epoch: 93 | Step: 800 | loss: 363.42993 | Lr: 0.00095
+Epoch: 93 | Train Loss: 489.50482 | Time: 22.92385
+Evaluate val Loss: 477.49476 | Time: 0.39205
+Epoch: 94 | Step: 400 | loss: 363.24231 | Lr: 0.00095
+Epoch: 94 | Step: 800 | loss: 504.71692 | Lr: 0.00095
+Epoch: 94 | Train Loss: 487.52342 | Time: 23.11134
+Evaluate val Loss: 487.22113 | Time: 0.39964
+Epoch: 95 | Step: 400 | loss: 442.80518 | Lr: 0.00095
+Epoch: 95 | Step: 800 | loss: 387.79227 | Lr: 0.00095
+Epoch: 95 | Train Loss: 493.75003 | Time: 23.17498
+Evaluate val Loss: 467.15583 | Time: 0.39651
+Epoch: 96 | Step: 400 | loss: 547.25378 | Lr: 0.00095
+Epoch: 96 | Step: 800 | loss: 643.36182 | Lr: 0.00095
+Epoch: 96 | Train Loss: 495.31564 | Time: 23.19810
+Evaluate val Loss: 476.14190 | Time: 0.39645
+Epoch: 97 | Step: 400 | loss: 826.88452 | Lr: 0.00095
+Epoch: 97 | Step: 800 | loss: 461.26379 | Lr: 0.00095
+Epoch: 97 | Train Loss: 482.74729 | Time: 23.19364
+Evaluate val Loss: 496.60125 | Time: 0.39702
+Epoch: 98 | Step: 400 | loss: 332.21942 | Lr: 0.00095
+Epoch: 98 | Step: 800 | loss: 447.75732 | Lr: 0.00095
+Epoch: 98 | Train Loss: 486.19296 | Time: 23.19610
+Evaluate val Loss: 497.91722 | Time: 0.39792
+Epoch: 99 | Step: 400 | loss: 412.08258 | Lr: 0.00095
+Epoch: 99 | Step: 800 | loss: 288.32550 | Lr: 0.00095
+Epoch: 99 | Train Loss: 484.92525 | Time: 23.17972
+Evaluate val Loss: 471.11388 | Time: 0.39535
+Epoch: 100 | Step: 400 | loss: 513.77698 | Lr: 0.00095
+Epoch: 100 | Step: 800 | loss: 376.83350 | Lr: 0.00095
+Epoch: 100 | Train Loss: 491.63270 | Time: 23.17081
+Evaluate val Loss: 464.23885 | Time: 0.39656
+Epoch: 101 | Step: 400 | loss: 583.44598 | Lr: 0.00095
+Epoch: 101 | Step: 800 | loss: 433.85815 | Lr: 0.00095
+Epoch: 101 | Train Loss: 486.96813 | Time: 23.17357
+Evaluate val Loss: 468.51307 | Time: 0.39553
+Epoch: 102 | Step: 400 | loss: 370.90689 | Lr: 0.00095
+Epoch: 102 | Step: 800 | loss: 439.60547 | Lr: 0.00095
+Epoch: 102 | Train Loss: 489.18092 | Time: 23.18963
+Evaluate val Loss: 535.05886 | Time: 0.40530
+Epoch: 103 | Step: 400 | loss: 506.36090 | Lr: 0.00090
+Epoch: 103 | Step: 800 | loss: 532.92273 | Lr: 0.00090
+Epoch: 103 | Train Loss: 479.48646 | Time: 23.18315
+Evaluate val Loss: 477.15369 | Time: 0.39537
+Epoch: 104 | Step: 400 | loss: 452.57330 | Lr: 0.00090
+Epoch: 104 | Step: 800 | loss: 447.67963 | Lr: 0.00090
+Epoch: 104 | Train Loss: 489.44972 | Time: 23.19726
+Evaluate val Loss: 480.80903 | Time: 0.40202
+Epoch: 105 | Step: 400 | loss: 456.49081 | Lr: 0.00090
+Epoch: 105 | Step: 800 | loss: 452.00034 | Lr: 0.00090
+Epoch: 105 | Train Loss: 483.99674 | Time: 23.17881
+Evaluate val Loss: 449.28486 | Time: 0.39617
+Epoch: 106 | Step: 400 | loss: 724.10010 | Lr: 0.00090
+Epoch: 106 | Step: 800 | loss: 615.42316 | Lr: 0.00090
+Epoch: 106 | Train Loss: 483.85834 | Time: 22.90907
+Evaluate val Loss: 461.26916 | Time: 0.39723
+Epoch: 107 | Step: 400 | loss: 272.70892 | Lr: 0.00090
+Epoch: 107 | Step: 800 | loss: 472.60352 | Lr: 0.00090
+Epoch: 107 | Train Loss: 484.05575 | Time: 22.90366
+Evaluate val Loss: 488.53148 | Time: 0.39122
+Epoch: 108 | Step: 400 | loss: 425.57040 | Lr: 0.00090
+Epoch: 108 | Step: 800 | loss: 690.91968 | Lr: 0.00090
+Epoch: 108 | Train Loss: 481.23077 | Time: 22.89947
+Evaluate val Loss: 466.73952 | Time: 0.38947
+Epoch: 109 | Step: 400 | loss: 510.09723 | Lr: 0.00090
+Epoch: 109 | Step: 800 | loss: 434.79379 | Lr: 0.00090
+Epoch: 109 | Train Loss: 488.76423 | Time: 23.10162
+Evaluate val Loss: 478.74937 | Time: 0.39575
+Epoch: 110 | Step: 400 | loss: 588.09375 | Lr: 0.00090
+Epoch: 110 | Step: 800 | loss: 401.87213 | Lr: 0.00090
+Epoch: 110 | Train Loss: 483.05703 | Time: 23.19196
+Evaluate val Loss: 491.25908 | Time: 0.40287
+Epoch: 111 | Step: 400 | loss: 346.47632 | Lr: 0.00090
+Epoch: 111 | Step: 800 | loss: 536.76910 | Lr: 0.00090
+Epoch: 111 | Train Loss: 476.39566 | Time: 23.20178
+Evaluate val Loss: 498.85406 | Time: 0.39885
+Epoch: 112 | Step: 400 | loss: 379.90561 | Lr: 0.00090
+Epoch: 112 | Step: 800 | loss: 480.35956 | Lr: 0.00090
+Epoch: 112 | Train Loss: 479.02176 | Time: 23.20809
+Evaluate val Loss: 470.26116 | Time: 0.40434
+Epoch: 113 | Step: 400 | loss: 417.17264 | Lr: 0.00090
+Epoch: 113 | Step: 800 | loss: 680.18793 | Lr: 0.00090
+Epoch: 113 | Train Loss: 475.70404 | Time: 23.21057
+Evaluate val Loss: 463.20512 | Time: 0.39789
+Epoch: 114 | Step: 400 | loss: 452.32587 | Lr: 0.00090
+Epoch: 114 | Step: 800 | loss: 476.48914 | Lr: 0.00090
+Epoch: 114 | Train Loss: 483.76814 | Time: 23.22453
+Evaluate val Loss: 476.24388 | Time: 0.39840
+Epoch: 115 | Step: 400 | loss: 245.83426 | Lr: 0.00090
+Epoch: 115 | Step: 800 | loss: 366.66687 | Lr: 0.00090
+Epoch: 115 | Train Loss: 479.66349 | Time: 23.21531
+Evaluate val Loss: 477.52338 | Time: 0.39713
+Epoch: 116 | Step: 400 | loss: 540.41748 | Lr: 0.00090
+Epoch: 116 | Step: 800 | loss: 596.17780 | Lr: 0.00090
+Epoch: 116 | Train Loss: 481.45001 | Time: 23.21722
+Evaluate val Loss: 450.99510 | Time: 0.39282
+Epoch: 117 | Step: 400 | loss: 415.21313 | Lr: 0.00086
+Epoch: 117 | Step: 800 | loss: 446.60083 | Lr: 0.00086
+Epoch: 117 | Train Loss: 472.03358 | Time: 23.21334
+Evaluate val Loss: 460.12182 | Time: 0.39913
+Epoch: 118 | Step: 400 | loss: 458.62225 | Lr: 0.00086
+Epoch: 118 | Step: 800 | loss: 676.64563 | Lr: 0.00086
+Epoch: 118 | Train Loss: 475.87463 | Time: 23.21808
+Evaluate val Loss: 473.56396 | Time: 0.39533
+Epoch: 119 | Step: 400 | loss: 348.95190 | Lr: 0.00086
+Epoch: 119 | Step: 800 | loss: 340.79883 | Lr: 0.00086
+Epoch: 119 | Train Loss: 479.02011 | Time: 23.22181
+Evaluate val Loss: 473.80904 | Time: 0.39771
+Epoch: 120 | Step: 400 | loss: 521.11932 | Lr: 0.00086
+Epoch: 120 | Step: 800 | loss: 333.16611 | Lr: 0.00086
+Epoch: 120 | Train Loss: 476.34063 | Time: 23.22822
+Evaluate val Loss: 443.85256 | Time: 0.39992
+Epoch: 121 | Step: 400 | loss: 496.24115 | Lr: 0.00086
+Epoch: 121 | Step: 800 | loss: 469.22092 | Lr: 0.00086
+Epoch: 121 | Train Loss: 472.43556 | Time: 22.92861
+Evaluate val Loss: 495.22743 | Time: 0.39538
+Epoch: 122 | Step: 400 | loss: 534.50989 | Lr: 0.00086
+Epoch: 122 | Step: 800 | loss: 346.78220 | Lr: 0.00086
+Epoch: 122 | Train Loss: 476.49419 | Time: 22.91702
+Evaluate val Loss: 475.21683 | Time: 0.39220
+Epoch: 123 | Step: 400 | loss: 617.79266 | Lr: 0.00086
+Epoch: 123 | Step: 800 | loss: 459.28812 | Lr: 0.00086
+Epoch: 123 | Train Loss: 472.50048 | Time: 22.90388
+Evaluate val Loss: 451.15477 | Time: 0.39002
+Epoch: 124 | Step: 400 | loss: 471.82919 | Lr: 0.00086
+Epoch: 124 | Step: 800 | loss: 526.03204 | Lr: 0.00086
+Epoch: 124 | Train Loss: 479.23479 | Time: 23.07531
+Evaluate val Loss: 453.31479 | Time: 0.39740
+Epoch: 125 | Step: 400 | loss: 484.13065 | Lr: 0.00086
+Epoch: 125 | Step: 800 | loss: 417.90448 | Lr: 0.00086
+Epoch: 125 | Train Loss: 478.02815 | Time: 23.20135
+Evaluate val Loss: 497.26721 | Time: 0.39614
+Epoch: 126 | Step: 400 | loss: 502.10260 | Lr: 0.00086
+Epoch: 126 | Step: 800 | loss: 531.51727 | Lr: 0.00086
+Epoch: 126 | Train Loss: 481.24692 | Time: 23.18713
+Evaluate val Loss: 469.38173 | Time: 0.39877
+Epoch: 127 | Step: 400 | loss: 595.90918 | Lr: 0.00086
+Epoch: 127 | Step: 800 | loss: 619.83307 | Lr: 0.00086
+Epoch: 127 | Train Loss: 477.05546 | Time: 23.19204
+Evaluate val Loss: 476.00783 | Time: 0.40002
+Epoch: 128 | Step: 400 | loss: 606.19934 | Lr: 0.00086
+Epoch: 128 | Step: 800 | loss: 308.74872 | Lr: 0.00086
+Epoch: 128 | Train Loss: 476.84514 | Time: 23.19542
+Evaluate val Loss: 463.87057 | Time: 0.39954
+Epoch: 129 | Step: 400 | loss: 679.92963 | Lr: 0.00086
+Epoch: 129 | Step: 800 | loss: 562.68695 | Lr: 0.00086
+Epoch: 129 | Train Loss: 472.54472 | Time: 23.20399
+Evaluate val Loss: 483.07225 | Time: 0.40121
+Epoch: 130 | Step: 400 | loss: 685.73029 | Lr: 0.00086
+Epoch: 130 | Step: 800 | loss: 632.09821 | Lr: 0.00086
+Epoch: 130 | Train Loss: 475.52968 | Time: 23.22582
+Evaluate val Loss: 450.61492 | Time: 0.39730
+Epoch: 131 | Step: 400 | loss: 421.01797 | Lr: 0.00086
+Epoch: 131 | Step: 800 | loss: 331.40601 | Lr: 0.00086
+Epoch: 131 | Train Loss: 471.54232 | Time: 23.21264
+Evaluate val Loss: 485.69103 | Time: 0.39765
+Epoch: 132 | Step: 400 | loss: 333.63953 | Lr: 0.00081
+Epoch: 132 | Step: 800 | loss: 435.60156 | Lr: 0.00081
+Epoch: 132 | Train Loss: 470.39132 | Time: 23.17811
+Evaluate val Loss: 459.61605 | Time: 0.39838
+Epoch: 133 | Step: 400 | loss: 584.04944 | Lr: 0.00081
+Epoch: 133 | Step: 800 | loss: 393.27478 | Lr: 0.00081
+Epoch: 133 | Train Loss: 476.64029 | Time: 23.20148
+Evaluate val Loss: 483.74582 | Time: 0.39923
+Epoch: 134 | Step: 400 | loss: 544.87903 | Lr: 0.00081
+Epoch: 134 | Step: 800 | loss: 257.27588 | Lr: 0.00081
+Epoch: 134 | Train Loss: 470.52860 | Time: 23.17108
+Evaluate val Loss: 456.98130 | Time: 0.39847
+Epoch: 135 | Step: 400 | loss: 538.72046 | Lr: 0.00081
+Epoch: 135 | Step: 800 | loss: 224.47363 | Lr: 0.00081
+Epoch: 135 | Train Loss: 466.86548 | Time: 23.19630
+Evaluate val Loss: 463.30941 | Time: 0.39495
+Epoch: 136 | Step: 400 | loss: 250.86273 | Lr: 0.00081
+Epoch: 136 | Step: 800 | loss: 416.61237 | Lr: 0.00081
+Epoch: 136 | Train Loss: 470.94177 | Time: 23.01488
+Evaluate val Loss: 474.33569 | Time: 0.39142
+Epoch: 137 | Step: 400 | loss: 485.92108 | Lr: 0.00081
+Epoch: 137 | Step: 800 | loss: 405.27264 | Lr: 0.00081
+Epoch: 137 | Train Loss: 472.59973 | Time: 22.98650
+Evaluate val Loss: 443.68465 | Time: 0.39806
+Epoch: 138 | Step: 400 | loss: 563.22675 | Lr: 0.00081
+Epoch: 138 | Step: 800 | loss: 527.72327 | Lr: 0.00081
+Epoch: 138 | Train Loss: 469.73672 | Time: 22.97858
+Evaluate val Loss: 468.45295 | Time: 0.39352
+Epoch: 139 | Step: 400 | loss: 531.57471 | Lr: 0.00081
+Epoch: 139 | Step: 800 | loss: 401.11694 | Lr: 0.00081
+Epoch: 139 | Train Loss: 471.95011 | Time: 23.09141
+Evaluate val Loss: 481.73983 | Time: 0.39651
+Epoch: 140 | Step: 400 | loss: 635.21387 | Lr: 0.00081
+Epoch: 140 | Step: 800 | loss: 373.39606 | Lr: 0.00081
+Epoch: 140 | Train Loss: 464.33281 | Time: 23.21213
+Evaluate val Loss: 463.82644 | Time: 0.39814
+Epoch: 141 | Step: 400 | loss: 398.90381 | Lr: 0.00081
+Epoch: 141 | Step: 800 | loss: 429.03473 | Lr: 0.00081
+Epoch: 141 | Train Loss: 466.60305 | Time: 23.20083
+Evaluate val Loss: 452.64520 | Time: 0.39737
+Epoch: 142 | Step: 400 | loss: 517.42084 | Lr: 0.00081
+Epoch: 142 | Step: 800 | loss: 524.55353 | Lr: 0.00081
+Epoch: 142 | Train Loss: 466.21586 | Time: 23.20547
+Evaluate val Loss: 449.38134 | Time: 0.39697
+Epoch: 143 | Step: 400 | loss: 308.22900 | Lr: 0.00081
+Epoch: 143 | Step: 800 | loss: 436.51202 | Lr: 0.00081
+Epoch: 143 | Train Loss: 469.81128 | Time: 23.21712
+Evaluate val Loss: 477.25435 | Time: 0.39713
+Epoch: 144 | Step: 400 | loss: 602.44568 | Lr: 0.00081
+Epoch: 144 | Step: 800 | loss: 325.05524 | Lr: 0.00081
+Epoch: 144 | Train Loss: 469.74707 | Time: 23.20295
+Evaluate val Loss: 428.52317 | Time: 0.39630
+Epoch: 145 | Step: 400 | loss: 633.13208 | Lr: 0.00081
+Epoch: 145 | Step: 800 | loss: 412.34393 | Lr: 0.00081
+Epoch: 145 | Train Loss: 464.10728 | Time: 23.20948
+Evaluate val Loss: 447.24871 | Time: 0.40249
+Epoch: 146 | Step: 400 | loss: 459.79645 | Lr: 0.00081
+Epoch: 146 | Step: 800 | loss: 618.98932 | Lr: 0.00081
+Epoch: 146 | Train Loss: 475.22313 | Time: 23.19717
+Evaluate val Loss: 477.55418 | Time: 0.39696
+Epoch: 147 | Step: 400 | loss: 206.47964 | Lr: 0.00081
+Epoch: 147 | Step: 800 | loss: 353.39429 | Lr: 0.00081
+Epoch: 147 | Train Loss: 470.53594 | Time: 23.18431
+Evaluate val Loss: 424.79326 | Time: 0.39977
+Epoch: 148 | Step: 400 | loss: 364.40884 | Lr: 0.00081
+Epoch: 148 | Step: 800 | loss: 339.32758 | Lr: 0.00081
+Epoch: 148 | Train Loss: 473.00981 | Time: 23.21111
+Evaluate val Loss: 479.85560 | Time: 0.39850
+Epoch: 149 | Step: 400 | loss: 415.12634 | Lr: 0.00081
+Epoch: 149 | Step: 800 | loss: 429.86780 | Lr: 0.00081
+Epoch: 149 | Train Loss: 470.42495 | Time: 23.19767
+Evaluate val Loss: 458.97415 | Time: 0.39675
+Epoch: 150 | Step: 400 | loss: 444.03586 | Lr: 0.00081
+Epoch: 150 | Step: 800 | loss: 362.53412 | Lr: 0.00081
+Epoch: 150 | Train Loss: 470.10436 | Time: 23.19449
+Evaluate val Loss: 440.46312 | Time: 0.39796
+Epoch: 151 | Step: 400 | loss: 654.64471 | Lr: 0.00081
+Epoch: 151 | Step: 800 | loss: 480.84488 | Lr: 0.00081
+Epoch: 151 | Train Loss: 465.72059 | Time: 22.98213
+Evaluate val Loss: 472.82161 | Time: 0.39363
+Epoch: 152 | Step: 400 | loss: 380.69669 | Lr: 0.00081
+Epoch: 152 | Step: 800 | loss: 679.29028 | Lr: 0.00081
+Epoch: 152 | Train Loss: 464.78905 | Time: 22.94574
+Evaluate val Loss: 447.56171 | Time: 0.39204
+Epoch: 153 | Step: 400 | loss: 420.95435 | Lr: 0.00081
+Epoch: 153 | Step: 800 | loss: 380.07172 | Lr: 0.00081
+Epoch: 153 | Train Loss: 467.17466 | Time: 22.98651
+Evaluate val Loss: 438.35846 | Time: 0.39200
+Epoch: 154 | Step: 400 | loss: 583.84277 | Lr: 0.00081
+Epoch: 154 | Step: 800 | loss: 414.54572 | Lr: 0.00081
+Epoch: 154 | Train Loss: 467.11145 | Time: 23.10886
+Evaluate val Loss: 455.36305 | Time: 0.39551
+Epoch: 155 | Step: 400 | loss: 476.11252 | Lr: 0.00081
+Epoch: 155 | Step: 800 | loss: 413.79935 | Lr: 0.00081
+Epoch: 155 | Train Loss: 466.91364 | Time: 23.18592
+Evaluate val Loss: 467.02139 | Time: 0.39787
+Epoch: 156 | Step: 400 | loss: 392.30945 | Lr: 0.00081
+Epoch: 156 | Step: 800 | loss: 624.51904 | Lr: 0.00081
+Epoch: 156 | Train Loss: 464.75588 | Time: 23.19613
+Evaluate val Loss: 464.07543 | Time: 0.39659
+Epoch: 157 | Step: 400 | loss: 427.79419 | Lr: 0.00081
+Epoch: 157 | Step: 800 | loss: 502.94342 | Lr: 0.00081
+Epoch: 157 | Train Loss: 466.21481 | Time: 23.18880
+Evaluate val Loss: 453.69376 | Time: 0.39449
+Epoch: 158 | Step: 400 | loss: 502.97101 | Lr: 0.00081
+Epoch: 158 | Step: 800 | loss: 382.02145 | Lr: 0.00081
+Epoch: 158 | Train Loss: 467.03642 | Time: 23.19326
+Evaluate val Loss: 446.91601 | Time: 0.39480
+Epoch: 159 | Step: 400 | loss: 446.91074 | Lr: 0.00077
+Epoch: 159 | Step: 800 | loss: 282.89441 | Lr: 0.00077
+Epoch: 159 | Train Loss: 468.63190 | Time: 23.18841
+Evaluate val Loss: 491.96431 | Time: 0.39920
+Epoch: 160 | Step: 400 | loss: 467.84979 | Lr: 0.00077
+Epoch: 160 | Step: 800 | loss: 539.16882 | Lr: 0.00077
+Epoch: 160 | Train Loss: 463.46715 | Time: 23.21247
+Evaluate val Loss: 486.90995 | Time: 0.39589
+Epoch: 161 | Step: 400 | loss: 648.00476 | Lr: 0.00077
+Epoch: 161 | Step: 800 | loss: 348.57886 | Lr: 0.00077
+Epoch: 161 | Train Loss: 465.17363 | Time: 23.20590
+Evaluate val Loss: 432.46214 | Time: 0.40371
+Epoch: 162 | Step: 400 | loss: 365.22235 | Lr: 0.00077
+Epoch: 162 | Step: 800 | loss: 586.02209 | Lr: 0.00077
+Epoch: 162 | Train Loss: 470.33428 | Time: 23.21821
+Evaluate val Loss: 442.70777 | Time: 0.39684
+Epoch: 163 | Step: 400 | loss: 338.40985 | Lr: 0.00077
+Epoch: 163 | Step: 800 | loss: 359.43433 | Lr: 0.00077
+Epoch: 163 | Train Loss: 467.21543 | Time: 23.23468
+Evaluate val Loss: 443.47301 | Time: 0.40491
+Epoch: 164 | Step: 400 | loss: 563.44104 | Lr: 0.00077
+Epoch: 164 | Step: 800 | loss: 543.54132 | Lr: 0.00077
+Epoch: 164 | Train Loss: 466.06569 | Time: 26.23076
+Evaluate val Loss: 467.64111 | Time: 0.41110
+Epoch: 165 | Step: 400 | loss: 454.06448 | Lr: 0.00077
+Epoch: 165 | Step: 800 | loss: 369.42056 | Lr: 0.00077
+Epoch: 165 | Train Loss: 459.52457 | Time: 23.25403
+Evaluate val Loss: 469.28107 | Time: 0.39277
+Epoch: 166 | Step: 400 | loss: 429.88623 | Lr: 0.00077
+Epoch: 166 | Step: 800 | loss: 545.06232 | Lr: 0.00077
+Epoch: 166 | Train Loss: 465.51135 | Time: 22.86701
+Evaluate val Loss: 466.88058 | Time: 0.39590
+Epoch: 167 | Step: 400 | loss: 345.82819 | Lr: 0.00077
+Epoch: 167 | Step: 800 | loss: 356.67752 | Lr: 0.00077
+Epoch: 167 | Train Loss: 465.19138 | Time: 22.77683
+Evaluate val Loss: 449.18482 | Time: 0.39462
+Epoch: 168 | Step: 400 | loss: 376.66199 | Lr: 0.00077
+Epoch: 168 | Step: 800 | loss: 406.96051 | Lr: 0.00077
+Epoch: 168 | Train Loss: 467.52453 | Time: 22.86860
+Evaluate val Loss: 475.81880 | Time: 0.39419
+Epoch: 169 | Step: 400 | loss: 803.34644 | Lr: 0.00077
+Epoch: 169 | Step: 800 | loss: 543.90564 | Lr: 0.00077
+Epoch: 169 | Train Loss: 466.52239 | Time: 23.00965
+Evaluate val Loss: 472.52373 | Time: 0.39454
+Epoch: 170 | Step: 400 | loss: 429.66959 | Lr: 0.00074
+Epoch: 170 | Step: 800 | loss: 519.77869 | Lr: 0.00074
+Epoch: 170 | Train Loss: 462.16602 | Time: 23.12374
+Evaluate val Loss: 438.54991 | Time: 0.39469
+Epoch: 171 | Step: 400 | loss: 489.74457 | Lr: 0.00074
+Epoch: 171 | Step: 800 | loss: 333.79953 | Lr: 0.00074
+Epoch: 171 | Train Loss: 461.91231 | Time: 23.13844
+Evaluate val Loss: 443.14325 | Time: 0.39548
+Epoch: 172 | Step: 400 | loss: 427.57684 | Lr: 0.00074
+Epoch: 172 | Step: 800 | loss: 374.08313 | Lr: 0.00074
+Epoch: 172 | Train Loss: 465.97267 | Time: 23.13289
+Evaluate val Loss: 451.52058 | Time: 0.39787
+Epoch: 173 | Step: 400 | loss: 525.08997 | Lr: 0.00074
+Epoch: 173 | Step: 800 | loss: 401.48877 | Lr: 0.00074
+Epoch: 173 | Train Loss: 462.50942 | Time: 23.58754
+Evaluate val Loss: 448.14839 | Time: 0.39723
+Epoch: 174 | Step: 400 | loss: 491.37549 | Lr: 0.00074
+Epoch: 174 | Step: 800 | loss: 624.61182 | Lr: 0.00074
+Epoch: 174 | Train Loss: 463.38691 | Time: 23.14988
+Evaluate val Loss: 489.62137 | Time: 0.39702
+Epoch: 175 | Step: 400 | loss: 656.06995 | Lr: 0.00074
+Epoch: 175 | Step: 800 | loss: 452.09818 | Lr: 0.00074
+Epoch: 175 | Train Loss: 465.65779 | Time: 23.15267
+Evaluate val Loss: 456.97115 | Time: 0.39669
+Epoch: 176 | Step: 400 | loss: 642.27802 | Lr: 0.00074
+Epoch: 176 | Step: 800 | loss: 343.80856 | Lr: 0.00074
+Epoch: 176 | Train Loss: 470.16745 | Time: 23.14245
+Evaluate val Loss: 473.31013 | Time: 0.39596
+Epoch: 177 | Step: 400 | loss: 498.27448 | Lr: 0.00074
+Epoch: 177 | Step: 800 | loss: 383.22681 | Lr: 0.00074
+Epoch: 177 | Train Loss: 463.73546 | Time: 23.14057
+Evaluate val Loss: 448.25953 | Time: 0.39630
+Epoch: 178 | Step: 400 | loss: 395.15875 | Lr: 0.00074
+Epoch: 178 | Step: 800 | loss: 483.00717 | Lr: 0.00074
+Epoch: 178 | Train Loss: 458.33898 | Time: 23.13953
+Evaluate val Loss: 442.81429 | Time: 0.39774
+Epoch: 179 | Step: 400 | loss: 615.02332 | Lr: 0.00074
+Epoch: 179 | Step: 800 | loss: 419.13928 | Lr: 0.00074
+Epoch: 179 | Train Loss: 457.89799 | Time: 23.15453
+Evaluate val Loss: 442.15016 | Time: 0.39614
+Epoch: 180 | Step: 400 | loss: 634.17944 | Lr: 0.00074
+Epoch: 180 | Step: 800 | loss: 415.52161 | Lr: 0.00074
+Epoch: 180 | Train Loss: 459.00348 | Time: 23.14332
+Evaluate val Loss: 461.15994 | Time: 0.40073
+Epoch: 181 | Step: 400 | loss: 701.74048 | Lr: 0.00070
+Epoch: 181 | Step: 800 | loss: 491.71295 | Lr: 0.00070
+Epoch: 181 | Train Loss: 465.14844 | Time: 22.88211
+Evaluate val Loss: 449.50919 | Time: 0.38996
+Epoch: 182 | Step: 400 | loss: 506.42130 | Lr: 0.00070
+Epoch: 182 | Step: 800 | loss: 475.15060 | Lr: 0.00070
+Epoch: 182 | Train Loss: 461.14926 | Time: 22.88736
+Evaluate val Loss: 461.40654 | Time: 0.39482
+Epoch: 183 | Step: 400 | loss: 503.92566 | Lr: 0.00070
+Epoch: 183 | Step: 800 | loss: 434.78784 | Lr: 0.00070
+Epoch: 183 | Train Loss: 457.27549 | Time: 22.87143
+Evaluate val Loss: 453.52051 | Time: 0.39539
+Epoch: 184 | Step: 400 | loss: 433.62543 | Lr: 0.00070
+Epoch: 184 | Step: 800 | loss: 515.69635 | Lr: 0.00070
+Epoch: 184 | Train Loss: 459.98341 | Time: 23.00743
+Evaluate val Loss: 434.10167 | Time: 0.40153
+Epoch: 185 | Step: 400 | loss: 340.68353 | Lr: 0.00070
+Epoch: 185 | Step: 800 | loss: 444.94495 | Lr: 0.00070
+Epoch: 185 | Train Loss: 457.84807 | Time: 23.14343
+Evaluate val Loss: 455.08906 | Time: 0.39776
+Epoch: 186 | Step: 400 | loss: 362.48102 | Lr: 0.00070
+Epoch: 186 | Step: 800 | loss: 240.38583 | Lr: 0.00070
+Epoch: 186 | Train Loss: 462.07101 | Time: 23.13533
+Evaluate val Loss: 446.73845 | Time: 0.40263
+Epoch: 187 | Step: 400 | loss: 300.05756 | Lr: 0.00070
+Epoch: 187 | Step: 800 | loss: 477.57553 | Lr: 0.00070
+Epoch: 187 | Train Loss: 454.91299 | Time: 23.14969
+Evaluate val Loss: 466.74142 | Time: 0.39524
+Epoch: 188 | Step: 400 | loss: 563.14539 | Lr: 0.00070
+Epoch: 188 | Step: 800 | loss: 653.26544 | Lr: 0.00070
+Epoch: 188 | Train Loss: 467.52030 | Time: 23.29715
+Evaluate val Loss: 421.45898 | Time: 0.42602
+Epoch: 189 | Step: 400 | loss: 697.03973 | Lr: 0.00070
+Epoch: 189 | Step: 800 | loss: 367.25604 | Lr: 0.00070
+Epoch: 189 | Train Loss: 457.36601 | Time: 24.42047
+Evaluate val Loss: 458.39727 | Time: 0.41757
+Epoch: 190 | Step: 400 | loss: 463.78656 | Lr: 0.00070
+Epoch: 190 | Step: 800 | loss: 477.88913 | Lr: 0.00070
+Epoch: 190 | Train Loss: 458.27338 | Time: 24.33661
+Evaluate val Loss: 430.50753 | Time: 0.41944
+Epoch: 191 | Step: 400 | loss: 564.39270 | Lr: 0.00070
+Epoch: 191 | Step: 800 | loss: 225.24620 | Lr: 0.00070
+Epoch: 191 | Train Loss: 458.03580 | Time: 24.11186
+Evaluate val Loss: 440.84705 | Time: 0.40309
+Epoch: 192 | Step: 400 | loss: 449.26740 | Lr: 0.00070
+Epoch: 192 | Step: 800 | loss: 439.83484 | Lr: 0.00070
+Epoch: 192 | Train Loss: 463.11865 | Time: 23.19442
+Evaluate val Loss: 468.95994 | Time: 0.39732
+Epoch: 193 | Step: 400 | loss: 485.80478 | Lr: 0.00070
+Epoch: 193 | Step: 800 | loss: 346.54660 | Lr: 0.00070
+Epoch: 193 | Train Loss: 458.79799 | Time: 23.13393
+Evaluate val Loss: 497.32594 | Time: 0.39916
+Epoch: 194 | Step: 400 | loss: 277.16437 | Lr: 0.00070
+Epoch: 194 | Step: 800 | loss: 670.20441 | Lr: 0.00070
+Epoch: 194 | Train Loss: 460.10779 | Time: 23.13055
+Evaluate val Loss: 476.97185 | Time: 0.39723
+Epoch: 195 | Step: 400 | loss: 337.24527 | Lr: 0.00070
+Epoch: 195 | Step: 800 | loss: 403.47992 | Lr: 0.00070
+Epoch: 195 | Train Loss: 456.46300 | Time: 23.13799
+Evaluate val Loss: 426.19011 | Time: 0.38843
+Epoch: 196 | Step: 400 | loss: 491.67746 | Lr: 0.00070
+Epoch: 196 | Step: 800 | loss: 570.78467 | Lr: 0.00070
+Epoch: 196 | Train Loss: 455.09363 | Time: 22.85644
+Evaluate val Loss: 472.44001 | Time: 0.39225
+Epoch: 197 | Step: 400 | loss: 408.64691 | Lr: 0.00070
+Epoch: 197 | Step: 800 | loss: 313.32214 | Lr: 0.00070
+Epoch: 197 | Train Loss: 459.02495 | Time: 22.83927
+Evaluate val Loss: 467.41453 | Time: 0.39171
+Epoch: 198 | Step: 400 | loss: 544.75891 | Lr: 0.00070
+Epoch: 198 | Step: 800 | loss: 333.95770 | Lr: 0.00070
+Epoch: 198 | Train Loss: 458.97277 | Time: 22.83553
+Evaluate val Loss: 461.91500 | Time: 0.39258
+Epoch: 199 | Step: 400 | loss: 277.91193 | Lr: 0.00070
+Epoch: 199 | Step: 800 | loss: 498.88235 | Lr: 0.00070
+Epoch: 199 | Train Loss: 459.43795 | Time: 23.01529
+Evaluate val Loss: 456.92066 | Time: 0.39874
+Epoch: 200 | Step: 400 | loss: 739.05334 | Lr: 0.00066
+Epoch: 200 | Step: 800 | loss: 478.40430 | Lr: 0.00066
+Epoch: 200 | Train Loss: 464.98088 | Time: 23.11945
+Evaluate val Loss: 438.89919 | Time: 0.39567
+Epoch: 201 | Step: 400 | loss: 572.78613 | Lr: 0.00066
+Epoch: 201 | Step: 800 | loss: 426.77609 | Lr: 0.00066
+Epoch: 201 | Train Loss: 465.71603 | Time: 23.14864
+Evaluate val Loss: 457.80168 | Time: 0.39737
+Epoch: 202 | Step: 400 | loss: 670.87622 | Lr: 0.00066
+Epoch: 202 | Step: 800 | loss: 477.15088 | Lr: 0.00066
+Epoch: 202 | Train Loss: 458.06634 | Time: 23.13775
+Evaluate val Loss: 445.50598 | Time: 0.39557
+Epoch: 203 | Step: 400 | loss: 436.22614 | Lr: 0.00066
+Epoch: 203 | Step: 800 | loss: 659.28888 | Lr: 0.00066
+Epoch: 203 | Train Loss: 462.59506 | Time: 23.13836
+Evaluate val Loss: 457.48901 | Time: 0.39693
+Epoch: 204 | Step: 400 | loss: 422.37708 | Lr: 0.00066
+Epoch: 204 | Step: 800 | loss: 391.88690 | Lr: 0.00066
+Epoch: 204 | Train Loss: 457.83441 | Time: 23.13596
+Evaluate val Loss: 452.46193 | Time: 0.39523
+Epoch: 205 | Step: 400 | loss: 564.25745 | Lr: 0.00066
+Epoch: 205 | Step: 800 | loss: 297.41760 | Lr: 0.00066
+Epoch: 205 | Train Loss: 455.84032 | Time: 23.12908
+Evaluate val Loss: 415.39200 | Time: 0.39505
+Epoch: 206 | Step: 400 | loss: 431.80920 | Lr: 0.00066
+Epoch: 206 | Step: 800 | loss: 331.41266 | Lr: 0.00066
+Epoch: 206 | Train Loss: 461.30853 | Time: 23.12293
+Evaluate val Loss: 443.44344 | Time: 0.39691
+Epoch: 207 | Step: 400 | loss: 407.76151 | Lr: 0.00066
+Epoch: 207 | Step: 800 | loss: 513.29529 | Lr: 0.00066
+Epoch: 207 | Train Loss: 459.53761 | Time: 23.14550
+Evaluate val Loss: 427.12892 | Time: 0.39609
+Epoch: 208 | Step: 400 | loss: 558.75092 | Lr: 0.00066
+Epoch: 208 | Step: 800 | loss: 413.04791 | Lr: 0.00066
+Epoch: 208 | Train Loss: 461.04039 | Time: 23.11879
+Evaluate val Loss: 457.39067 | Time: 0.39635
+Epoch: 209 | Step: 400 | loss: 255.43567 | Lr: 0.00066
+Epoch: 209 | Step: 800 | loss: 378.55710 | Lr: 0.00066
+Epoch: 209 | Train Loss: 458.92317 | Time: 23.12971
+Evaluate val Loss: 447.41457 | Time: 0.39433
+Epoch: 210 | Step: 400 | loss: 409.44495 | Lr: 0.00066
+Epoch: 210 | Step: 800 | loss: 406.36362 | Lr: 0.00066
+Epoch: 210 | Train Loss: 454.78353 | Time: 23.13456
+Evaluate val Loss: 440.10874 | Time: 0.39285
+Epoch: 211 | Step: 400 | loss: 312.80188 | Lr: 0.00066
+Epoch: 211 | Step: 800 | loss: 701.19379 | Lr: 0.00066
+Epoch: 211 | Train Loss: 462.52988 | Time: 22.87569
+Evaluate val Loss: 451.07657 | Time: 0.39261
+Epoch: 212 | Step: 400 | loss: 456.37344 | Lr: 0.00066
+Epoch: 212 | Step: 800 | loss: 480.65329 | Lr: 0.00066
+Epoch: 212 | Train Loss: 458.54671 | Time: 22.67531
+Evaluate val Loss: 435.30591 | Time: 0.39444
+Epoch: 213 | Step: 400 | loss: 457.27899 | Lr: 0.00066
+Epoch: 213 | Step: 800 | loss: 394.73444 | Lr: 0.00066
+Epoch: 213 | Train Loss: 460.91509 | Time: 22.87709
+Evaluate val Loss: 455.01874 | Time: 0.38792
+Epoch: 214 | Step: 400 | loss: 671.73169 | Lr: 0.00066
+Epoch: 214 | Step: 800 | loss: 319.51471 | Lr: 0.00066
+Epoch: 214 | Train Loss: 458.04686 | Time: 22.88894
+Evaluate val Loss: 459.84575 | Time: 0.39570
+Epoch: 215 | Step: 400 | loss: 640.79395 | Lr: 0.00066
+Epoch: 215 | Step: 800 | loss: 421.95569 | Lr: 0.00066
+Epoch: 215 | Train Loss: 461.60366 | Time: 23.13083
+Evaluate val Loss: 439.67879 | Time: 0.39470
+Epoch: 216 | Step: 400 | loss: 607.63983 | Lr: 0.00066
+Epoch: 216 | Step: 800 | loss: 287.54846 | Lr: 0.00066
+Epoch: 216 | Train Loss: 457.28502 | Time: 23.11620
+Evaluate val Loss: 442.18314 | Time: 0.40243
+Epoch: 217 | Step: 400 | loss: 695.05554 | Lr: 0.00063
+Epoch: 217 | Step: 800 | loss: 442.04388 | Lr: 0.00063
+Epoch: 217 | Train Loss: 457.91772 | Time: 23.09250
+Evaluate val Loss: 433.54760 | Time: 0.39598
+Epoch: 218 | Step: 400 | loss: 431.26941 | Lr: 0.00063
+Epoch: 218 | Step: 800 | loss: 384.64392 | Lr: 0.00063
+Epoch: 218 | Train Loss: 458.30689 | Time: 23.09256
+Evaluate val Loss: 444.93558 | Time: 0.39785
+Epoch: 219 | Step: 400 | loss: 476.29248 | Lr: 0.00063
+Epoch: 219 | Step: 800 | loss: 605.29150 | Lr: 0.00063
+Epoch: 219 | Train Loss: 462.19277 | Time: 23.09647
+Evaluate val Loss: 436.23409 | Time: 0.39441
+Epoch: 220 | Step: 400 | loss: 583.19550 | Lr: 0.00063
+Epoch: 220 | Step: 800 | loss: 491.26099 | Lr: 0.00063
+Epoch: 220 | Train Loss: 463.33666 | Time: 23.10452
+Evaluate val Loss: 460.48839 | Time: 0.40138
+Epoch: 221 | Step: 400 | loss: 494.21545 | Lr: 0.00063
+Epoch: 221 | Step: 800 | loss: 487.03745 | Lr: 0.00063
+Epoch: 221 | Train Loss: 457.69428 | Time: 23.09527
+Evaluate val Loss: 462.80306 | Time: 0.39536
+Epoch: 222 | Step: 400 | loss: 437.73068 | Lr: 0.00063
+Epoch: 222 | Step: 800 | loss: 451.57751 | Lr: 0.00063
+Epoch: 222 | Train Loss: 454.08310 | Time: 23.11388
+Evaluate val Loss: 415.03560 | Time: 0.40085
+Epoch: 223 | Step: 400 | loss: 582.29822 | Lr: 0.00063
+Epoch: 223 | Step: 800 | loss: 538.81915 | Lr: 0.00063
+Epoch: 223 | Train Loss: 460.09664 | Time: 23.12935
+Evaluate val Loss: 467.04614 | Time: 0.39600
+Epoch: 224 | Step: 400 | loss: 637.56104 | Lr: 0.00063
+Epoch: 224 | Step: 800 | loss: 579.37964 | Lr: 0.00063
+Epoch: 224 | Train Loss: 453.92901 | Time: 23.12241
+Evaluate val Loss: 464.12944 | Time: 0.40136
+Epoch: 225 | Step: 400 | loss: 326.02502 | Lr: 0.00063
+Epoch: 225 | Step: 800 | loss: 443.98364 | Lr: 0.00063
+Epoch: 225 | Train Loss: 454.02566 | Time: 23.12757
+Evaluate val Loss: 452.14380 | Time: 0.39573
+Epoch: 226 | Step: 400 | loss: 533.68671 | Lr: 0.00063
+Epoch: 226 | Step: 800 | loss: 427.83749 | Lr: 0.00063
+Epoch: 226 | Train Loss: 460.38086 | Time: 22.69060
+Evaluate val Loss: 437.26001 | Time: 0.39180
+Epoch: 227 | Step: 400 | loss: 306.52261 | Lr: 0.00063
+Epoch: 227 | Step: 800 | loss: 323.03510 | Lr: 0.00063
+Epoch: 227 | Train Loss: 461.76345 | Time: 22.82110
+Evaluate val Loss: 446.53287 | Time: 0.39380
+Epoch: 228 | Step: 400 | loss: 526.27405 | Lr: 0.00063
+Epoch: 228 | Step: 800 | loss: 400.86359 | Lr: 0.00063
+Epoch: 228 | Train Loss: 457.43814 | Time: 22.82182
+Evaluate val Loss: 469.31362 | Time: 0.39322
+Epoch: 229 | Step: 400 | loss: 603.72095 | Lr: 0.00063
+Epoch: 229 | Step: 800 | loss: 688.79358 | Lr: 0.00063
+Epoch: 229 | Train Loss: 455.31462 | Time: 22.90572
+Evaluate val Loss: 435.05982 | Time: 0.40274
+Epoch: 230 | Step: 400 | loss: 756.73364 | Lr: 0.00063
+Epoch: 230 | Step: 800 | loss: 299.94934 | Lr: 0.00063
+Epoch: 230 | Train Loss: 451.80503 | Time: 23.10805
+Evaluate val Loss: 455.69183 | Time: 0.39588
+Epoch: 231 | Step: 400 | loss: 432.96118 | Lr: 0.00063
+Epoch: 231 | Step: 800 | loss: 602.69012 | Lr: 0.00063
+Epoch: 231 | Train Loss: 455.33507 | Time: 23.12850
+Evaluate val Loss: 437.65817 | Time: 0.39868
+Epoch: 232 | Step: 400 | loss: 439.24127 | Lr: 0.00063
+Epoch: 232 | Step: 800 | loss: 336.29224 | Lr: 0.00063
+Epoch: 232 | Train Loss: 454.21588 | Time: 23.12463
+Evaluate val Loss: 448.18366 | Time: 0.39465
+Epoch: 233 | Step: 400 | loss: 340.76300 | Lr: 0.00063
+Epoch: 233 | Step: 800 | loss: 328.69342 | Lr: 0.00063
+Epoch: 233 | Train Loss: 453.84978 | Time: 23.43185
+Evaluate val Loss: 453.84051 | Time: 0.42741
+Epoch: 234 | Step: 400 | loss: 474.87579 | Lr: 0.00060
+Epoch: 234 | Step: 800 | loss: 419.56836 | Lr: 0.00060
+Epoch: 234 | Train Loss: 455.05681 | Time: 23.15292
+Evaluate val Loss: 450.45736 | Time: 0.39839
+Epoch: 235 | Step: 400 | loss: 531.92542 | Lr: 0.00060
+Epoch: 235 | Step: 800 | loss: 753.79492 | Lr: 0.00060
+Epoch: 235 | Train Loss: 459.56376 | Time: 23.10337
+Evaluate val Loss: 458.54603 | Time: 0.39753
+Epoch: 236 | Step: 400 | loss: 563.26636 | Lr: 0.00060
+Epoch: 236 | Step: 800 | loss: 345.92484 | Lr: 0.00060
+Epoch: 236 | Train Loss: 457.43141 | Time: 23.08103
+Evaluate val Loss: 467.13265 | Time: 0.39511
+Epoch: 237 | Step: 400 | loss: 521.31372 | Lr: 0.00060
+Epoch: 237 | Step: 800 | loss: 716.08875 | Lr: 0.00060
+Epoch: 237 | Train Loss: 452.89850 | Time: 23.08668
+Evaluate val Loss: 445.43613 | Time: 0.39605
+Epoch: 238 | Step: 400 | loss: 472.87430 | Lr: 0.00060
+Epoch: 238 | Step: 800 | loss: 551.11218 | Lr: 0.00060
+Epoch: 238 | Train Loss: 453.42876 | Time: 23.07877
+Evaluate val Loss: 461.44842 | Time: 0.39518
+Epoch: 239 | Step: 400 | loss: 391.06665 | Lr: 0.00060
+Epoch: 239 | Step: 800 | loss: 334.95129 | Lr: 0.00060
+Epoch: 239 | Train Loss: 457.70623 | Time: 23.10444
+Evaluate val Loss: 437.78958 | Time: 0.39647
+Epoch: 240 | Step: 400 | loss: 285.49161 | Lr: 0.00060
+Epoch: 240 | Step: 800 | loss: 299.30222 | Lr: 0.00060
+Epoch: 240 | Train Loss: 458.37449 | Time: 23.09289
+Evaluate val Loss: 453.58321 | Time: 0.39713
+Epoch: 241 | Step: 400 | loss: 435.24033 | Lr: 0.00060
+Epoch: 241 | Step: 800 | loss: 343.55664 | Lr: 0.00060
+Epoch: 241 | Train Loss: 455.07074 | Time: 22.94787
+Evaluate val Loss: 473.40799 | Time: 0.39403
+Epoch: 242 | Step: 400 | loss: 350.15549 | Lr: 0.00060
+Epoch: 242 | Step: 800 | loss: 306.33270 | Lr: 0.00060
+Epoch: 242 | Train Loss: 457.97844 | Time: 22.84440
+Evaluate val Loss: 449.37011 | Time: 0.39170
+Epoch: 243 | Step: 400 | loss: 424.72507 | Lr: 0.00060
+Epoch: 243 | Step: 800 | loss: 286.50256 | Lr: 0.00060
+Epoch: 243 | Train Loss: 454.12832 | Time: 22.83942
+Evaluate val Loss: 449.13186 | Time: 0.39135
+Epoch: 244 | Step: 400 | loss: 548.57202 | Lr: 0.00060
+Epoch: 244 | Step: 800 | loss: 353.34103 | Lr: 0.00060
+Epoch: 244 | Train Loss: 459.51594 | Time: 22.89047
+Evaluate val Loss: 443.04966 | Time: 0.39678
+Epoch: 245 | Step: 400 | loss: 422.03275 | Lr: 0.00057
+Epoch: 245 | Step: 800 | loss: 387.43799 | Lr: 0.00057
+Epoch: 245 | Train Loss: 454.98819 | Time: 23.11632
+Evaluate val Loss: 437.97266 | Time: 0.39971
+Epoch: 246 | Step: 400 | loss: 387.35165 | Lr: 0.00057
+Epoch: 246 | Step: 800 | loss: 406.92981 | Lr: 0.00057
+Epoch: 246 | Train Loss: 455.28585 | Time: 23.13960
+Evaluate val Loss: 428.24990 | Time: 0.39673
+Epoch: 247 | Step: 400 | loss: 425.18909 | Lr: 0.00057
+Epoch: 247 | Step: 800 | loss: 287.66916 | Lr: 0.00057
+Epoch: 247 | Train Loss: 451.82139 | Time: 23.13985
+Evaluate val Loss: 469.00408 | Time: 0.39926
+Epoch: 248 | Step: 400 | loss: 590.10852 | Lr: 0.00057
+Epoch: 248 | Step: 800 | loss: 286.05643 | Lr: 0.00057
+Epoch: 248 | Train Loss: 455.03193 | Time: 23.11978
+Evaluate val Loss: 469.05430 | Time: 0.39808
+Epoch: 249 | Step: 400 | loss: 449.18829 | Lr: 0.00057
+Epoch: 249 | Step: 800 | loss: 519.99823 | Lr: 0.00057
+Epoch: 249 | Train Loss: 460.91334 | Time: 23.12581
+Evaluate val Loss: 454.98959 | Time: 0.40073
+Epoch: 250 | Step: 400 | loss: 378.19519 | Lr: 0.00057
+Epoch: 250 | Step: 800 | loss: 381.00134 | Lr: 0.00057
+Epoch: 250 | Train Loss: 455.83460 | Time: 23.12809
+Evaluate val Loss: 447.81321 | Time: 0.39636
+Epoch: 251 | Step: 400 | loss: 304.59619 | Lr: 0.00057
+Epoch: 251 | Step: 800 | loss: 391.61984 | Lr: 0.00057
+Epoch: 251 | Train Loss: 454.76891 | Time: 23.14854
+Evaluate val Loss: 416.46470 | Time: 0.39504
+Epoch: 252 | Step: 400 | loss: 525.56897 | Lr: 0.00057
+Epoch: 252 | Step: 800 | loss: 608.83960 | Lr: 0.00057
+Epoch: 252 | Train Loss: 455.24544 | Time: 23.14806
+Evaluate val Loss: 435.16514 | Time: 0.39545
+Epoch: 253 | Step: 400 | loss: 576.53949 | Lr: 0.00057
+Epoch: 253 | Step: 800 | loss: 620.59515 | Lr: 0.00057
+Epoch: 253 | Train Loss: 455.69774 | Time: 23.13534
+Evaluate val Loss: 454.79585 | Time: 0.39297
+Epoch: 254 | Step: 400 | loss: 463.47766 | Lr: 0.00057
+Epoch: 254 | Step: 800 | loss: 490.34418 | Lr: 0.00057
+Epoch: 254 | Train Loss: 450.92639 | Time: 23.14317
+Evaluate val Loss: 416.52215 | Time: 0.39708
+Epoch: 255 | Step: 400 | loss: 504.89322 | Lr: 0.00057
+Epoch: 255 | Step: 800 | loss: 499.48883 | Lr: 0.00057
+Epoch: 255 | Train Loss: 455.84666 | Time: 23.12098
+Evaluate val Loss: 463.67636 | Time: 0.39744
+Epoch: 256 | Step: 400 | loss: 298.40192 | Lr: 0.00054
+Epoch: 256 | Step: 800 | loss: 622.27295 | Lr: 0.00054
+Epoch: 256 | Train Loss: 450.29311 | Time: 23.01056
+Evaluate val Loss: 467.68098 | Time: 0.39162
+Epoch: 257 | Step: 400 | loss: 441.50357 | Lr: 0.00054
+Epoch: 257 | Step: 800 | loss: 317.36697 | Lr: 0.00054
+Epoch: 257 | Train Loss: 456.21143 | Time: 22.86294
+Evaluate val Loss: 445.24338 | Time: 0.38896
+Epoch: 258 | Step: 400 | loss: 307.32501 | Lr: 0.00054
+Epoch: 258 | Step: 800 | loss: 469.03043 | Lr: 0.00054
+Epoch: 258 | Train Loss: 458.11507 | Time: 22.86029
+Evaluate val Loss: 445.74253 | Time: 0.39338
+Epoch: 259 | Step: 400 | loss: 439.81537 | Lr: 0.00054
+Epoch: 259 | Step: 800 | loss: 402.45676 | Lr: 0.00054
+Epoch: 259 | Train Loss: 456.82247 | Time: 22.85082
+Evaluate val Loss: 456.62927 | Time: 0.39600
+Epoch: 260 | Step: 400 | loss: 304.73907 | Lr: 0.00054
+Epoch: 260 | Step: 800 | loss: 276.92996 | Lr: 0.00054
+Epoch: 260 | Train Loss: 450.80557 | Time: 23.11130
+Evaluate val Loss: 449.54715 | Time: 0.40059
+Epoch: 261 | Step: 400 | loss: 376.37558 | Lr: 0.00054
+Epoch: 261 | Step: 800 | loss: 506.40564 | Lr: 0.00054
+Epoch: 261 | Train Loss: 454.77795 | Time: 23.11673
+Evaluate val Loss: 436.38550 | Time: 0.39541
+Epoch: 262 | Step: 400 | loss: 309.05756 | Lr: 0.00054
+Epoch: 262 | Step: 800 | loss: 299.52023 | Lr: 0.00054
+Epoch: 262 | Train Loss: 455.04864 | Time: 23.13186
+Evaluate val Loss: 469.28908 | Time: 0.39859
+Epoch: 263 | Step: 400 | loss: 469.94043 | Lr: 0.00054
+Epoch: 263 | Step: 800 | loss: 453.41693 | Lr: 0.00054
+Epoch: 263 | Train Loss: 454.71440 | Time: 23.12572
+Evaluate val Loss: 440.84845 | Time: 0.39606
+Epoch: 264 | Step: 400 | loss: 360.37030 | Lr: 0.00054
+Epoch: 264 | Step: 800 | loss: 468.44345 | Lr: 0.00054
+Epoch: 264 | Train Loss: 454.62822 | Time: 23.12485
+Evaluate val Loss: 432.90351 | Time: 0.39894
+Epoch: 265 | Step: 400 | loss: 409.15106 | Lr: 0.00054
+Epoch: 265 | Step: 800 | loss: 384.61700 | Lr: 0.00054
+Epoch: 265 | Train Loss: 455.03711 | Time: 23.13746
+Evaluate val Loss: 449.73183 | Time: 0.39642
+Epoch: 266 | Step: 400 | loss: 344.75513 | Lr: 0.00054
+Epoch: 266 | Step: 800 | loss: 514.06897 | Lr: 0.00054
+Epoch: 266 | Train Loss: 452.27857 | Time: 23.13732
+Evaluate val Loss: 428.91431 | Time: 0.39401
+Epoch: 267 | Step: 400 | loss: 600.43439 | Lr: 0.00051
+Epoch: 267 | Step: 800 | loss: 714.19922 | Lr: 0.00051
+Epoch: 267 | Train Loss: 451.61065 | Time: 23.13381
+Evaluate val Loss: 448.88478 | Time: 0.39604
+Epoch: 268 | Step: 400 | loss: 352.96448 | Lr: 0.00051
+Epoch: 268 | Step: 800 | loss: 520.24854 | Lr: 0.00051
+Epoch: 268 | Train Loss: 455.41701 | Time: 23.13748
+Evaluate val Loss: 457.03169 | Time: 0.39582
+Epoch: 269 | Step: 400 | loss: 380.56259 | Lr: 0.00051
+Epoch: 269 | Step: 800 | loss: 512.51990 | Lr: 0.00051
+Epoch: 269 | Train Loss: 451.88536 | Time: 23.13172
+Evaluate val Loss: 457.36492 | Time: 0.39693
+Epoch: 270 | Step: 400 | loss: 369.79068 | Lr: 0.00051
+Epoch: 270 | Step: 800 | loss: 406.15674 | Lr: 0.00051
+Epoch: 270 | Train Loss: 451.54409 | Time: 23.11995
+Evaluate val Loss: 437.91206 | Time: 0.39801
+Epoch: 271 | Step: 400 | loss: 258.81772 | Lr: 0.00051
+Epoch: 271 | Step: 800 | loss: 870.04919 | Lr: 0.00051
+Epoch: 271 | Train Loss: 449.73536 | Time: 23.03368
+Evaluate val Loss: 443.59032 | Time: 0.39265
+Epoch: 272 | Step: 400 | loss: 305.23865 | Lr: 0.00051
+Epoch: 272 | Step: 800 | loss: 456.18268 | Lr: 0.00051
+Epoch: 272 | Train Loss: 450.80916 | Time: 22.86036
+Evaluate val Loss: 439.46766 | Time: 0.39307
+Epoch: 273 | Step: 400 | loss: 527.02191 | Lr: 0.00051
+Epoch: 273 | Step: 800 | loss: 283.87497 | Lr: 0.00051
+Epoch: 273 | Train Loss: 448.52757 | Time: 22.84498
+Evaluate val Loss: 443.58819 | Time: 0.39082
+Epoch: 274 | Step: 400 | loss: 531.15234 | Lr: 0.00051
+Epoch: 274 | Step: 800 | loss: 373.80658 | Lr: 0.00051
+Epoch: 274 | Train Loss: 453.35160 | Time: 22.83891
+Evaluate val Loss: 425.47673 | Time: 0.39347
+Epoch: 275 | Step: 400 | loss: 224.81183 | Lr: 0.00051
+Epoch: 275 | Step: 800 | loss: 388.21869 | Lr: 0.00051
+Epoch: 275 | Train Loss: 454.60205 | Time: 23.08186
+Evaluate val Loss: 452.89787 | Time: 0.39443
+Epoch: 276 | Step: 400 | loss: 448.95276 | Lr: 0.00051
+Epoch: 276 | Step: 800 | loss: 539.77356 | Lr: 0.00051
+Epoch: 276 | Train Loss: 453.60143 | Time: 23.08907
+Evaluate val Loss: 452.00288 | Time: 0.39401
+Epoch: 277 | Step: 400 | loss: 586.35632 | Lr: 0.00051
+Epoch: 277 | Step: 800 | loss: 463.87573 | Lr: 0.00051
+Epoch: 277 | Train Loss: 453.06790 | Time: 23.07371
+Evaluate val Loss: 457.28653 | Time: 0.39573
+Epoch: 278 | Step: 400 | loss: 501.71097 | Lr: 0.00049
+Epoch: 278 | Step: 800 | loss: 430.67325 | Lr: 0.00049
+Epoch: 278 | Train Loss: 452.35627 | Time: 23.07480
+Evaluate val Loss: 426.36383 | Time: 0.39738
+Epoch: 279 | Step: 400 | loss: 448.43460 | Lr: 0.00049
+Epoch: 279 | Step: 800 | loss: 244.20741 | Lr: 0.00049
+Epoch: 279 | Train Loss: 446.92980 | Time: 23.08373
+Evaluate val Loss: 414.73651 | Time: 0.39702
+Epoch: 280 | Step: 400 | loss: 681.15906 | Lr: 0.00049
+Epoch: 280 | Step: 800 | loss: 525.27557 | Lr: 0.00049
+Epoch: 280 | Train Loss: 452.35659 | Time: 23.08770
+Evaluate val Loss: 458.21097 | Time: 0.39622
+Epoch: 281 | Step: 400 | loss: 374.47510 | Lr: 0.00049
+Epoch: 281 | Step: 800 | loss: 315.56686 | Lr: 0.00049
+Epoch: 281 | Train Loss: 448.65484 | Time: 23.08706
+Evaluate val Loss: 420.30703 | Time: 0.39553
+Epoch: 282 | Step: 400 | loss: 518.78314 | Lr: 0.00049
+Epoch: 282 | Step: 800 | loss: 564.50470 | Lr: 0.00049
+Epoch: 282 | Train Loss: 448.03900 | Time: 23.07829
+Evaluate val Loss: 457.09369 | Time: 0.39426
+Epoch: 283 | Step: 400 | loss: 431.86072 | Lr: 0.00049
+Epoch: 283 | Step: 800 | loss: 252.10419 | Lr: 0.00049
+Epoch: 283 | Train Loss: 444.81527 | Time: 23.08108
+Evaluate val Loss: 435.38437 | Time: 0.39417
+Epoch: 284 | Step: 400 | loss: 364.07816 | Lr: 0.00049
+Epoch: 284 | Step: 800 | loss: 525.74292 | Lr: 0.00049
+Epoch: 284 | Train Loss: 445.07607 | Time: 23.09574
+Evaluate val Loss: 442.78867 | Time: 0.39711
+Epoch: 285 | Step: 400 | loss: 276.13464 | Lr: 0.00049
+Epoch: 285 | Step: 800 | loss: 410.90210 | Lr: 0.00049
+Epoch: 285 | Train Loss: 452.79713 | Time: 23.09141
+Evaluate val Loss: 455.10914 | Time: 0.40097
+Epoch: 286 | Step: 400 | loss: 323.54642 | Lr: 0.00049
+Epoch: 286 | Step: 800 | loss: 479.66406 | Lr: 0.00049
+Epoch: 286 | Train Loss: 451.28861 | Time: 23.01521
+Evaluate val Loss: 449.93290 | Time: 0.39459
+Epoch: 287 | Step: 400 | loss: 477.64227 | Lr: 0.00049
+Epoch: 287 | Step: 800 | loss: 502.32730 | Lr: 0.00049
+Epoch: 287 | Train Loss: 453.16088 | Time: 22.89180
+Evaluate val Loss: 413.74292 | Time: 0.39200
+Epoch: 288 | Step: 400 | loss: 324.62424 | Lr: 0.00049
+Epoch: 288 | Step: 800 | loss: 470.40717 | Lr: 0.00049
+Epoch: 288 | Train Loss: 446.98315 | Time: 22.87912
+Evaluate val Loss: 428.26620 | Time: 0.39384
+Epoch: 289 | Step: 400 | loss: 347.90485 | Lr: 0.00049
+Epoch: 289 | Step: 800 | loss: 367.41248 | Lr: 0.00049
+Epoch: 289 | Train Loss: 451.49772 | Time: 22.89924
+Evaluate val Loss: 451.04794 | Time: 0.39046
+Epoch: 290 | Step: 400 | loss: 451.75348 | Lr: 0.00049
+Epoch: 290 | Step: 800 | loss: 369.98572 | Lr: 0.00049
+Epoch: 290 | Train Loss: 453.76082 | Time: 23.08811
+Evaluate val Loss: 442.11322 | Time: 0.39769
+Epoch: 291 | Step: 400 | loss: 625.17340 | Lr: 0.00049
+Epoch: 291 | Step: 800 | loss: 547.95575 | Lr: 0.00049
+Epoch: 291 | Train Loss: 445.29807 | Time: 23.08773
+Evaluate val Loss: 434.46654 | Time: 0.39671
+Epoch: 292 | Step: 400 | loss: 399.23401 | Lr: 0.00049
+Epoch: 292 | Step: 800 | loss: 335.24020 | Lr: 0.00049
+Epoch: 292 | Train Loss: 449.75697 | Time: 23.08547
+Evaluate val Loss: 460.72222 | Time: 0.39572
+Epoch: 293 | Step: 400 | loss: 614.39917 | Lr: 0.00049
+Epoch: 293 | Step: 800 | loss: 512.15558 | Lr: 0.00049
+Epoch: 293 | Train Loss: 449.57200 | Time: 23.10216
+Evaluate val Loss: 436.12644 | Time: 0.39545
+Epoch: 294 | Step: 400 | loss: 388.30246 | Lr: 0.00049
+Epoch: 294 | Step: 800 | loss: 440.35315 | Lr: 0.00049
+Epoch: 294 | Train Loss: 455.43948 | Time: 23.09260
+Evaluate val Loss: 460.59906 | Time: 0.39694
+Epoch: 295 | Step: 400 | loss: 408.87607 | Lr: 0.00049
+Epoch: 295 | Step: 800 | loss: 379.73068 | Lr: 0.00049
+Epoch: 295 | Train Loss: 452.23804 | Time: 23.09993
+Evaluate val Loss: 434.31246 | Time: 0.39880
+Epoch: 296 | Step: 400 | loss: 398.73770 | Lr: 0.00049
+Epoch: 296 | Step: 800 | loss: 228.37300 | Lr: 0.00049
+Epoch: 296 | Train Loss: 448.76130 | Time: 23.11339
+Evaluate val Loss: 442.45632 | Time: 0.39674
+Epoch: 297 | Step: 400 | loss: 694.74829 | Lr: 0.00049
+Epoch: 297 | Step: 800 | loss: 351.27856 | Lr: 0.00049
+Epoch: 297 | Train Loss: 450.99852 | Time: 23.21754
+Evaluate val Loss: 450.88015 | Time: 0.40213
+Epoch: 298 | Step: 400 | loss: 608.67017 | Lr: 0.00049
+Epoch: 298 | Step: 800 | loss: 388.62659 | Lr: 0.00049
+Epoch: 298 | Train Loss: 444.06893 | Time: 23.19195
+Evaluate val Loss: 426.40426 | Time: 0.39664
+Epoch: 299 | Step: 400 | loss: 431.51962 | Lr: 0.00046
+Epoch: 299 | Step: 800 | loss: 364.09064 | Lr: 0.00046
+Epoch: 299 | Train Loss: 449.37280 | Time: 23.21193
+Evaluate val Loss: 434.20599 | Time: 0.40004
+optimization finished.
+Total time elapsed: 7092.42917s
