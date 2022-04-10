@@ -14,8 +14,8 @@ from Bio.PDB import PDBParser, PDBIO, DSSP, NeighborSearch
 from Bio.PDB.Selection import unfold_entities
 
 
-# dir = 'D:\ProteinBackboneDesign\Dataset'
-# pdb_file = '1NWZ_A.pdb'
+dir = 'D:\ProteinBackboneDesign\Dataset'
+pdb_file = '1NWZ_A.pdb'
 
 
 def set_working_dir(dir):
@@ -27,7 +27,7 @@ def set_working_dir(dir):
     )
 
 
-# set_working_dir(dir)
+set_working_dir(dir)
 
 
 def pdb_to_data(pdb_file):
@@ -53,6 +53,8 @@ def pdb_to_data(pdb_file):
 
             # 1. obtain secondary structure type
             ss_type = dssp[dssp_keys[chain_len-1]][2]
+
+            print(dssp[dssp_keys[chain_len-1]][6:])
             
             if ss_type == 'H':
                 ss_list.append(0)
@@ -89,12 +91,17 @@ def pdb_to_data(pdb_file):
                 edge_list.append([i-1, j-1])
                 edge_list.append([j-1, i-1])
                 edge_type += 2 * [2]
-            elif ((j-i) == 4) and ([i-1, j-1] not in edge_list):
-                edge_list.append([i-1, j-1])
-                edge_list.append([j-1, i-1])
-                edge_type += 2 * [3]
+            # elif ((j-i) == 4) and ([i-1, j-1] not in edge_list):
+                # edge_list.append([i-1, j-1])
+                # edge_list.append([j-1, i-1])
+                # edge_type += 2 * [3]
 
-    
+    # ii) hydrogen-bond-based neighbors
+
+
+
+
+    """
     # ii) coordinate-based neighbors
     # neighbor search, radius in angstrom (to be decided)
     atom_list = unfold_entities(chain, 'A')
@@ -117,6 +124,8 @@ def pdb_to_data(pdb_file):
 
     
     """ 
+
+    """
     # iii) random neighbors (rand-size to be decided)
     k = 0
     rand_size = 0.01
@@ -140,7 +149,8 @@ def pdb_to_data(pdb_file):
     return data
     
 
-# pdb_to_data(pdb_file)
+pdb_to_data(pdb_file)
+
 
 
 # dataset_dir = 'D:\ProteinBackboneDesign\Dataset\PDBDataset_test'
