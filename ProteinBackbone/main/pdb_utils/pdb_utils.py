@@ -74,30 +74,46 @@ def pdb_to_data(pdb_file):
     edge_type = []
 
     
-    # i) sequence-based neighbors 
-    # 2^m sequence separation
-    for i in range(1, chain_len+1):
-        for j in range(i+1, chain_len+1):
-            # if ((j-i) & (j-i-1) == 0) and ([i-1, j-1] not in edge_list):
-            if ((j-i) == 1) and ([i-1, j-1] not in edge_list):
-                edge_list.append([i-1, j-1])
-                edge_list.append([j-1, i-1])
+    # i) hydrogen-bond-based neighbors
+    threshold = -0.6
+
+    for i in range(0, chain_len):
+        for col in [6, 8, 10, 12]:
+            hbond_id = int(dssp[dssp_keys[i]][col])
+            # print(hbond_id)
+            hbond_energy = float(dssp[dssp_keys[i]][col+1])
+            # print(hbond_energy)
+            if (hbond_energy <= threshold) and (hbond_id != 0) and ([i, i+hbond_id] not in edge_list) and ((i+hbond_id) in range(0, chain_len)):
+                edge_list.append([i, i+hbond_id])
+                edge_list.append([i+hbond_id, i])
                 edge_type += 2 * [0]
-            # elif ((j-i) == 2) and ([i-1, j-1] not in edge_list):
-                # edge_list.append([i-1, j-1])
-                # edge_list.append([j-1, i-1])
-                # edge_type += 2 * [1]
-            # elif ((j-i) == 3) and ([i-1, j-1] not in edge_list):
-                # edge_list.append([i-1, j-1])
-                # edge_list.append([j-1, i-1])
-                # edge_type += 2 * [2]
-            # elif ((j-i) == 4) and ([i-1, j-1] not in edge_list):
-                # edge_list.append([i-1, j-1])
-                # edge_list.append([j-1, i-1])
+                # print([i, i+hbond_id])
+
+    
+
+
+    # ii) sequence-based neighbors 
+    # 2^m sequence separation
+    for i in range(0, chain_len):
+        for j in range(i, chain_len):
+            # if ((j-i) & (j-i-1) == 0) and ([i, j] not in edge_list):
+            if ((j-i) == 1) and ([i, j] not in edge_list):
+                edge_list.append([i, j])
+                edge_list.append([j, i])
+                edge_type += 2 * [1]
+            elif ((j-i) == 2) and ([i, j] not in edge_list):
+                edge_list.append([i, j])
+                edge_list.append([j, i])
+                edge_type += 2 * [2]
+            # elif ((j-i) == 3) and ([i, j] not in edge_list):
+                # edge_list.append([i, j])
+                # edge_list.append([j, i])
                 # edge_type += 2 * [3]
-
-    # ii) hydrogen-bond-based neighbors
-
+            # elif ((j-i) == 4) and ([i, j] not in edge_list):
+                # edge_list.append([i, j])
+                # edge_list.append([j, i])
+                # edge_type += 2 * [4]
+    
 
 
 
@@ -243,9 +259,17 @@ pdb_file='1NWZ_A.pdb'
 data = pdb_to_data(pdb_file=pdb_file)
 set_working_dir('D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils')
 
-def update_pdb_info(data, pdb_file):
+def update_pdb_info(data, pdb_file, save_dir):
     """
     update position information of the original pdb file 
+    preprocessed with pdb-tools http://www.bonvinlab.org/pdb-tools/, CA selected and HETATM removed
+    """
+    with open(pdb_file, 'r') as pdb_file:
+        pass
+
+
+
+
     """
     p = PDBParser(PERMISSIVE=1)
     model = p.get_structure(pdb_file[:4], pdb_file)[0]
@@ -267,9 +291,9 @@ def update_pdb_info(data, pdb_file):
     io = PDBIO()
     io.set_structure(chain)
     io.save('%s_new.pdb' % pdb_file[:6])
+    """
 
-
-update_pdb_info(data, pdb_file)
+# update_pdb_info(data, pdb_file)
 
 
 def gen_perturb(data):
