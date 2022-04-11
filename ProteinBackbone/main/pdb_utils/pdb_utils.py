@@ -14,8 +14,8 @@ from Bio.PDB import PDBParser, PDBIO, DSSP, NeighborSearch
 from Bio.PDB.Selection import unfold_entities
 
 
-dir = 'D:\ProteinBackboneDesign\Dataset'
-pdb_file = '1NWZ_A.pdb'
+# dir = 'D:\ProteinBackboneDesign\Dataset'
+# pdb_file = '1NWZ_A.pdb'
 
 
 def set_working_dir(dir):
@@ -27,7 +27,7 @@ def set_working_dir(dir):
     )
 
 
-set_working_dir(dir)
+# set_working_dir(dir)
 
 
 def pdb_to_data(pdb_file):
@@ -54,7 +54,7 @@ def pdb_to_data(pdb_file):
             # 1. obtain secondary structure type
             ss_type = dssp[dssp_keys[chain_len-1]][2]
 
-            print(dssp[dssp_keys[chain_len-1]][6:])
+            # print(dssp[dssp_keys[chain_len-1]][6:])
             
             if ss_type == 'H':
                 ss_list.append(0)
@@ -83,14 +83,14 @@ def pdb_to_data(pdb_file):
                 edge_list.append([i-1, j-1])
                 edge_list.append([j-1, i-1])
                 edge_type += 2 * [0]
-            elif ((j-i) == 2) and ([i-1, j-1] not in edge_list):
-                edge_list.append([i-1, j-1])
-                edge_list.append([j-1, i-1])
-                edge_type += 2 * [1]
-            elif ((j-i) == 3) and ([i-1, j-1] not in edge_list):
-                edge_list.append([i-1, j-1])
-                edge_list.append([j-1, i-1])
-                edge_type += 2 * [2]
+            # elif ((j-i) == 2) and ([i-1, j-1] not in edge_list):
+                # edge_list.append([i-1, j-1])
+                # edge_list.append([j-1, i-1])
+                # edge_type += 2 * [1]
+            # elif ((j-i) == 3) and ([i-1, j-1] not in edge_list):
+                # edge_list.append([i-1, j-1])
+                # edge_list.append([j-1, i-1])
+                # edge_type += 2 * [2]
             # elif ((j-i) == 4) and ([i-1, j-1] not in edge_list):
                 # edge_list.append([i-1, j-1])
                 # edge_list.append([j-1, i-1])
@@ -149,7 +149,7 @@ def pdb_to_data(pdb_file):
     return data
     
 
-pdb_to_data(pdb_file)
+# pdb_to_data(pdb_file)
 
 
 
@@ -239,9 +239,9 @@ def process_pdb_dataset(dataset_dir, pickle_dir):
 # process_pdb_dataset(dataset_dir=dataset_dir)
 
 
-# pdb_file='1NWZ_A.pdb'
-# data = pdb_to_data(pdb_file=pdb_file)
-# set_working_dir(os.getcwd())
+pdb_file='1NWZ_A.pdb'
+data = pdb_to_data(pdb_file=pdb_file)
+set_working_dir('D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils')
 
 def update_pdb_info(data, pdb_file):
     """
@@ -269,4 +269,4 @@ def update_pdb_info(data, pdb_file):
     io.save('%s_new.pdb' % pdb_file[:6])
 
 
-# update_pdb_info(data, pdb_file)
+update_pdb_info(data, pdb_file)

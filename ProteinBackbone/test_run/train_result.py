@@ -157,6 +157,6 @@ draw_plot_and_scatter(ax, epoch, train_loss)
 
 
 f.set_size_inches(6,5)
-plt.savefig('train-4-2-1.jpg',dpi=1000, bbox_inches='tight')
+plt.savefig('train.jpg',dpi=1000, bbox_inches='tight')
 plt.show()
 
