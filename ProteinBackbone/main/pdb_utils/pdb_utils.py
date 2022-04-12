@@ -14,7 +14,7 @@ from Bio.PDB import PDBParser, PDBIO, DSSP, NeighborSearch
 from Bio.PDB.Selection import unfold_entities
 
 
-# dir = 'D:\ProteinBackboneDesign\Dataset'
+# dir = 'D:\文件\北大\github\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
 # pdb_file = '1NWZ_A.pdb'
 
 
@@ -83,6 +83,8 @@ def pdb_to_data(pdb_file):
             # print(hbond_id)
             hbond_energy = float(dssp[dssp_keys[i]][col+1])
             # print(hbond_energy)
+            # if (i+hbond_id) not in range(0, chain_len):
+                # print([i, i+hbond_id])
             if (hbond_energy <= threshold) and (hbond_id != 0) and ([i, i+hbond_id] not in edge_list) and ((i+hbond_id) in range(0, chain_len)):
                 edge_list.append([i, i+hbond_id])
                 edge_list.append([i+hbond_id, i])
@@ -254,46 +256,41 @@ def process_pdb_dataset(dataset_dir, pickle_dir):
 
 # process_pdb_dataset(dataset_dir=dataset_dir)
 
+# pdb_file = '1NWZ_A.pdb'
+# pdb_file_CA ='1NWZ_A_CA_noHET.pdb'
+# data = pdb_to_data(pdb_file=pdb_file)
+# print(data.pos[0].tolist())
 
-pdb_file='1NWZ_A.pdb'
-data = pdb_to_data(pdb_file=pdb_file)
-set_working_dir('D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils')
 
-def update_pdb_info(data, pdb_file, save_dir):
+# set_working_dir('D:\文件\北大\github\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils')
+
+def update_pdb_info(data, pdb_file, save_dir=os.getcwd()):
     """
     update position information of the original pdb file 
     preprocessed with pdb-tools http://www.bonvinlab.org/pdb-tools/, CA selected and HETATM removed
     """
-    with open(pdb_file, 'r') as pdb_file:
-        pass
+    set_working_dir(save_dir)
+
+
+    with open(f'%s_new.pdb' % pdb_file[:-4], 'w') as new_pdb_file:
+        with open(pdb_file, 'r') as pdb_file:
+            while True:
+                line = pdb_file.readline()
+                if not line:
+                    break
+                elif line.split()[0] != 'ATOM':
+                    new_pdb_file.write(line)
+                else:
+                    [x, y, z] = [format(coord, '.3f') for coord in data.pos[int(line.split()[5])-1].tolist()]
+                    new_pdb_file.write(line[:30]
+                        + ' ' * (8-len(str(x))) + str(x) 
+                        + ' ' * (8-len(str(y))) + str(y)
+                        + ' ' * (8-len(str(z))) + str(z)
+                        + line[54:])
 
 
 
-
-    """
-    p = PDBParser(PERMISSIVE=1)
-    model = p.get_structure(pdb_file[:4], pdb_file)[0]
-    chain = model[pdb_file[5]]
-
-    i = 0
-
-    for res in chain:
-        for atom in res:
-            try:
-                atom.set_coord(data.pos[i].tolist())
-                anum = atom.get_serial_number()
-                atom.set_serial_number(int(anum))
-                i += 1
-            except IndexError:
-                pass
-            
-
-    io = PDBIO()
-    io.set_structure(chain)
-    io.save('%s_new.pdb' % pdb_file[:6])
-    """
-
-# update_pdb_info(data, pdb_file)
+# update_pdb_info(data, pdb_file_CA)
 
 
 def gen_perturb(data):
@@ -302,3 +299,4 @@ def gen_perturb(data):
     """
     
     return data
+    
