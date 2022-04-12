@@ -18,6 +18,7 @@ def gen_perturb(data, sigma):
     perturb given protein structure with gaussian noise
     """
     pos_init = data.pos
-    d = torch_utils.get_d_from_pos(pos, data.edge_index).unsqueeze(-1) # (num_edge, 1)
+    d = torch_utils.get_d_from_pos(pos_init, data.edge_index).unsqueeze(-1) # (num_edge, 1)
+    
 
     return data
