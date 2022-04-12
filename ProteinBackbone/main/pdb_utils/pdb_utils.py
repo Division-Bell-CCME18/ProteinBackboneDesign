@@ -291,12 +291,3 @@ def update_pdb_info(data, pdb_file, save_dir=os.getcwd()):
 
 
 # update_pdb_info(data, pdb_file_CA)
-
-
-def gen_perturb(data):
-    """
-    perturb given protein structure with gaussian noise
-    """
-    
-    return data
-    
