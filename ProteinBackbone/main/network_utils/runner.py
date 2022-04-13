@@ -277,7 +277,45 @@ class DefaultRunner(object):
         return pos_gen, d_recover.view(-1), data, pos_traj
 
 
+    def generate_samples_from_data(self, data, num_repeat=1, keep_traj=False):
+        """
+        generate optimized protein backbone structure from given data (ground-truth structure perturbed with gaussian noise)
+        """
+        
+        if keep_traj:
+            assert num_repeat == 1, "to generate the trajectory of conformations, you must set num_repeat to 1"
+        
 
+        return_data = copy.deepcopy(data)
+        batch = torch_utils.repeat_data(data, num_repeat).to(self.device)
+
+        _, _, batch, pos_traj = self.ConfGF_generator(batch, self.config.test.gen) # (sigams, 100, num_node, 3)
+
+        batch = batch.to('cpu').to_data_list()
+        pos_traj = pos_traj.view(-1, 3).to('cpu')
+        pos_traj_step = pos_traj.size(0) // return_data.num_nodes
+
+
+        all_pos = []
+        for i in range(len(batch)):
+            all_pos.append(batch[i].pos_gen)
+        return_data.pos_gen = torch.cat(all_pos, 0) # (num_repeat * num_node, 3)
+        return_data.num_pos_gen = torch.tensor([len(all_pos)], dtype=torch.long)
+
+        if keep_traj:
+            return_data.pos_traj = pos_traj
+            return_data.num_pos_traj = torch.tensor([pos_traj_step], dtype=torch.long)
+
+
+        print('pos generation of %s done' % return_data.y) 
+
+
+        return return_data
+
+
+
+
+    """
     def generate_samples_from_testset(self, start, end, generator, num_repeat=None, out_path=None):
         
         test_set = self.test_set
@@ -321,4 +359,6 @@ class DefaultRunner(object):
 
         return all_data_list
 
+        """
+        
 

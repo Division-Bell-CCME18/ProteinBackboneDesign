@@ -14,7 +14,7 @@ from Bio.PDB import PDBParser, PDBIO, DSSP, NeighborSearch
 from Bio.PDB.Selection import unfold_entities
 
 
-# dir = 'D:\文件\北大\github\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
+# dir = 'D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
 # pdb_file = '1NWZ_A.pdb'
 
 
@@ -262,9 +262,9 @@ def process_pdb_dataset(dataset_dir, pickle_dir):
 # print(data.pos[0].tolist())
 
 
-# set_working_dir('D:\文件\北大\github\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils')
+# set_working_dir('D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils')
 
-def update_pdb_info(data, pdb_file, save_dir=os.getcwd()):
+def update_pdb_info(data, pdb_file, save_dir=os.getcwd(), suffix='new'):
     """
     update position information of the original pdb file 
     preprocessed with pdb-tools http://www.bonvinlab.org/pdb-tools/, CA selected and HETATM removed
@@ -272,7 +272,7 @@ def update_pdb_info(data, pdb_file, save_dir=os.getcwd()):
     set_working_dir(save_dir)
 
 
-    with open(f'%s_new.pdb' % pdb_file[:-4], 'w') as new_pdb_file:
+    with open(f'%s_%s.pdb' % (pdb_file[:-4], suffix), 'w') as new_pdb_file:
         with open(pdb_file, 'r') as pdb_file:
             while True:
                 line = pdb_file.readline()
@@ -291,3 +291,29 @@ def update_pdb_info(data, pdb_file, save_dir=os.getcwd()):
 
 
 # update_pdb_info(data, pdb_file_CA)
+
+# dir = 'D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
+# os.chdir(dir)
+# pdb_file = '1NWZ_A.pdb'
+
+# data = pdb_to_data(pdb_file=pdb_file)
+
+def gen_perturb(data, sigma_perturb=1.0, sigma_end=0.01):
+    """
+    perturb given protein structure with gaussian noise
+    """
+    pos_init = data.pos
+
+    step_size = 0.00002 * (sigma_perturb / torch.tensor(sigma_end)) ** 2
+    noise = torch.randn_like(pos_init) * torch.sqrt(step_size * 2)
+
+    pos = pos_init + noise
+    data.pos = pos
+
+    return data
+
+
+# new_data = gen_perturb(data)
+# update_pdb_info(new_data, '1NWZ_A_CA_noHET.pdb')
+
+

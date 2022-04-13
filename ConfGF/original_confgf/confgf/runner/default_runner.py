@@ -254,7 +254,7 @@ class DefaultRunner(object):
                 pos = pos + step_size * score_pos + noise # (num_node, 3)
                 pos_vecs.append(pos)
 
-        pos_vecs = torch.stack(pos_vecs, dim=0).view(cnt_sigma, n_steps_each, -1, 3) # (sigams, 100, num_node, 3)
+        pos_vecs = torch.stack(pos_vecs, dim=0).view(cnt_sigma, n_steps_each, -1, 3) # (sigmas, 100, num_node, 3)
         
         return data, pos_vecs
 
