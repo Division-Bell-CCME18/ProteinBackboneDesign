@@ -1,7 +1,7 @@
 train:
-  batch_size: 128
+  batch_size: 64
   seed: 2022
-  epochs: 50  
+  epochs: 500 
   shuffle: true
   resume_train: false
   eval: true
@@ -13,7 +13,7 @@ train:
     - null
   anneal_power: 2.0
   save: true
-  save_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run2/train
+  save_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run1/train
   resume_checkpoint: null
   resume_epoch: null
   log_interval: 400
@@ -24,15 +24,15 @@ train:
     dropout: 0.0
   scheduler:
     type: plateau
-    factor: 0.6
-    # factor: 0.95
+    # factor: 0.6
+    factor: 0.95
     patience: 10
     min_lr: 1e-4
     
 
 test:
-  init_checkpoint: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run2/train/pdb_default
-  output_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run2/test
+  init_checkpoint: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run1/train/pdb_default
+  output_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run1/test
   epoch: 283
   gen:
     dg_step_size: 3.0
@@ -47,19 +47,19 @@ test:
 
 
 data:
-  base_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/no_rand
+  base_path: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/hbond+2
   dataset: pdb
-  train_set: pdb_dataset_train_no_rand.pkl
-  val_set: pdb_dataset_val_no_rand.pkl
-  test_set: pdb_dataset_test_no_rand.pkl
+  train_set: pdb_dataset_train.pkl
+  val_set: pdb_dataset_val.pkl
+  test_set: pdb_dataset_test.pkl
 
   
 model:
   name: pdb_default
   hidden_dim: 256
   num_convs: 4
-  sigma_begin: 10
-  sigma_end: 0.01
+  sigma_begin: 1
+  sigma_end: 0.001
   num_noise_level: 50
   order: 3
   mlp_act: relu
