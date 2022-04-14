@@ -33,14 +33,14 @@ train:
 test:
   init_checkpoint: D:\ProteinBackboneDesign\ProteinBackbone\test_run\Run1\train\pdb_default
   output_path: D:\ProteinBackboneDesign\ProteinBackbone\test_run\Run1\test
-  epoch: 50
+  epoch: 2098
   gen:
     dg_step_size: 3.0
-    dg_num_steps: 1000  
+    dg_num_steps: 1000
     steps_d: 100
     step_lr_d: 0.000002
-    steps_pos: 100
-    step_lr_pos: 0.0000024
+    steps_pos: 1000
+    step_lr_pos: 0.000000000024
     clip: 1000
     min_sigma: 0.0
     verbose: 1
@@ -57,7 +57,7 @@ model:
   name: pdb_default
   hidden_dim: 256
   num_convs: 4
-  sigma_begin: 10
+  sigma_begin: 0.1
   sigma_end: 0.01
   num_noise_level: 50
   order: 3

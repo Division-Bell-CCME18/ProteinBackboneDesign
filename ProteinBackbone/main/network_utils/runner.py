@@ -9,7 +9,7 @@ import torch
 from torch_geometric.data import DataLoader
 from torch_scatter import scatter_add
 
-from . import torch_utils
+from . import torch_utils, distgeom
 
 
 class DefaultRunner(object):
@@ -27,7 +27,7 @@ class DefaultRunner(object):
         self._optimizer = optimizer
         self._scheduler = scheduler
 
-        self.best_loss = 10
+        self.best_loss = 80
         self.start_epoch = 0
 
         if self.device.type == 'cuda':
@@ -240,7 +240,7 @@ class DefaultRunner(object):
             cnt_sigma += 1            
             step_size = step_lr * (sigma / sigmas[-1]) ** 2
             for step in range(n_steps_each):
-                d = torch_utils.get_d_from_pos(pos, data.edge_index).unsqueeze(-1) # (num_edge, 1)
+                d = distgeom.get_d_from_pos(pos, data.edge_index).unsqueeze(-1) # (num_edge, 1)
 
                 noise = torch.randn_like(pos) * torch.sqrt(step_size * 2)
                 score_d = scorenet.get_score(data, d, sigma) # (num_edge, 1)
@@ -264,13 +264,14 @@ class DefaultRunner(object):
         """
 
         if pos_init is None:
-            pos_init = torch.randn(data.num_nodes, 3).to(data.pos)
+            # pos_init = torch.randn(data.num_nodes, 3).to(data.pos)
+            pos_init = data.pos
         data, pos_traj = self.position_Langevin_Dynamics(data, pos_init, self._model, self._model.sigmas.data.clone(), \
                                             n_steps_each=config.steps_pos, step_lr=config.step_lr_pos, \
                                             clip=config.clip, min_sigma=config.min_sigma)
         pos_gen = pos_traj[-1, -1] #(num_node, 3) fetch the lastest pos
 
-        d_recover = torch_utils.get_d_from_pos(pos_gen, data.edge_index) # (num_edges)
+        d_recover = distgeom.get_d_from_pos(pos_gen, data.edge_index) # (num_edges)
 
         data.pos_gen = pos_gen.to(data.pos)
         data.d_recover = d_recover.view(-1, 1).to(data.edge_length)
@@ -289,7 +290,7 @@ class DefaultRunner(object):
         return_data = copy.deepcopy(data)
         batch = torch_utils.repeat_data(data, num_repeat).to(self.device)
 
-        _, _, batch, pos_traj = self.ConfGF_generator(batch, self.config.test.gen) # (sigams, 100, num_node, 3)
+        _, _, batch, pos_traj = self.ConfGF_generator(batch, self.config.test.gen) # (sigmas, 100, num_node, 3)
 
         batch = batch.to('cpu').to_data_list()
         pos_traj = pos_traj.view(-1, 3).to('cpu')
@@ -335,7 +336,7 @@ class DefaultRunner(object):
             if generator == 'ConfGF':
                 _, _, batch, _ = self.ConfGF_generator(batch, self.config.test.gen)
             elif generator == 'ConfGFDist':
-                embedder = torch_utils.Embed3D(step_size=self.config.test.gen.dg_step_size, \
+                embedder = distgeom.Embed3D(step_size=self.config.test.gen.dg_step_size, \
                                          num_steps=self.config.test.gen.dg_num_steps, \
                                          verbose=self.config.test.gen.verbose)
                 _, _, batch, _ = self.ConfGFDist_generator(batch, self.config.test.gen, embedder)
