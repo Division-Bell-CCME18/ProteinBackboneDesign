@@ -15,7 +15,7 @@ from Bio.PDB.Selection import unfold_entities
 
 
 # dir = 'D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
-# pdb_file = '1NWZ_A.pdb'
+# pdb_file = '1OJH_A.pdb'
 
 
 def set_working_dir(dir):
@@ -41,6 +41,8 @@ def pdb_to_data(pdb_file):
     dssp = DSSP(model, pdb_file)
     dssp_keys = list(dssp.keys())
 
+    # print(dssp_keys)
+
 
     chain_len = 0
     pos_list = []
@@ -48,13 +50,12 @@ def pdb_to_data(pdb_file):
 
 
     for res in chain.get_residues():
+        # print(res.id)
         if res.id[0] == ' ':
             chain_len += 1
 
             # 1. obtain secondary structure type
             ss_type = dssp[dssp_keys[chain_len-1]][2]
-
-            # print(dssp[dssp_keys[chain_len-1]][6:])
             
             if ss_type == 'H':
                 ss_list.append(0)
@@ -68,6 +69,12 @@ def pdb_to_data(pdb_file):
             atom_CA = res['CA']
             pos_list.append(list(atom_CA.coord))
 
+    # print(chain_len)
+
+    # avoid residue missing in the middle of the sequence (see 1G3J_B.pdb)
+    # also exclude situations like 1OJH_A.pdb ('H_MSE', 25, ' ') 
+    if chain_len != dssp_keys[-1][1][1] - dssp_keys[0][1][1] + 1:
+        raise IndexError('residue index mislabeled!')
 
     # 3. construct edges
     edge_list = []
@@ -80,11 +87,8 @@ def pdb_to_data(pdb_file):
     for i in range(0, chain_len):
         for col in [6, 8, 10, 12]:
             hbond_id = int(dssp[dssp_keys[i]][col])
-            # print(hbond_id)
             hbond_energy = float(dssp[dssp_keys[i]][col+1])
-            # print(hbond_energy)
-            # if (i+hbond_id) not in range(0, chain_len):
-                # print([i, i+hbond_id])
+         
             if (hbond_energy <= threshold) and (hbond_id != 0) and ([i, i+hbond_id] not in edge_list) and ((i+hbond_id) in range(0, chain_len)):
                 edge_list.append([i, i+hbond_id])
                 edge_list.append([i+hbond_id, i])
@@ -92,7 +96,6 @@ def pdb_to_data(pdb_file):
                 # print([i, i+hbond_id])
 
     
-
 
     # ii) sequence-based neighbors 
     # 2^m sequence separation
@@ -168,7 +171,11 @@ def pdb_to_data(pdb_file):
     
 
 # pdb_to_data(pdb_file)
-
+# print(pdb_to_data(pdb_file))
+# print(pdb_to_data(pdb_file).x)
+# print(pdb_to_data(pdb_file).edge_index)
+# print(pdb_to_data(pdb_file).edge_type)
+# print(pdb_to_data(pdb_file).pos)
 
 
 # dataset_dir = 'D:\ProteinBackboneDesign\Dataset\PDBDataset_test'
@@ -274,6 +281,7 @@ def update_pdb_info(data, pdb_file, save_dir=os.getcwd(), suffix='new'):
 
     with open(f'%s_%s.pdb' % (pdb_file[:-4], suffix), 'w') as new_pdb_file:
         with open(pdb_file, 'r') as pdb_file:
+            res_list = []
             while True:
                 line = pdb_file.readline()
                 if not line:
@@ -281,7 +289,9 @@ def update_pdb_info(data, pdb_file, save_dir=os.getcwd(), suffix='new'):
                 elif line.split()[0] != 'ATOM':
                     new_pdb_file.write(line)
                 else:
-                    [x, y, z] = [format(coord, '.3f') for coord in data.pos[int(line.split()[5])-1].tolist()]
+                    res_id = int(line.split()[5])
+                    res_list.append(res_id)
+                    [x, y, z] = [format(coord, '.3f') for coord in data.pos[res_id-res_list[0]].tolist()]
                     new_pdb_file.write(line[:30]
                         + ' ' * (8-len(str(x))) + str(x) 
                         + ' ' * (8-len(str(y))) + str(y)

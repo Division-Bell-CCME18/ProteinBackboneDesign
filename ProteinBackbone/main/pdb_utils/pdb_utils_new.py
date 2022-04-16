@@ -14,8 +14,8 @@ from Bio.PDB import PDBParser, PDBIO, DSSP, NeighborSearch
 from Bio.PDB.Selection import unfold_entities
 
 
-# dir = 'D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
-# pdb_file = '1NWZ_A.pdb'
+dir = 'D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
+pdb_file = '1G3J_B.pdb'
 
 
 def set_working_dir(dir):
@@ -27,7 +27,7 @@ def set_working_dir(dir):
     )
 
 
-# set_working_dir(dir)
+set_working_dir(dir)
 
 
 def pdb_to_data(pdb_file):
@@ -54,7 +54,7 @@ def pdb_to_data(pdb_file):
             # 1. obtain secondary structure type
             ss_type = dssp[dssp_keys[chain_len-1]][2]
 
-            # print(dssp[dssp_keys[chain_len-1]][6:])
+            print(dssp_keys)
             
             if ss_type == 'H':
                 ss_list.append(0)
@@ -166,8 +166,11 @@ def pdb_to_data(pdb_file):
 
     return data
     
-
-# pdb_to_data(pdb_file)
+print(pdb_to_data(pdb_file))
+print(pdb_to_data(pdb_file).x)
+print(pdb_to_data(pdb_file).edge_index)
+print(pdb_to_data(pdb_file).edge_type)
+print(pdb_to_data(pdb_file).pos)
 
 
 
