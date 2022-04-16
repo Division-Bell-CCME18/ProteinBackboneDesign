@@ -14,8 +14,8 @@ from Bio.PDB import PDBParser, PDBIO, DSSP, NeighborSearch
 from Bio.PDB.Selection import unfold_entities
 
 
-dir = 'D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
-pdb_file = '1G3J_B.pdb'
+# dir = 'D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
+# pdb_file = '1NWZ_A.pdb'
 
 
 def set_working_dir(dir):
@@ -27,7 +27,7 @@ def set_working_dir(dir):
     )
 
 
-set_working_dir(dir)
+# set_working_dir(dir)
 
 
 def pdb_to_data(pdb_file):
@@ -41,6 +41,8 @@ def pdb_to_data(pdb_file):
     dssp = DSSP(model, pdb_file)
     dssp_keys = list(dssp.keys())
 
+    # print(dssp_keys)
+
 
     chain_len = 0
     pos_list = []
@@ -48,26 +50,36 @@ def pdb_to_data(pdb_file):
 
 
     for res in chain.get_residues():
+        # print(res.id)
         if res.id[0] == ' ':
             chain_len += 1
 
             # 1. obtain secondary structure type
-            ss_type = dssp[dssp_keys[chain_len-1]][2]
+            # main chain atom \ ss_type     helix       strand      coil         n
+            # N                               0            3          6          3n
+            # C-alpha                         1            4          7          3n+1
+            # C-beta                          2            5          8          3n+2
 
-            print(dssp_keys)
+            ss_type = dssp[dssp_keys[chain_len-1]][2]
             
             if ss_type == 'H':
-                ss_list.append(0)
+                ss_list += [0, 1, 2]
             elif ss_type == 'E':
-                ss_list.append(1)
+                ss_list += [3, 4, 5]
             else:
-                ss_list.append(2)
+                ss_list += [6, 7, 8]
 
 
             # 2. obtain C-alpha position
-            atom_CA = res['CA']
-            pos_list.append(list(atom_CA.coord))
+            [atom_N, atom_CA, atom_C] = [res['N'], res['CA'], res['C']]
+            pos_list += [list(atom_N.coord), list(atom_CA.coord), list(atom_C.coord)]
 
+    # print(chain_len)
+
+    # avoid residue missing in the middle of the sequence (see 1G3J_B.pdb)
+    # also exclude situations like 1OJH_A.pdb ('H_MSE', 25, ' ') 
+    if chain_len != dssp_keys[-1][1][1] - dssp_keys[0][1][1] + 1:
+        raise IndexError('residue index mislabeled!')
 
     # 3. construct edges
     edge_list = []
@@ -80,11 +92,8 @@ def pdb_to_data(pdb_file):
     for i in range(0, chain_len):
         for col in [6, 8, 10, 12]:
             hbond_id = int(dssp[dssp_keys[i]][col])
-            # print(hbond_id)
             hbond_energy = float(dssp[dssp_keys[i]][col+1])
-            # print(hbond_energy)
-            # if (i+hbond_id) not in range(0, chain_len):
-                # print([i, i+hbond_id])
+         
             if (hbond_energy <= threshold) and (hbond_id != 0) and ([i, i+hbond_id] not in edge_list) and ((i+hbond_id) in range(0, chain_len)):
                 edge_list.append([i, i+hbond_id])
                 edge_list.append([i+hbond_id, i])
@@ -93,20 +102,33 @@ def pdb_to_data(pdb_file):
 
     
 
-
     # ii) sequence-based neighbors 
     # 2^m sequence separation
-    for i in range(0, chain_len):
-        for j in range(i, chain_len):
+    for i in range(0, chain_len*3):
+        for j in range(i, chain_len*3):
             # if ((j-i) & (j-i-1) == 0) and ([i, j] not in edge_list):
-            if ((j-i) == 1) and ([i, j] not in edge_list):
-                edge_list.append([i, j])
-                edge_list.append([j, i])
-                edge_type += 2 * [1]
-            elif ((j-i) == 2) and ([i, j] not in edge_list):
-                edge_list.append([i, j])
-                edge_list.append([j, i])
-                edge_type += 2 * [2]
+            if (j-i) == 1:
+                if i % 3 == 0: # N-CA
+                    edge_list.append([i, j])
+                    edge_list.append([j, i])
+                    edge_type += 2 * [1]
+                elif i % 3 == 1: # CA-C
+                    edge_list.append([i, j])
+                    edge_list.append([j, i])
+                    edge_type += 2 * [2]
+                elif i % 3 == 2: # C-N
+                    edge_list.append([i, j])
+                    edge_list.append([j, i])
+                    edge_type += 2 * [3]
+
+            # if ((j-i) == 1) and ([i, j] not in edge_list):
+                # edge_list.append([i, j])
+                # edge_list.append([j, i])
+                # edge_type += 2 * [1]
+            # elif ((j-i) == 2) and ([i, j] not in edge_list):
+                # edge_list.append([i, j])
+                # edge_list.append([j, i])
+                # edge_type += 2 * [2]
             # elif ((j-i) == 3) and ([i, j] not in edge_list):
                 # edge_list.append([i, j])
                 # edge_list.append([j, i])
@@ -166,12 +188,13 @@ def pdb_to_data(pdb_file):
 
     return data
     
-print(pdb_to_data(pdb_file))
-print(pdb_to_data(pdb_file).x)
-print(pdb_to_data(pdb_file).edge_index)
-print(pdb_to_data(pdb_file).edge_type)
-print(pdb_to_data(pdb_file).pos)
 
+# pdb_to_data(pdb_file)
+# print(pdb_to_data(pdb_file))
+# print(pdb_to_data(pdb_file).x)
+# print(pdb_to_data(pdb_file).edge_index)
+# print(pdb_to_data(pdb_file).edge_type)
+# print(pdb_to_data(pdb_file).pos)
 
 
 # dataset_dir = 'D:\ProteinBackboneDesign\Dataset\PDBDataset_test'
@@ -277,6 +300,7 @@ def update_pdb_info(data, pdb_file, save_dir=os.getcwd(), suffix='new'):
 
     with open(f'%s_%s.pdb' % (pdb_file[:-4], suffix), 'w') as new_pdb_file:
         with open(pdb_file, 'r') as pdb_file:
+            res_list = []
             while True:
                 line = pdb_file.readline()
                 if not line:
@@ -284,7 +308,9 @@ def update_pdb_info(data, pdb_file, save_dir=os.getcwd(), suffix='new'):
                 elif line.split()[0] != 'ATOM':
                     new_pdb_file.write(line)
                 else:
-                    [x, y, z] = [format(coord, '.3f') for coord in data.pos[int(line.split()[5])-1].tolist()]
+                    res_id = int(line.split()[5])
+                    res_list.append(res_id)
+                    [x, y, z] = [format(coord, '.3f') for coord in data.pos[res_id-res_list[0]].tolist()]
                     new_pdb_file.write(line[:30]
                         + ' ' * (8-len(str(x))) + str(x) 
                         + ' ' * (8-len(str(y))) + str(y)
