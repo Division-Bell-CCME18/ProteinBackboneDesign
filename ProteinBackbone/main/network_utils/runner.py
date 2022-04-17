@@ -254,7 +254,7 @@ class DefaultRunner(object):
         
         return data, pos_vecs
 
-    def ConfGF_generator(self, data, config, pos_init=None):
+    def ConfGF_generator(self, data, config, pos_init=None, steps_pos=None):
 
         """
         The ConfGF generator that generates conformations using the score of atomic coordinates
@@ -266,8 +266,10 @@ class DefaultRunner(object):
         if pos_init is None:
             # pos_init = torch.randn(data.num_nodes, 3).to(data.pos)
             pos_init = data.pos
+        if steps_pos is None:
+            steps_pos = config.steps_pos
         data, pos_traj = self.position_Langevin_Dynamics(data, pos_init, self._model, self._model.sigmas.data.clone(), \
-                                            n_steps_each=config.steps_pos, step_lr=config.step_lr_pos, \
+                                            n_steps_each=steps_pos, step_lr=config.step_lr_pos, \
                                             clip=config.clip, min_sigma=config.min_sigma)
         pos_gen = pos_traj[-1, -1] #(num_node, 3) fetch the lastest pos
 
@@ -278,7 +280,7 @@ class DefaultRunner(object):
         return pos_gen, d_recover.view(-1), data, pos_traj
 
 
-    def generate_samples_from_data(self, data, num_repeat=1, keep_traj=False):
+    def generate_samples_from_data(self, data, num_repeat=1, keep_traj=False, steps_pos=None):
         """
         generate optimized protein backbone structure from given data (ground-truth structure perturbed with gaussian noise)
         """
@@ -290,7 +292,7 @@ class DefaultRunner(object):
         return_data = copy.deepcopy(data)
         batch = torch_utils.repeat_data(data, num_repeat).to(self.device)
 
-        _, _, batch, pos_traj = self.ConfGF_generator(batch, self.config.test.gen) # (sigmas, 100, num_node, 3)
+        _, _, batch, pos_traj = self.ConfGF_generator(batch, self.config.test.gen, steps_pos=steps_pos) # (sigmas, 100, num_node, 3)
 
         batch = batch.to('cpu').to_data_list()
         pos_traj = pos_traj.view(-1, 3).to('cpu')

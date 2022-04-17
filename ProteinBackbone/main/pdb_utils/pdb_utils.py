@@ -12,10 +12,11 @@ from torch_geometric.data import Data
 
 from Bio.PDB import PDBParser, PDBIO, DSSP, NeighborSearch
 from Bio.PDB.Selection import unfold_entities
+from Bio.PDB.Polypeptide import is_aa
 
 
 # dir = 'D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
-# pdb_file = '1OJH_A.pdb'
+# pdb_file = '1NWZ_A.pdb'
 
 
 def set_working_dir(dir):
@@ -51,7 +52,8 @@ def pdb_to_data(pdb_file):
 
     for res in chain.get_residues():
         # print(res.id)
-        if res.id[0] == ' ':
+        # also include situations like 1OJH_A.pdb ('H_MSE', 25, ' ') 
+        if is_aa(res):
             chain_len += 1
 
             # 1. obtain secondary structure type
@@ -72,7 +74,6 @@ def pdb_to_data(pdb_file):
     # print(chain_len)
 
     # avoid residue missing in the middle of the sequence (see 1G3J_B.pdb)
-    # also exclude situations like 1OJH_A.pdb ('H_MSE', 25, ' ') 
     if chain_len != dssp_keys[-1][1][1] - dssp_keys[0][1][1] + 1:
         raise IndexError('residue index mislabeled!')
 
