@@ -1,0 +1,13 @@
+Let's use 1 GPUs!
+Using device cuda:0 as main device
+{'train': {'batch_size': 16, 'seed': 2022, 'epochs': 2500, 'shuffle': True, 'resume_train': False, 'eval': True, 'num_workers': 0, 'gpus': [0], 'anneal_power': 2.0, 'save': True, 'save_path': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\test_run\\Run1\\train', 'resume_checkpoint': None, 'resume_epoch': None, 'log_interval': 400, 'optimizer': {'type': 'Adam', 'lr': 0.001, 'weight_decay': 0.0, 'dropout': 0.0}, 'scheduler': {'type': 'plateau', 'factor': 0.95, 'patience': 10, 'min_lr': '1e-4'}, 'device': device(type='cuda', index=0)}, 'test': {'init_checkpoint': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\test_run\\4-17\\fix_hbond+2', 'output_path': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\test_run\\Run1\\test\\pdb_default', 'epoch': 393, 'gen': {'dg_step_size': 3.0, 'dg_num_steps': 1000, 'steps_d': 100, 'step_lr_d': 2e-06, 'steps_pos': 5000, 'step_lr_pos': 2.4e-11, 'clip': 1000, 'min_sigma': 0.0, 'verbose': 1}}, 'data': {'base_path': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\pdb_dataset\\hbond+1+2', 'train_set': 'pdb_dataset_train.pkl', 'val_set': 'pdb_dataset_val.pkl', 'test_set': 'pdb_dataset_test.pkl'}, 'model': {'name': 'pdb_default', 'hidden_dim': 256, 'num_convs': 4, 'sigma_begin': 0.1, 'sigma_end': 0.01, 'num_noise_level': 50, 'order': 3, 'mlp_act': 'relu', 'gnn_act': 'relu', 'cutoff': 10.0, 'short_cut': True, 'concat_hidden': False, 'noise_type': 'symmetry', 'edge_encoder': 'mlp'}}
+set seed for random, numpy and torch
+optimization start!
+train size : 0  ||  val size: 0  ||  test size: 1
+loading pdb file (id: 1NWZ_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2 as test data...
+save perturbed protein backbone structure done! saved as 1NWZ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 1NWZ_A done
+1NWZ_A backbone structure optimization done! save as 1NWZ_A_tidy_opt.pdb
+optimization of 1 structures done!
