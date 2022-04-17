@@ -8,6 +8,7 @@ import yaml
 import random
 
 import numpy as np
+from pymol import cmd
 
 import torch
 from torch_geometric.data import Data, Dataset
@@ -154,6 +155,11 @@ if __name__ == '__main__':
         
 
     print('optimization of %d structures done!' % len(pdb_success))
+
+    # rmsd_list = []
+
+    # for pdb_id in pdb_success:
+        # cmd.align('')
 
 
     log_file.close()
