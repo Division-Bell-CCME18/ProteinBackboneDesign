@@ -1,0 +1,122 @@
+Let's use 1 GPUs!
+Using device cuda:0 as main device
+{'train': {'batch_size': 16, 'seed': 2022, 'epochs': 2500, 'shuffle': True, 'resume_train': False, 'eval': True, 'num_workers': 0, 'gpus': [0], 'anneal_power': 2.0, 'save': True, 'save_path': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\test_run\\Run1\\train', 'resume_checkpoint': None, 'resume_epoch': None, 'log_interval': 400, 'optimizer': {'type': 'Adam', 'lr': 0.001, 'weight_decay': 0.0, 'dropout': 0.0}, 'scheduler': {'type': 'plateau', 'factor': 0.95, 'patience': 10, 'min_lr': '1e-4'}, 'device': device(type='cuda', index=0)}, 'test': {'init_checkpoint': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\test_run\\4-17\\fix_hbond+2', 'output_path': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\test_run\\Run1\\test\\pdb_default', 'epoch': 393, 'gen': {'dg_step_size': 3.0, 'dg_num_steps': 1000, 'steps_d': 100, 'step_lr_d': 2e-06, 'steps_pos': 2000, 'step_lr_pos': 2.4e-11, 'clip': 1000, 'min_sigma': 0.0, 'verbose': 1}}, 'data': {'base_path': 'D:\\ProteinBackboneDesign\\ProteinBackbone\\pdb_dataset\\hbond+1+2', 'train_set': 'pdb_dataset_train.pkl', 'val_set': 'pdb_dataset_val.pkl', 'test_set': 'pdb_dataset_test.pkl'}, 'model': {'name': 'pdb_default', 'hidden_dim': 256, 'num_convs': 4, 'sigma_begin': 0.1, 'sigma_end': 0.01, 'num_noise_level': 50, 'order': 3, 'mlp_act': 'relu', 'gnn_act': 'relu', 'cutoff': 10.0, 'short_cut': True, 'concat_hidden': False, 'noise_type': 'symmetry', 'edge_encoder': 'mlp'}}
+set seed for random, numpy and torch 
+
+optimization start!
+train size : 0  ||  val size: 0  ||  test size: 10 
+
+loading pdb file (id: 1INP_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 1INP_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 1INP_A done
+1INP_A backbone structure optimization done! save as 1INP_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.553
+rmsd of optimized stucture and ground-truth structure is 93.315
+optimization of 1INP_A succeeded!
+
+loading pdb file (id: 1Y93_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 1Y93_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 1Y93_A done
+1Y93_A backbone structure optimization done! save as 1Y93_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.574
+rmsd of optimized stucture and ground-truth structure is 90.880
+optimization of 1Y93_A succeeded!
+
+loading pdb file (id: 2VE3_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 2VE3_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 2VE3_A done
+2VE3_A backbone structure optimization done! save as 2VE3_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.554
+rmsd of optimized stucture and ground-truth structure is 100.721
+optimization of 2VE3_A succeeded!
+
+loading pdb file (id: 3ZSJ_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 3ZSJ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 3ZSJ_A done
+3ZSJ_A backbone structure optimization done! save as 3ZSJ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.313
+rmsd of optimized stucture and ground-truth structure is 77.981
+optimization of 3ZSJ_A succeeded!
+
+loading pdb file (id: 4Q2L_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 4Q2L_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 4Q2L_A done
+4Q2L_A backbone structure optimization done! save as 4Q2L_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.115
+rmsd of optimized stucture and ground-truth structure is 75.297
+optimization of 4Q2L_A succeeded!
+
+loading pdb file (id: 5H5F_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 5H5F_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 5H5F_A done
+5H5F_A backbone structure optimization done! save as 5H5F_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.537
+rmsd of optimized stucture and ground-truth structure is 86.229
+optimization of 5H5F_A succeeded!
+
+loading pdb file (id: 5OVO_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 5OVO_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 5OVO_A done
+5OVO_A backbone structure optimization done! save as 5OVO_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.288
+rmsd of optimized stucture and ground-truth structure is 110.337
+optimization of 5OVO_A succeeded!
+
+loading pdb file (id: 5ZCT_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 5ZCT_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 5ZCT_A done
+5ZCT_A backbone structure optimization done! save as 5ZCT_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.176
+rmsd of optimized stucture and ground-truth structure is 78.118
+optimization of 5ZCT_A succeeded!
+
+loading pdb file (id: 6GCZ_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 6GCZ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 6GCZ_A done
+6GCZ_A backbone structure optimization done! save as 6GCZ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.528
+rmsd of optimized stucture and ground-truth structure is 99.617
+optimization of 6GCZ_A succeeded!
+
+loading pdb file (id: 6X1Z_A) from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-18\1-sigma\5.0 as test data...
+save perturbed protein backbone structure done! saved as 6X1Z_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from D:\ProteinBackboneDesign\ProteinBackbone\test_run\4-17\fix_hbond+2\checkpoint393
+pos generation of 6X1Z_A done
+6X1Z_A backbone structure optimization done! save as 6X1Z_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 5.590
+rmsd of optimized stucture and ground-truth structure is 90.157
+optimization of 6X1Z_A succeeded!
+
+optimization of 10 structures done!
+
+rmsd conclusion: 
+pdb_id: 1INP_A  |  rmsd(perturbed): 5.553  |  rmsd(optimized): 93.315  |  rmsd_change: -87.763
+pdb_id: 1Y93_A  |  rmsd(perturbed): 5.574  |  rmsd(optimized): 90.880  |  rmsd_change: -85.306
+pdb_id: 2VE3_A  |  rmsd(perturbed): 5.554  |  rmsd(optimized): 100.721  |  rmsd_change: -95.166
+pdb_id: 3ZSJ_A  |  rmsd(perturbed): 5.313  |  rmsd(optimized): 77.981  |  rmsd_change: -72.668
+pdb_id: 4Q2L_A  |  rmsd(perturbed): 5.115  |  rmsd(optimized): 75.297  |  rmsd_change: -70.181
+pdb_id: 5H5F_A  |  rmsd(perturbed): 5.537  |  rmsd(optimized): 86.229  |  rmsd_change: -80.692
+pdb_id: 5OVO_A  |  rmsd(perturbed): 5.288  |  rmsd(optimized): 110.337  |  rmsd_change: -105.050
+pdb_id: 5ZCT_A  |  rmsd(perturbed): 5.176  |  rmsd(optimized): 78.118  |  rmsd_change: -72.942
+pdb_id: 6GCZ_A  |  rmsd(perturbed): 5.528  |  rmsd(optimized): 99.617  |  rmsd_change: -94.089
+pdb_id: 6X1Z_A  |  rmsd(perturbed): 5.590  |  rmsd(optimized): 90.157  |  rmsd_change: -84.567
+mean rmsd_change: -84.842
