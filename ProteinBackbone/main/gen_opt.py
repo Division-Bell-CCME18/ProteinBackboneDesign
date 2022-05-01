@@ -26,7 +26,7 @@ if __name__ == '__main__':
     parser.add_argument('--seed', type=int, default=2022)
     parser.add_argument('--working_dir', type=str, default=os.getcwd())
     parser.add_argument('--pdb_id', type=str, default='all')
-    parser.add_argument('--sigma_perturb', type=float, default=2.0)
+    parser.add_argument('--sigma_perturb', type=float, default=0.2)
     parser.add_argument('--steps_pos', type=int, default=None)
 
     args = parser.parse_args()
@@ -145,8 +145,9 @@ if __name__ == '__main__':
 
     print('optimization start!')
 
-    rmsd_list = []
-    rmsd_change_cnt = 0
+    perturb_rmsd_list = []
+    opt_rmsd_list = []
+    rmsd_change_list = []
 
     if args.pdb_id != 'all':
         print('train size : 0  ||  val size: 0  ||  test size: 1 \n')
@@ -154,7 +155,9 @@ if __name__ == '__main__':
         try:
             perturb_rmsd, opt_rmsd = gen_opt(pdb_id=args.pdb_id, working_dir=args.working_dir, sigma_perturb=args.sigma_perturb, config=config, steps_pos=args.steps_pos)
             pdb_success.append(args.pdb_id)
-            rmsd_list.append((perturb_rmsd, opt_rmsd, perturb_rmsd-opt_rmsd))
+            perturb_rmsd_list.append(perturb_rmsd)
+            opt_rmsd_list.append(opt_rmsd)
+            rmsd_change_list.append(perturb_rmsd-opt_rmsd)
             print('optimization of %s succeeded!\n' % args.pdb_id)
         except:
             print('optimization of %s failed!\n' % args.pdb_id)
@@ -169,7 +172,9 @@ if __name__ == '__main__':
             try:
                 perturb_rmsd, opt_rmsd = gen_opt(pdb_id=pdb_id, working_dir=args.working_dir, sigma_perturb=args.sigma_perturb, config=config, steps_pos=args.steps_pos)
                 pdb_success.append(pdb_id)
-                rmsd_list.append((perturb_rmsd, opt_rmsd, perturb_rmsd-opt_rmsd))
+                perturb_rmsd_list.append(perturb_rmsd)
+                opt_rmsd_list.append(opt_rmsd)
+                rmsd_change_list.append(perturb_rmsd-opt_rmsd)
                 print('optimization of %s succeeded!\n' % pdb_id)
             except:
                 print('optimization of %s failed!\n' % pdb_id)
@@ -179,9 +184,11 @@ if __name__ == '__main__':
 
     print('rmsd conclusion: ')
     for i in range(0, len(pdb_success)):
-        print('pdb_id: %s  |  rmsd(perturbed): %.3f  |  rmsd(optimized): %.3f  |  rmsd_change: %.3f' % (pdb_success[i], rmsd_list[i][0], rmsd_list[i][1], rmsd_list[i][2]))
-        rmsd_change_cnt += rmsd_list[i][2]
-    print('mean rmsd_change: %.3f' % (rmsd_change_cnt / len(pdb_success)))
+        print('pdb_id: %s  |  rmsd(perturbed): %.3f  |  rmsd(optimized): %.3f  |  rmsd_change: %.3f' % (pdb_success[i], perturb_rmsd_list[i], opt_rmsd_list[i], rmsd_change_list[i]))
+    print('mean rmsd(perturbed): %.3f ± %.3f' % (np.mean(perturb_rmsd_list), np.std(perturb_rmsd_list, ddof=1)))
+    print('mean rmsd(optimized): %.3f ± %.3f' % (np.mean(opt_rmsd_list), np.std(opt_rmsd_list, ddof=1)))
+    print('mean rmsd_change: %.3f ± %.3f' % (np.mean(rmsd_change_list), np.std(rmsd_change_list, ddof=1)))
+
 
     log_file.close()
 

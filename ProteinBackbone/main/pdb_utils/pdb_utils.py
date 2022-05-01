@@ -83,14 +83,16 @@ def pdb_to_data(pdb_file):
 
     
     # i) hydrogen-bond-based neighbors
-    threshold = -0.6
+    threshold = -0.5
 
     for i in range(0, chain_len):
         for col in [6, 8, 10, 12]:
             hbond_id = int(dssp[dssp_keys[i]][col])
             hbond_energy = float(dssp[dssp_keys[i]][col+1])
-         
-            if (hbond_energy <= threshold) and (hbond_id != 0) and ([i, i+hbond_id] not in edge_list) and ((i+hbond_id) in range(0, chain_len)):
+            
+            # only preserve alpha-alpha, alpha-beta, beta-beta
+            if (hbond_energy <= threshold) and (hbond_id != 0) and ([i, i+hbond_id] not in edge_list) and ((i+hbond_id) in range(0, chain_len)) and (dssp[dssp_keys[i]][2] in ['H', 'E']) and (dssp[dssp_keys[i+hbond_id]][2] in ['H', 'E']):
+                # print(dssp[dssp_keys[i]][2], dssp[dssp_keys[i+hbond_id]][2])
                 edge_list.append([i, i+hbond_id])
                 edge_list.append([i+hbond_id, i])
                 edge_type += 2 * [0]
@@ -172,6 +174,7 @@ def pdb_to_data(pdb_file):
     
 
 # pdb_to_data(pdb_file)
+
 # print(pdb_to_data(pdb_file))
 # print(pdb_to_data(pdb_file).x)
 # print(pdb_to_data(pdb_file).edge_index)
@@ -181,7 +184,7 @@ def pdb_to_data(pdb_file):
 
 # dataset_dir = 'D:\ProteinBackboneDesign\Dataset\PDBDataset_test'
 
-def filter_pdb_dataset(dataset_dir, save_dir, res_min=30, res_max=60):
+def filter_pdb_dataset(dataset_dir, save_dir, res_min=40, res_max=200):
     """
     filter structures of limited amount of residues
     """

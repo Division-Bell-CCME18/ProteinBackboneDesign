@@ -9,8 +9,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='filter structures of limited amount of residues from full pdb dataset')
     parser.add_argument('--dataset_dir', type=str, required=True)
     parser.add_argument('--save_dir', type=str, required=True)
-    parser.add_argument('--res_min', type=int, default=30)
-    parser.add_argument('--res_max', type=int, default=60)
+    parser.add_argument('--res_min', type=int, default=100)
+    parser.add_argument('--res_max', type=int, default=200)
 
 
     args = parser.parse_args()

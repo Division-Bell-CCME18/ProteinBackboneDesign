@@ -12,7 +12,7 @@ if __name__ == '__main__':
     parser.add_argument('--train_dir', type=str, default=os.getcwd())
     parser.add_argument('--val_dir', type=str, default=os.getcwd())
     parser.add_argument('--test_dir', type=str, default=os.getcwd())
-    parser.add_argument('--train_ratio', type=float, default=0.95)
+    parser.add_argument('--train_ratio', type=float, default=0.9)
 
     args = parser.parse_args()
     pickle_dir = args.pickle_dir
@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     all_size = len(all_data)
     train_size = int(train_ratio * all_size)
-    val_size = int(0.8 * (all_size - train_size))
+    val_size = int(0.5 * (all_size - train_size))
     test_size = all_size - train_size - val_size
 
     random.shuffle(all_data)
