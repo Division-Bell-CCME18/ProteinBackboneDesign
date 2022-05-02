@@ -17,7 +17,7 @@ from Bio.PDB.Polypeptide import is_aa
 
 # dir = 'D:\ProteinBackboneDesign\ProteinBackbone\main\pdb_utils'
 # pdb_file = '1NWZ_A.pdb'
-
+# pdb_file = 'initial.pdb'
 
 def set_working_dir(dir):
     """

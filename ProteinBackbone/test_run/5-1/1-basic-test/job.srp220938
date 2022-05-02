@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J pyt220938
+#SBATCH -p gpu_4l
+#SBATCH -N 1 
+#SBATCH -o pyt220938_%j.out
+#SBATCH -e pyt220938_%j.err
+#SBATCH --no-requeue
+#SBATCH -A lhlai_g1
+#SBATCH --qos=lhlaig4c
+#SBATCH --gres=gpu:1
+#SBATCH --overcommit
+#SBATCH --mincpus=7
+pkurun python -u gen_opt.py --config_path default.yml --working_dir /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_basic --sigma_perturb 0.2 --steps_pos 2000

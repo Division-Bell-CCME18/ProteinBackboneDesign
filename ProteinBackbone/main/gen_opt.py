@@ -28,6 +28,7 @@ if __name__ == '__main__':
     parser.add_argument('--pdb_id', type=str, default='all')
     parser.add_argument('--sigma_perturb', type=float, default=0.2)
     parser.add_argument('--steps_pos', type=int, default=None)
+    parser.add_argument('--input_perturb', type=int, default=False)
 
     args = parser.parse_args()
     with open(args.config_path, 'r') as f:
@@ -68,126 +69,19 @@ if __name__ == '__main__':
     print('set seed for random, numpy and torch \n')
 
 
-    def gen_opt(pdb_id, working_dir, sigma_perturb, config, steps_pos=None):
+    def gen_opt(pdb_id, working_dir, sigma_perturb, config, steps_pos=None, input_perturb=False):
         """
-        generate optimized backbone structure of given protein and calculate rmsd
+        generate optimized backbone structure of given protein 
         """
 
         # convert pdb file
         print(f'loading pdb file (id: %s) from %s as test data...' % (pdb_id, working_dir))
 
-        # preprocess original pdb file (select CA and remove HETATM)
-        os.system(
-            f'pdb_delhetatm {pdb_id}.pdb | pdb_selatom -CA | pdb_tidy > {pdb_id}_tidy.pdb'
-        )
-
-        train_data = []
-        val_data = []
-        test_data = []
-
-        transform = Compose([
-            transforms.AddEdgeLength(),
-            transforms.AddPlaceHolder()     
-        ])
-
-        data = transform(pdb_to_data(pdb_id + '.pdb'))
-        ground_truth_pos = data.pos
-        perturb_data = gen_perturb(data, sigma_perturb, sigma_end=config.model.sigma_end)
-        update_pdb_info(perturb_data, f'{pdb_id}_tidy.pdb', save_dir=working_dir ,suffix='perturb')
-        print(f'save perturbed protein backbone structure done! saved as {pdb_id}_tidy_perturb.pdb')
-
-
-        test_data.append(perturb_data)
-
-        print('loading test data done!')
-
-
-        model = scorenet.DistanceScoreMatch(config)
-
-        #optimizer = utils.get_optimizer(config.train.optimizer, model)    
-        optimizer = None
-        #scheduler = utils.get_scheduler(config.train.scheduler, optimizer)
-        scheduler = None
-
-
-        solver = runner.DefaultRunner(train_data, val_data, test_data, model, optimizer, scheduler, gpus, config)
-
-        assert config.test.init_checkpoint is not None
-        solver.load(config.test.init_checkpoint, epoch=config.test.epoch)
-
-
-        # optimize given structure
-        # pos_gen, _, return_data, pos_traj = solver.ConfGF_generator(data=perturb_data, config=config.test.gen, pos_init=perturb_data.pos) 
-        return_data = solver.generate_samples_from_data(perturb_data, num_repeat=1, keep_traj=True, steps_pos=steps_pos)
-        return_data.pos = return_data.pos_gen
-        
-        # write in pdb file
-        update_pdb_info(return_data, f'{pdb_id}_tidy.pdb', save_dir=working_dir, suffix='opt')
-        print(f'{pdb_id} backbone structure optimization done! save as {pdb_id}_tidy_opt.pdb')
-
-        # calculate rmsd
-        sup = SVDSuperimposer()
-
-        sup.set(np.array(ground_truth_pos.tolist(), 'f'), np.array(perturb_data.pos.tolist(), 'f'))
-        sup.run()
-        perturb_rmsd = sup.get_rms()
-        print('rmsd of perturbed stucture and ground-truth structure is %.3f' % perturb_rmsd)
-
-        sup.set(np.array(ground_truth_pos.tolist(), 'f'), np.array(return_data.pos.tolist(), 'f'))
-        sup.run()
-        opt_rmsd = sup.get_rms()
-        print('rmsd of optimized stucture and ground-truth structure is %.3f' % opt_rmsd)
-
-        return perturb_rmsd, opt_rmsd
-
-
-
-
-    print('optimization start!')
-
-    perturb_rmsd_list = []
-    opt_rmsd_list = []
-    rmsd_change_list = []
-
-    if args.pdb_id != 'all':
-        print('train size : 0  ||  val size: 0  ||  test size: 1 \n')
-        pdb_success = []
-        try:
-            perturb_rmsd, opt_rmsd = gen_opt(pdb_id=args.pdb_id, working_dir=args.working_dir, sigma_perturb=args.sigma_perturb, config=config, steps_pos=args.steps_pos)
-            pdb_success.append(args.pdb_id)
-            perturb_rmsd_list.append(perturb_rmsd)
-            opt_rmsd_list.append(opt_rmsd)
-            rmsd_change_list.append(perturb_rmsd-opt_rmsd)
-            print('optimization of %s succeeded!\n' % args.pdb_id)
-        except:
-            print('optimization of %s failed!\n' % args.pdb_id)
-
-    else:
-        pdb_list, pdb_success = [], []
-        for item in os.listdir(args.working_dir):
-            if (item[-4:] == '.pdb') and (len(item) == 10):
-                pdb_list.append(item[:6])
-        print('train size : 0  ||  val size: 0  ||  test size: %d \n' % len(pdb_list))
-        for pdb_id in pdb_list:
-            try:
-                perturb_rmsd, opt_rmsd = gen_opt(pdb_id=pdb_id, working_dir=args.working_dir, sigma_perturb=args.sigma_perturb, config=config, steps_pos=args.steps_pos)
-                pdb_success.append(pdb_id)
-                perturb_rmsd_list.append(perturb_rmsd)
-                opt_rmsd_list.append(opt_rmsd)
-                rmsd_change_list.append(perturb_rmsd-opt_rmsd)
-                print('optimization of %s succeeded!\n' % pdb_id)
-            except:
-                print('optimization of %s failed!\n' % pdb_id)
         
 
-    print('optimization of %d structures done!\n' % len(pdb_success))
 
-    print('rmsd conclusion: ')
-    for i in range(0, len(pdb_success)):
-        print('pdb_id: %s  |  rmsd(perturbed): %.3f  |  rmsd(optimized): %.3f  |  rmsd_change: %.3f' % (pdb_success[i], perturb_rmsd_list[i], opt_rmsd_list[i], rmsd_change_list[i]))
-    print('mean rmsd(perturbed): %.3f ± %.3f' % (np.mean(perturb_rmsd_list), np.std(perturb_rmsd_list, ddof=1)))
-    print('mean rmsd(optimized): %.3f ± %.3f' % (np.mean(opt_rmsd_list), np.std(opt_rmsd_list, ddof=1)))
-    print('mean rmsd_change: %.3f ± %.3f' % (np.mean(rmsd_change_list), np.std(rmsd_change_list, ddof=1)))
+
+
 
 
     log_file.close()
