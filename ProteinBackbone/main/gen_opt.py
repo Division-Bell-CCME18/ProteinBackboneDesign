@@ -69,7 +69,7 @@ if __name__ == '__main__':
     print('set seed for random, numpy and torch \n')
 
 
-    def gen_opt(pdb_id, working_dir, sigma_perturb, config, steps_pos=None, input_perturb=False):
+    def gen_opt(pdb_id, working_dir, config):
         """
         generate optimized backbone structure of given protein 
         """

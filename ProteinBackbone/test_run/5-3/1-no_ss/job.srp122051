@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J pyt122051
+#SBATCH -p gpu_4l
+#SBATCH -N 1 
+#SBATCH -o pyt122051_%j.out
+#SBATCH -e pyt122051_%j.err
+#SBATCH --no-requeue
+#SBATCH -A lhlai_g1
+#SBATCH --qos=lhlaig4c
+#SBATCH --gres=gpu:1
+#SBATCH --overcommit
+#SBATCH --mincpus=7
+pkurun python -u train_GNN.py --config_path no_ss.yml
