@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH -J fix151335
+#SBATCH -p cn-short
+#SBATCH -N 1 
+#SBATCH -o fix151335_%j.out
+#SBATCH -e fix151335_%j.err
+#SBATCH --no-requeue
+#SBATCH -A lhlai_g1
+#SBATCH --qos=lhlaicns
+#SBATCH -c 4
+pkurun  /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/rosetta/main/source/bin/fixbb.default.linuxgccrelease -in:file:s 1l2y_CA.pdb -in:file:centroid_input -resfile resfile.txt -nstruct 1

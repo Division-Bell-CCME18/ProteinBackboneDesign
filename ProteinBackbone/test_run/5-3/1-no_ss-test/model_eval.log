@@ -1,0 +1,1856 @@
+Let's use 1 GPUs!
+Using device cuda:0 as main device
+{'train': {'batch_size': 64, 'seed': 2022, 'epochs': 1000, 'shuffle': True, 'resume_train': False, 'eval': True, 'num_workers': 0, 'gpus': [0], 'anneal_power': 2.0, 'save': True, 'save_path': '/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train', 'resume_checkpoint': None, 'resume_epoch': None, 'log_interval': 400, 'optimizer': {'type': 'Adam', 'lr': 0.001, 'weight_decay': 0.0, 'dropout': 0.0}, 'scheduler': {'type': 'plateau', 'factor': 0.95, 'patience': 10, 'min_lr': '1e-4'}, 'device': device(type='cuda', index=0)}, 'test': {'init_checkpoint': '/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default', 'output_path': '/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/test/pdb_default', 'epoch': 882, 'gen': {'dg_step_size': 3.0, 'dg_num_steps': 1000, 'steps_d': 100, 'step_lr_d': 2e-06, 'steps_pos': 2000, 'step_lr_pos': 2.4e-11, 'clip': 1000, 'min_sigma': 0.0, 'verbose': 1}}, 'data': {'base_path': '/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/no_ss', 'dataset': 'pdb', 'train_set': 'pdb_dataset_train.pkl', 'val_set': 'pdb_dataset_val.pkl', 'test_set': 'pdb_dataset_test.pkl'}, 'model': {'name': 'pdb_default', 'hidden_dim': 256, 'num_convs': 4, 'sigma_begin': 1, 'sigma_end': 0.001, 'num_noise_level': 50, 'order': 3, 'mlp_act': 'relu', 'gnn_act': 'relu', 'cutoff': 10.0, 'short_cut': True, 'concat_hidden': False, 'noise_type': 'symmetry', 'edge_encoder': 'mlp'}}
+set seed for random, numpy and torch 
+
+optimization start!
+train size : 0  ||  val size: 0  ||  test size: 187 
+
+loading pdb file (id: 3FXH_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3FXH_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3FXH_A done
+3FXH_A backbone structure optimization done! save as 3FXH_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.184
+rmsd of optimized stucture and ground-truth structure is 136.581
+optimization of all finished! (rmsd_change: -134.398 < 0)
+
+loading pdb file (id: 4ESQ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4ESQ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4ESQ_A done
+4ESQ_A backbone structure optimization done! save as 4ESQ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.162
+rmsd of optimized stucture and ground-truth structure is 170.751
+optimization of all finished! (rmsd_change: -168.589 < 0)
+
+loading pdb file (id: 5E3E_B) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5E3E_B_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5E3E_B done
+5E3E_B backbone structure optimization done! save as 5E3E_B_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.097
+rmsd of optimized stucture and ground-truth structure is 169.896
+optimization of all finished! (rmsd_change: -167.799 < 0)
+
+loading pdb file (id: 1RLW_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1RLW_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1RLW_A done
+1RLW_A backbone structure optimization done! save as 1RLW_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.127
+rmsd of optimized stucture and ground-truth structure is 184.363
+optimization of all finished! (rmsd_change: -182.235 < 0)
+
+loading pdb file (id: 3SJ5_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3SJ5_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3SJ5_A done
+3SJ5_A backbone structure optimization done! save as 3SJ5_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.318
+rmsd of optimized stucture and ground-truth structure is 153.313
+optimization of all finished! (rmsd_change: -150.995 < 0)
+
+loading pdb file (id: 1I4U_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1I4U_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1I4U_A done
+1I4U_A backbone structure optimization done! save as 1I4U_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.114
+rmsd of optimized stucture and ground-truth structure is 177.692
+optimization of all finished! (rmsd_change: -175.578 < 0)
+
+loading pdb file (id: 1I1R_B) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1I1R_B_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1I1R_B done
+1I1R_B backbone structure optimization done! save as 1I1R_B_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.301
+rmsd of optimized stucture and ground-truth structure is 136.824
+optimization of all finished! (rmsd_change: -134.523 < 0)
+
+loading pdb file (id: 1EJF_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1EJF_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1EJF_A done
+1EJF_A backbone structure optimization done! save as 1EJF_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.044
+rmsd of optimized stucture and ground-truth structure is 185.733
+optimization of all finished! (rmsd_change: -183.689 < 0)
+
+loading pdb file (id: 2VNG_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2VNG_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2VNG_A done
+2VNG_A backbone structure optimization done! save as 2VNG_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.159
+rmsd of optimized stucture and ground-truth structure is 185.515
+optimization of all finished! (rmsd_change: -183.355 < 0)
+
+loading pdb file (id: 4NOO_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+optimization of 4NOO_A failed!
+
+loading pdb file (id: 7DBU_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7DBU_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7DBU_A done
+7DBU_A backbone structure optimization done! save as 7DBU_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.079
+rmsd of optimized stucture and ground-truth structure is 184.575
+optimization of all finished! (rmsd_change: -182.497 < 0)
+
+loading pdb file (id: 2XKI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2XKI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2XKI_A done
+2XKI_A backbone structure optimization done! save as 2XKI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.336
+rmsd of optimized stucture and ground-truth structure is 141.188
+optimization of all finished! (rmsd_change: -138.852 < 0)
+
+loading pdb file (id: 2O5U_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2O5U_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2O5U_A done
+2O5U_A backbone structure optimization done! save as 2O5U_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.126
+rmsd of optimized stucture and ground-truth structure is 172.126
+optimization of all finished! (rmsd_change: -170.000 < 0)
+
+loading pdb file (id: 1JYO_E) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1JYO_E_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1JYO_E done
+1JYO_E backbone structure optimization done! save as 1JYO_E_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.243
+rmsd of optimized stucture and ground-truth structure is 152.097
+optimization of all finished! (rmsd_change: -149.854 < 0)
+
+loading pdb file (id: 3DF8_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3DF8_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3DF8_A done
+3DF8_A backbone structure optimization done! save as 3DF8_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.272
+rmsd of optimized stucture and ground-truth structure is 157.546
+optimization of all finished! (rmsd_change: -155.273 < 0)
+
+loading pdb file (id: 6BTY_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+optimization of 6BTY_A failed!
+
+loading pdb file (id: 2X32_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2X32_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2X32_A done
+2X32_A backbone structure optimization done! save as 2X32_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.158
+rmsd of optimized stucture and ground-truth structure is 181.502
+optimization of all finished! (rmsd_change: -179.344 < 0)
+
+loading pdb file (id: 4DT5_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4DT5_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4DT5_A done
+4DT5_A backbone structure optimization done! save as 4DT5_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.119
+rmsd of optimized stucture and ground-truth structure is 189.924
+optimization of all finished! (rmsd_change: -187.806 < 0)
+
+loading pdb file (id: 5XMZ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5XMZ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5XMZ_A done
+5XMZ_A backbone structure optimization done! save as 5XMZ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.049
+rmsd of optimized stucture and ground-truth structure is 187.816
+optimization of all finished! (rmsd_change: -185.767 < 0)
+
+loading pdb file (id: 3OR5_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3OR5_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3OR5_A done
+3OR5_A backbone structure optimization done! save as 3OR5_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.194
+rmsd of optimized stucture and ground-truth structure is 167.334
+optimization of all finished! (rmsd_change: -165.140 < 0)
+
+loading pdb file (id: 2VB1_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2VB1_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2VB1_A done
+2VB1_A backbone structure optimization done! save as 2VB1_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.122
+rmsd of optimized stucture and ground-truth structure is 158.906
+optimization of all finished! (rmsd_change: -156.784 < 0)
+
+loading pdb file (id: 2OIK_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2OIK_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2OIK_A done
+2OIK_A backbone structure optimization done! save as 2OIK_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.169
+rmsd of optimized stucture and ground-truth structure is 162.382
+optimization of all finished! (rmsd_change: -160.213 < 0)
+
+loading pdb file (id: 5LS7_D) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5LS7_D_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5LS7_D done
+5LS7_D backbone structure optimization done! save as 5LS7_D_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.047
+rmsd of optimized stucture and ground-truth structure is 181.138
+optimization of all finished! (rmsd_change: -179.091 < 0)
+
+loading pdb file (id: 5NSA_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5NSA_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5NSA_A done
+5NSA_A backbone structure optimization done! save as 5NSA_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.011
+rmsd of optimized stucture and ground-truth structure is 179.968
+optimization of all finished! (rmsd_change: -177.957 < 0)
+
+loading pdb file (id: 3M9L_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3M9L_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3M9L_A done
+3M9L_A backbone structure optimization done! save as 3M9L_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.243
+rmsd of optimized stucture and ground-truth structure is 164.753
+optimization of all finished! (rmsd_change: -162.510 < 0)
+
+loading pdb file (id: 2CAL_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+optimization of 2CAL_A failed!
+
+loading pdb file (id: 3GQH_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3GQH_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3GQH_A done
+3GQH_A backbone structure optimization done! save as 3GQH_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.207
+rmsd of optimized stucture and ground-truth structure is 185.995
+optimization of all finished! (rmsd_change: -183.788 < 0)
+
+loading pdb file (id: 1WWI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1WWI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1WWI_A done
+1WWI_A backbone structure optimization done! save as 1WWI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.143
+rmsd of optimized stucture and ground-truth structure is 136.553
+optimization of all finished! (rmsd_change: -134.411 < 0)
+
+loading pdb file (id: 4AXO_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4AXO_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4AXO_A done
+4AXO_A backbone structure optimization done! save as 4AXO_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.108
+rmsd of optimized stucture and ground-truth structure is 185.829
+optimization of all finished! (rmsd_change: -183.721 < 0)
+
+loading pdb file (id: 5T86_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5T86_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5T86_A done
+5T86_A backbone structure optimization done! save as 5T86_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.167
+rmsd of optimized stucture and ground-truth structure is 168.085
+optimization of all finished! (rmsd_change: -165.918 < 0)
+
+loading pdb file (id: 3TL4_X) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3TL4_X_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3TL4_X done
+3TL4_X backbone structure optimization done! save as 3TL4_X_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.181
+rmsd of optimized stucture and ground-truth structure is 138.116
+optimization of all finished! (rmsd_change: -135.935 < 0)
+
+loading pdb file (id: 3HTN_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3HTN_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3HTN_A done
+3HTN_A backbone structure optimization done! save as 3HTN_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.243
+rmsd of optimized stucture and ground-truth structure is 184.400
+optimization of all finished! (rmsd_change: -182.157 < 0)
+
+loading pdb file (id: 4P09_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4P09_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4P09_A done
+4P09_A backbone structure optimization done! save as 4P09_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.255
+rmsd of optimized stucture and ground-truth structure is 147.426
+optimization of all finished! (rmsd_change: -145.171 < 0)
+
+loading pdb file (id: 3MFB_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3MFB_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3MFB_A done
+3MFB_A backbone structure optimization done! save as 3MFB_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.400
+rmsd of optimized stucture and ground-truth structure is 183.333
+optimization of all finished! (rmsd_change: -180.933 < 0)
+
+loading pdb file (id: 3BED_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3BED_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3BED_A done
+3BED_A backbone structure optimization done! save as 3BED_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.131
+rmsd of optimized stucture and ground-truth structure is 158.182
+optimization of all finished! (rmsd_change: -156.051 < 0)
+
+loading pdb file (id: 1O7I_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1O7I_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1O7I_A done
+1O7I_A backbone structure optimization done! save as 1O7I_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.178
+rmsd of optimized stucture and ground-truth structure is 185.798
+optimization of all finished! (rmsd_change: -183.619 < 0)
+
+loading pdb file (id: 3RF0_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3RF0_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3RF0_A done
+3RF0_A backbone structure optimization done! save as 3RF0_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.177
+rmsd of optimized stucture and ground-truth structure is 144.391
+optimization of all finished! (rmsd_change: -142.215 < 0)
+
+loading pdb file (id: 3RYK_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3RYK_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3RYK_A done
+3RYK_A backbone structure optimization done! save as 3RYK_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.250
+rmsd of optimized stucture and ground-truth structure is 183.913
+optimization of all finished! (rmsd_change: -181.663 < 0)
+
+loading pdb file (id: 2GDM_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2GDM_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2GDM_A done
+2GDM_A backbone structure optimization done! save as 2GDM_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.155
+rmsd of optimized stucture and ground-truth structure is 120.785
+optimization of all finished! (rmsd_change: -118.630 < 0)
+
+loading pdb file (id: 4H7L_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4H7L_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4H7L_A done
+4H7L_A backbone structure optimization done! save as 4H7L_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.308
+rmsd of optimized stucture and ground-truth structure is 185.574
+optimization of all finished! (rmsd_change: -183.266 < 0)
+
+loading pdb file (id: 6BS9_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6BS9_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6BS9_A done
+6BS9_A backbone structure optimization done! save as 6BS9_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.099
+rmsd of optimized stucture and ground-truth structure is 116.759
+optimization of all finished! (rmsd_change: -114.660 < 0)
+
+loading pdb file (id: 3HNX_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3HNX_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3HNX_A done
+3HNX_A backbone structure optimization done! save as 3HNX_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 1.997
+rmsd of optimized stucture and ground-truth structure is 186.758
+optimization of all finished! (rmsd_change: -184.761 < 0)
+
+loading pdb file (id: 4OHJ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4OHJ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4OHJ_A done
+4OHJ_A backbone structure optimization done! save as 4OHJ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.210
+rmsd of optimized stucture and ground-truth structure is 180.765
+optimization of all finished! (rmsd_change: -178.555 < 0)
+
+loading pdb file (id: 1WKA_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1WKA_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1WKA_A done
+1WKA_A backbone structure optimization done! save as 1WKA_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.214
+rmsd of optimized stucture and ground-truth structure is 175.054
+optimization of all finished! (rmsd_change: -172.840 < 0)
+
+loading pdb file (id: 4JMU_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4JMU_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4JMU_A done
+4JMU_A backbone structure optimization done! save as 4JMU_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.252
+rmsd of optimized stucture and ground-truth structure is 144.170
+optimization of all finished! (rmsd_change: -141.918 < 0)
+
+loading pdb file (id: 1P90_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1P90_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1P90_A done
+1P90_A backbone structure optimization done! save as 1P90_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 1.969
+rmsd of optimized stucture and ground-truth structure is 169.163
+optimization of all finished! (rmsd_change: -167.194 < 0)
+
+loading pdb file (id: 5W1A_B) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5W1A_B_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5W1A_B done
+5W1A_B backbone structure optimization done! save as 5W1A_B_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.207
+rmsd of optimized stucture and ground-truth structure is 157.411
+optimization of all finished! (rmsd_change: -155.203 < 0)
+
+loading pdb file (id: 4KG0_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4KG0_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4KG0_A done
+4KG0_A backbone structure optimization done! save as 4KG0_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.225
+rmsd of optimized stucture and ground-truth structure is 185.869
+optimization of all finished! (rmsd_change: -183.644 < 0)
+
+loading pdb file (id: 1NWW_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1NWW_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1NWW_A done
+1NWW_A backbone structure optimization done! save as 1NWW_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.304
+rmsd of optimized stucture and ground-truth structure is 169.101
+optimization of all finished! (rmsd_change: -166.796 < 0)
+
+loading pdb file (id: 3VA4_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3VA4_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3VA4_A done
+3VA4_A backbone structure optimization done! save as 3VA4_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.312
+rmsd of optimized stucture and ground-truth structure is 187.808
+optimization of all finished! (rmsd_change: -185.496 < 0)
+
+loading pdb file (id: 2RE3_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2RE3_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2RE3_A done
+2RE3_A backbone structure optimization done! save as 2RE3_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.203
+rmsd of optimized stucture and ground-truth structure is 181.211
+optimization of all finished! (rmsd_change: -179.009 < 0)
+
+loading pdb file (id: 5WUC_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5WUC_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5WUC_A done
+5WUC_A backbone structure optimization done! save as 5WUC_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.119
+rmsd of optimized stucture and ground-truth structure is 113.852
+optimization of all finished! (rmsd_change: -111.733 < 0)
+
+loading pdb file (id: 3G0K_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3G0K_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3G0K_A done
+3G0K_A backbone structure optimization done! save as 3G0K_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.170
+rmsd of optimized stucture and ground-truth structure is 173.318
+optimization of all finished! (rmsd_change: -171.148 < 0)
+
+loading pdb file (id: 6W0V_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6W0V_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6W0V_A done
+6W0V_A backbone structure optimization done! save as 6W0V_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.050
+rmsd of optimized stucture and ground-truth structure is 162.922
+optimization of all finished! (rmsd_change: -160.872 < 0)
+
+loading pdb file (id: 4QUS_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4QUS_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4QUS_A done
+4QUS_A backbone structure optimization done! save as 4QUS_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.053
+rmsd of optimized stucture and ground-truth structure is 161.634
+optimization of all finished! (rmsd_change: -159.581 < 0)
+
+loading pdb file (id: 5GPY_B) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5GPY_B_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5GPY_B done
+5GPY_B backbone structure optimization done! save as 5GPY_B_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.217
+rmsd of optimized stucture and ground-truth structure is 157.891
+optimization of all finished! (rmsd_change: -155.674 < 0)
+
+loading pdb file (id: 6CZH_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6CZH_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6CZH_A done
+6CZH_A backbone structure optimization done! save as 6CZH_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.066
+rmsd of optimized stucture and ground-truth structure is 187.714
+optimization of all finished! (rmsd_change: -185.649 < 0)
+
+loading pdb file (id: 3AKS_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3AKS_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3AKS_A done
+3AKS_A backbone structure optimization done! save as 3AKS_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.115
+rmsd of optimized stucture and ground-truth structure is 185.983
+optimization of all finished! (rmsd_change: -183.868 < 0)
+
+loading pdb file (id: 1F86_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1F86_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1F86_A done
+1F86_A backbone structure optimization done! save as 1F86_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.264
+rmsd of optimized stucture and ground-truth structure is 185.368
+optimization of all finished! (rmsd_change: -183.104 < 0)
+
+loading pdb file (id: 1DUS_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1DUS_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1DUS_A done
+1DUS_A backbone structure optimization done! save as 1DUS_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.116
+rmsd of optimized stucture and ground-truth structure is 171.234
+optimization of all finished! (rmsd_change: -169.118 < 0)
+
+loading pdb file (id: 7EXB_B) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7EXB_B_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7EXB_B done
+7EXB_B backbone structure optimization done! save as 7EXB_B_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.152
+rmsd of optimized stucture and ground-truth structure is 181.859
+optimization of all finished! (rmsd_change: -179.707 < 0)
+
+loading pdb file (id: 6SU5_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6SU5_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6SU5_A done
+6SU5_A backbone structure optimization done! save as 6SU5_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.152
+rmsd of optimized stucture and ground-truth structure is 171.991
+optimization of all finished! (rmsd_change: -169.839 < 0)
+
+loading pdb file (id: 7A1R_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7A1R_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7A1R_A done
+7A1R_A backbone structure optimization done! save as 7A1R_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.186
+rmsd of optimized stucture and ground-truth structure is 185.640
+optimization of all finished! (rmsd_change: -183.453 < 0)
+
+loading pdb file (id: 7COH_E) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7COH_E_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7COH_E done
+7COH_E backbone structure optimization done! save as 7COH_E_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.218
+rmsd of optimized stucture and ground-truth structure is 135.432
+optimization of all finished! (rmsd_change: -133.214 < 0)
+
+loading pdb file (id: 4UEY_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4UEY_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4UEY_A done
+4UEY_A backbone structure optimization done! save as 4UEY_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.139
+rmsd of optimized stucture and ground-truth structure is 167.500
+optimization of all finished! (rmsd_change: -165.360 < 0)
+
+loading pdb file (id: 4GZC_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4GZC_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4GZC_A done
+4GZC_A backbone structure optimization done! save as 4GZC_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.280
+rmsd of optimized stucture and ground-truth structure is 123.419
+optimization of all finished! (rmsd_change: -121.139 < 0)
+
+loading pdb file (id: 2GWF_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2GWF_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2GWF_A done
+2GWF_A backbone structure optimization done! save as 2GWF_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.256
+rmsd of optimized stucture and ground-truth structure is 168.006
+optimization of all finished! (rmsd_change: -165.750 < 0)
+
+loading pdb file (id: 5VVI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5VVI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5VVI_A done
+5VVI_A backbone structure optimization done! save as 5VVI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.123
+rmsd of optimized stucture and ground-truth structure is 170.066
+optimization of all finished! (rmsd_change: -167.943 < 0)
+
+loading pdb file (id: 4KTW_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4KTW_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4KTW_A done
+4KTW_A backbone structure optimization done! save as 4KTW_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.142
+rmsd of optimized stucture and ground-truth structure is 159.190
+optimization of all finished! (rmsd_change: -157.048 < 0)
+
+loading pdb file (id: 1V8H_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1V8H_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1V8H_A done
+1V8H_A backbone structure optimization done! save as 1V8H_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.165
+rmsd of optimized stucture and ground-truth structure is 184.868
+optimization of all finished! (rmsd_change: -182.703 < 0)
+
+loading pdb file (id: 3A07_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3A07_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3A07_A done
+3A07_A backbone structure optimization done! save as 3A07_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.191
+rmsd of optimized stucture and ground-truth structure is 185.982
+optimization of all finished! (rmsd_change: -183.791 < 0)
+
+loading pdb file (id: 1EUW_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1EUW_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1EUW_A done
+1EUW_A backbone structure optimization done! save as 1EUW_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.232
+rmsd of optimized stucture and ground-truth structure is 183.293
+optimization of all finished! (rmsd_change: -181.061 < 0)
+
+loading pdb file (id: 3F08_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3F08_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3F08_A done
+3F08_A backbone structure optimization done! save as 3F08_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.113
+rmsd of optimized stucture and ground-truth structure is 169.995
+optimization of all finished! (rmsd_change: -167.882 < 0)
+
+loading pdb file (id: 6VLI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6VLI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6VLI_A done
+6VLI_A backbone structure optimization done! save as 6VLI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.212
+rmsd of optimized stucture and ground-truth structure is 138.910
+optimization of all finished! (rmsd_change: -136.698 < 0)
+
+loading pdb file (id: 5YHZ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5YHZ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5YHZ_A done
+5YHZ_A backbone structure optimization done! save as 5YHZ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.213
+rmsd of optimized stucture and ground-truth structure is 136.016
+optimization of all finished! (rmsd_change: -133.803 < 0)
+
+loading pdb file (id: 5FVJ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5FVJ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5FVJ_A done
+5FVJ_A backbone structure optimization done! save as 5FVJ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.186
+rmsd of optimized stucture and ground-truth structure is 172.511
+optimization of all finished! (rmsd_change: -170.325 < 0)
+
+loading pdb file (id: 2Y7B_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+optimization of 2Y7B_A failed!
+
+loading pdb file (id: 3F5R_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3F5R_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3F5R_A done
+3F5R_A backbone structure optimization done! save as 3F5R_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.240
+rmsd of optimized stucture and ground-truth structure is 181.030
+optimization of all finished! (rmsd_change: -178.790 < 0)
+
+loading pdb file (id: 3DXE_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3DXE_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3DXE_A done
+3DXE_A backbone structure optimization done! save as 3DXE_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.067
+rmsd of optimized stucture and ground-truth structure is 166.304
+optimization of all finished! (rmsd_change: -164.237 < 0)
+
+loading pdb file (id: 5N3U_B) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5N3U_B_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5N3U_B done
+5N3U_B backbone structure optimization done! save as 5N3U_B_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.135
+rmsd of optimized stucture and ground-truth structure is 135.539
+optimization of all finished! (rmsd_change: -133.404 < 0)
+
+loading pdb file (id: 2R0X_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2R0X_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2R0X_A done
+2R0X_A backbone structure optimization done! save as 2R0X_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.276
+rmsd of optimized stucture and ground-truth structure is 180.205
+optimization of all finished! (rmsd_change: -177.929 < 0)
+
+loading pdb file (id: 2GUH_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2GUH_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2GUH_A done
+2GUH_A backbone structure optimization done! save as 2GUH_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.098
+rmsd of optimized stucture and ground-truth structure is 142.269
+optimization of all finished! (rmsd_change: -140.171 < 0)
+
+loading pdb file (id: 3SOJ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3SOJ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3SOJ_A done
+3SOJ_A backbone structure optimization done! save as 3SOJ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.116
+rmsd of optimized stucture and ground-truth structure is 163.774
+optimization of all finished! (rmsd_change: -161.658 < 0)
+
+loading pdb file (id: 2ZC3_C) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2ZC3_C_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2ZC3_C done
+2ZC3_C backbone structure optimization done! save as 2ZC3_C_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.078
+rmsd of optimized stucture and ground-truth structure is 172.758
+optimization of all finished! (rmsd_change: -170.680 < 0)
+
+loading pdb file (id: 2YH5_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2YH5_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2YH5_A done
+2YH5_A backbone structure optimization done! save as 2YH5_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.098
+rmsd of optimized stucture and ground-truth structure is 164.056
+optimization of all finished! (rmsd_change: -161.958 < 0)
+
+loading pdb file (id: 4BOP_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4BOP_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4BOP_A done
+4BOP_A backbone structure optimization done! save as 4BOP_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.168
+rmsd of optimized stucture and ground-truth structure is 157.430
+optimization of all finished! (rmsd_change: -155.262 < 0)
+
+loading pdb file (id: 4A6Q_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4A6Q_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4A6Q_A done
+4A6Q_A backbone structure optimization done! save as 4A6Q_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.297
+rmsd of optimized stucture and ground-truth structure is 181.544
+optimization of all finished! (rmsd_change: -179.247 < 0)
+
+loading pdb file (id: 2YJL_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2YJL_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2YJL_A done
+2YJL_A backbone structure optimization done! save as 2YJL_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.297
+rmsd of optimized stucture and ground-truth structure is 187.215
+optimization of all finished! (rmsd_change: -184.918 < 0)
+
+loading pdb file (id: 5G38_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5G38_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5G38_A done
+5G38_A backbone structure optimization done! save as 5G38_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.181
+rmsd of optimized stucture and ground-truth structure is 187.398
+optimization of all finished! (rmsd_change: -185.217 < 0)
+
+loading pdb file (id: 4F1J_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4F1J_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4F1J_A done
+4F1J_A backbone structure optimization done! save as 4F1J_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.206
+rmsd of optimized stucture and ground-truth structure is 167.648
+optimization of all finished! (rmsd_change: -165.442 < 0)
+
+loading pdb file (id: 1P9Y_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1P9Y_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1P9Y_A done
+1P9Y_A backbone structure optimization done! save as 1P9Y_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.189
+rmsd of optimized stucture and ground-truth structure is 158.167
+optimization of all finished! (rmsd_change: -155.978 < 0)
+
+loading pdb file (id: 4GCN_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4GCN_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4GCN_A done
+4GCN_A backbone structure optimization done! save as 4GCN_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.259
+rmsd of optimized stucture and ground-truth structure is 91.132
+optimization of all finished! (rmsd_change: -88.873 < 0)
+
+loading pdb file (id: 5ELB_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5ELB_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5ELB_A done
+5ELB_A backbone structure optimization done! save as 5ELB_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.070
+rmsd of optimized stucture and ground-truth structure is 174.722
+optimization of all finished! (rmsd_change: -172.652 < 0)
+
+loading pdb file (id: 2O1Q_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2O1Q_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2O1Q_A done
+2O1Q_A backbone structure optimization done! save as 2O1Q_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.253
+rmsd of optimized stucture and ground-truth structure is 184.521
+optimization of all finished! (rmsd_change: -182.267 < 0)
+
+loading pdb file (id: 5J1N_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5J1N_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5J1N_A done
+5J1N_A backbone structure optimization done! save as 5J1N_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.214
+rmsd of optimized stucture and ground-truth structure is 146.649
+optimization of all finished! (rmsd_change: -144.435 < 0)
+
+loading pdb file (id: 2BDR_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2BDR_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2BDR_A done
+2BDR_A backbone structure optimization done! save as 2BDR_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.188
+rmsd of optimized stucture and ground-truth structure is 186.191
+optimization of all finished! (rmsd_change: -184.003 < 0)
+
+loading pdb file (id: 1GWM_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1GWM_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1GWM_A done
+1GWM_A backbone structure optimization done! save as 1GWM_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.208
+rmsd of optimized stucture and ground-truth structure is 185.383
+optimization of all finished! (rmsd_change: -183.176 < 0)
+
+loading pdb file (id: 2YXB_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2YXB_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2YXB_A done
+2YXB_A backbone structure optimization done! save as 2YXB_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.178
+rmsd of optimized stucture and ground-truth structure is 156.672
+optimization of all finished! (rmsd_change: -154.494 < 0)
+
+loading pdb file (id: 5LPI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5LPI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5LPI_A done
+5LPI_A backbone structure optimization done! save as 5LPI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.136
+rmsd of optimized stucture and ground-truth structure is 175.304
+optimization of all finished! (rmsd_change: -173.169 < 0)
+
+loading pdb file (id: 1AHS_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1AHS_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1AHS_A done
+1AHS_A backbone structure optimization done! save as 1AHS_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.073
+rmsd of optimized stucture and ground-truth structure is 183.595
+optimization of all finished! (rmsd_change: -181.522 < 0)
+
+loading pdb file (id: 6Y1Y_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6Y1Y_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6Y1Y_A done
+6Y1Y_A backbone structure optimization done! save as 6Y1Y_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.051
+rmsd of optimized stucture and ground-truth structure is 89.600
+optimization of all finished! (rmsd_change: -87.549 < 0)
+
+loading pdb file (id: 1NXM_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1NXM_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1NXM_A done
+1NXM_A backbone structure optimization done! save as 1NXM_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.215
+rmsd of optimized stucture and ground-truth structure is 182.734
+optimization of all finished! (rmsd_change: -180.519 < 0)
+
+loading pdb file (id: 1QST_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1QST_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1QST_A done
+1QST_A backbone structure optimization done! save as 1QST_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.305
+rmsd of optimized stucture and ground-truth structure is 170.759
+optimization of all finished! (rmsd_change: -168.454 < 0)
+
+loading pdb file (id: 6FXD_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6FXD_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6FXD_A done
+6FXD_A backbone structure optimization done! save as 6FXD_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.162
+rmsd of optimized stucture and ground-truth structure is 171.611
+optimization of all finished! (rmsd_change: -169.449 < 0)
+
+loading pdb file (id: 4DOV_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4DOV_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4DOV_A done
+4DOV_A backbone structure optimization done! save as 4DOV_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.193
+rmsd of optimized stucture and ground-truth structure is 187.570
+optimization of all finished! (rmsd_change: -185.377 < 0)
+
+loading pdb file (id: 4LQB_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4LQB_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4LQB_A done
+4LQB_A backbone structure optimization done! save as 4LQB_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.067
+rmsd of optimized stucture and ground-truth structure is 176.720
+optimization of all finished! (rmsd_change: -174.653 < 0)
+
+loading pdb file (id: 6IF6_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6IF6_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6IF6_A done
+6IF6_A backbone structure optimization done! save as 6IF6_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.097
+rmsd of optimized stucture and ground-truth structure is 127.741
+optimization of all finished! (rmsd_change: -125.644 < 0)
+
+loading pdb file (id: 3EXZ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3EXZ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3EXZ_A done
+3EXZ_A backbone structure optimization done! save as 3EXZ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.128
+rmsd of optimized stucture and ground-truth structure is 172.956
+optimization of all finished! (rmsd_change: -170.828 < 0)
+
+loading pdb file (id: 3IX7_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3IX7_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3IX7_A done
+3IX7_A backbone structure optimization done! save as 3IX7_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.301
+rmsd of optimized stucture and ground-truth structure is 154.767
+optimization of all finished! (rmsd_change: -152.465 < 0)
+
+loading pdb file (id: 5EHA_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5EHA_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5EHA_A done
+5EHA_A backbone structure optimization done! save as 5EHA_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.118
+rmsd of optimized stucture and ground-truth structure is 185.600
+optimization of all finished! (rmsd_change: -183.482 < 0)
+
+loading pdb file (id: 5TZP_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5TZP_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5TZP_A done
+5TZP_A backbone structure optimization done! save as 5TZP_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.112
+rmsd of optimized stucture and ground-truth structure is 130.693
+optimization of all finished! (rmsd_change: -128.581 < 0)
+
+loading pdb file (id: 3D0J_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3D0J_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3D0J_A done
+3D0J_A backbone structure optimization done! save as 3D0J_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.126
+rmsd of optimized stucture and ground-truth structure is 177.410
+optimization of all finished! (rmsd_change: -175.284 < 0)
+
+loading pdb file (id: 7KC8_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7KC8_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7KC8_A done
+7KC8_A backbone structure optimization done! save as 7KC8_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.146
+rmsd of optimized stucture and ground-truth structure is 186.703
+optimization of all finished! (rmsd_change: -184.557 < 0)
+
+loading pdb file (id: 4EW7_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4EW7_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4EW7_A done
+4EW7_A backbone structure optimization done! save as 4EW7_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.184
+rmsd of optimized stucture and ground-truth structure is 166.728
+optimization of all finished! (rmsd_change: -164.543 < 0)
+
+loading pdb file (id: 1HXI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1HXI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1HXI_A done
+1HXI_A backbone structure optimization done! save as 1HXI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.201
+rmsd of optimized stucture and ground-truth structure is 124.334
+optimization of all finished! (rmsd_change: -122.133 < 0)
+
+loading pdb file (id: 4ZVA_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4ZVA_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4ZVA_A done
+4ZVA_A backbone structure optimization done! save as 4ZVA_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.185
+rmsd of optimized stucture and ground-truth structure is 107.968
+optimization of all finished! (rmsd_change: -105.783 < 0)
+
+loading pdb file (id: 2CC3_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2CC3_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2CC3_A done
+2CC3_A backbone structure optimization done! save as 2CC3_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.221
+rmsd of optimized stucture and ground-truth structure is 165.247
+optimization of all finished! (rmsd_change: -163.026 < 0)
+
+loading pdb file (id: 2OPI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2OPI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2OPI_A done
+2OPI_A backbone structure optimization done! save as 2OPI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.161
+rmsd of optimized stucture and ground-truth structure is 163.350
+optimization of all finished! (rmsd_change: -161.189 < 0)
+
+loading pdb file (id: 3V7B_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3V7B_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3V7B_A done
+3V7B_A backbone structure optimization done! save as 3V7B_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.219
+rmsd of optimized stucture and ground-truth structure is 170.151
+optimization of all finished! (rmsd_change: -167.932 < 0)
+
+loading pdb file (id: 2IWR_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2IWR_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2IWR_A done
+2IWR_A backbone structure optimization done! save as 2IWR_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.129
+rmsd of optimized stucture and ground-truth structure is 163.996
+optimization of all finished! (rmsd_change: -161.867 < 0)
+
+loading pdb file (id: 2RDC_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2RDC_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2RDC_A done
+2RDC_A backbone structure optimization done! save as 2RDC_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.044
+rmsd of optimized stucture and ground-truth structure is 114.261
+optimization of all finished! (rmsd_change: -112.217 < 0)
+
+loading pdb file (id: 1SED_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1SED_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1SED_A done
+1SED_A backbone structure optimization done! save as 1SED_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.099
+rmsd of optimized stucture and ground-truth structure is 124.107
+optimization of all finished! (rmsd_change: -122.008 < 0)
+
+loading pdb file (id: 3IU6_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3IU6_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3IU6_A done
+3IU6_A backbone structure optimization done! save as 3IU6_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.175
+rmsd of optimized stucture and ground-truth structure is 145.292
+optimization of all finished! (rmsd_change: -143.118 < 0)
+
+loading pdb file (id: 6C74_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6C74_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6C74_A done
+6C74_A backbone structure optimization done! save as 6C74_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.075
+rmsd of optimized stucture and ground-truth structure is 185.467
+optimization of all finished! (rmsd_change: -183.391 < 0)
+
+loading pdb file (id: 2FCJ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2FCJ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2FCJ_A done
+2FCJ_A backbone structure optimization done! save as 2FCJ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.169
+rmsd of optimized stucture and ground-truth structure is 165.336
+optimization of all finished! (rmsd_change: -163.167 < 0)
+
+loading pdb file (id: 3KZT_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3KZT_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3KZT_A done
+3KZT_A backbone structure optimization done! save as 3KZT_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.094
+rmsd of optimized stucture and ground-truth structure is 152.292
+optimization of all finished! (rmsd_change: -150.198 < 0)
+
+loading pdb file (id: 2XCB_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2XCB_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2XCB_A done
+2XCB_A backbone structure optimization done! save as 2XCB_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.094
+rmsd of optimized stucture and ground-truth structure is 122.265
+optimization of all finished! (rmsd_change: -120.171 < 0)
+
+loading pdb file (id: 6BL5_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6BL5_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6BL5_A done
+6BL5_A backbone structure optimization done! save as 6BL5_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.197
+rmsd of optimized stucture and ground-truth structure is 180.719
+optimization of all finished! (rmsd_change: -178.522 < 0)
+
+loading pdb file (id: 3FKE_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3FKE_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3FKE_A done
+3FKE_A backbone structure optimization done! save as 3FKE_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.333
+rmsd of optimized stucture and ground-truth structure is 156.680
+optimization of all finished! (rmsd_change: -154.347 < 0)
+
+loading pdb file (id: 1UB9_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1UB9_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1UB9_A done
+1UB9_A backbone structure optimization done! save as 1UB9_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.178
+rmsd of optimized stucture and ground-truth structure is 132.449
+optimization of all finished! (rmsd_change: -130.271 < 0)
+
+loading pdb file (id: 5XBN_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5XBN_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5XBN_A done
+5XBN_A backbone structure optimization done! save as 5XBN_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.142
+rmsd of optimized stucture and ground-truth structure is 155.358
+optimization of all finished! (rmsd_change: -153.216 < 0)
+
+loading pdb file (id: 4Q6V_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4Q6V_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4Q6V_A done
+4Q6V_A backbone structure optimization done! save as 4Q6V_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.211
+rmsd of optimized stucture and ground-truth structure is 164.478
+optimization of all finished! (rmsd_change: -162.267 < 0)
+
+loading pdb file (id: 1COL_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1COL_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1COL_A done
+1COL_A backbone structure optimization done! save as 1COL_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.204
+rmsd of optimized stucture and ground-truth structure is 116.655
+optimization of all finished! (rmsd_change: -114.451 < 0)
+
+loading pdb file (id: 6ZWA_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6ZWA_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6ZWA_A done
+6ZWA_A backbone structure optimization done! save as 6ZWA_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.097
+rmsd of optimized stucture and ground-truth structure is 179.341
+optimization of all finished! (rmsd_change: -177.245 < 0)
+
+loading pdb file (id: 6M6U_B) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6M6U_B_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6M6U_B done
+6M6U_B backbone structure optimization done! save as 6M6U_B_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.160
+rmsd of optimized stucture and ground-truth structure is 119.486
+optimization of all finished! (rmsd_change: -117.326 < 0)
+
+loading pdb file (id: 1L8R_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1L8R_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1L8R_A done
+1L8R_A backbone structure optimization done! save as 1L8R_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.169
+rmsd of optimized stucture and ground-truth structure is 162.258
+optimization of all finished! (rmsd_change: -160.090 < 0)
+
+loading pdb file (id: 2OAF_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2OAF_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2OAF_A done
+2OAF_A backbone structure optimization done! save as 2OAF_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.167
+rmsd of optimized stucture and ground-truth structure is 174.131
+optimization of all finished! (rmsd_change: -171.963 < 0)
+
+loading pdb file (id: 2FCL_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2FCL_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2FCL_A done
+2FCL_A backbone structure optimization done! save as 2FCL_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.157
+rmsd of optimized stucture and ground-truth structure is 159.341
+optimization of all finished! (rmsd_change: -157.184 < 0)
+
+loading pdb file (id: 5YA6_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5YA6_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5YA6_A done
+5YA6_A backbone structure optimization done! save as 5YA6_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.101
+rmsd of optimized stucture and ground-truth structure is 185.192
+optimization of all finished! (rmsd_change: -183.092 < 0)
+
+loading pdb file (id: 6AZ5_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6AZ5_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6AZ5_A done
+6AZ5_A backbone structure optimization done! save as 6AZ5_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.178
+rmsd of optimized stucture and ground-truth structure is 186.254
+optimization of all finished! (rmsd_change: -184.076 < 0)
+
+loading pdb file (id: 6CWM_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6CWM_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6CWM_A done
+6CWM_A backbone structure optimization done! save as 6CWM_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.236
+rmsd of optimized stucture and ground-truth structure is 154.864
+optimization of all finished! (rmsd_change: -152.627 < 0)
+
+loading pdb file (id: 5ESW_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5ESW_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5ESW_A done
+5ESW_A backbone structure optimization done! save as 5ESW_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.157
+rmsd of optimized stucture and ground-truth structure is 169.191
+optimization of all finished! (rmsd_change: -167.034 < 0)
+
+loading pdb file (id: 6DG6_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6DG6_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6DG6_A done
+6DG6_A backbone structure optimization done! save as 6DG6_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 1.937
+rmsd of optimized stucture and ground-truth structure is 83.835
+optimization of all finished! (rmsd_change: -81.898 < 0)
+
+loading pdb file (id: 2IAB_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2IAB_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2IAB_A done
+2IAB_A backbone structure optimization done! save as 2IAB_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.296
+rmsd of optimized stucture and ground-truth structure is 174.301
+optimization of all finished! (rmsd_change: -172.006 < 0)
+
+loading pdb file (id: 4TJV_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4TJV_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4TJV_A done
+4TJV_A backbone structure optimization done! save as 4TJV_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.170
+rmsd of optimized stucture and ground-truth structure is 177.872
+optimization of all finished! (rmsd_change: -175.702 < 0)
+
+loading pdb file (id: 4WHS_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4WHS_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4WHS_A done
+4WHS_A backbone structure optimization done! save as 4WHS_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.210
+rmsd of optimized stucture and ground-truth structure is 181.251
+optimization of all finished! (rmsd_change: -179.041 < 0)
+
+loading pdb file (id: 3BCY_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3BCY_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3BCY_A done
+3BCY_A backbone structure optimization done! save as 3BCY_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.160
+rmsd of optimized stucture and ground-truth structure is 174.204
+optimization of all finished! (rmsd_change: -172.043 < 0)
+
+loading pdb file (id: 3RX9_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3RX9_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3RX9_A done
+3RX9_A backbone structure optimization done! save as 3RX9_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.207
+rmsd of optimized stucture and ground-truth structure is 182.567
+optimization of all finished! (rmsd_change: -180.360 < 0)
+
+loading pdb file (id: 5J7D_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5J7D_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5J7D_A done
+5J7D_A backbone structure optimization done! save as 5J7D_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.116
+rmsd of optimized stucture and ground-truth structure is 162.223
+optimization of all finished! (rmsd_change: -160.107 < 0)
+
+loading pdb file (id: 5CWG_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5CWG_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5CWG_A done
+5CWG_A backbone structure optimization done! save as 5CWG_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.192
+rmsd of optimized stucture and ground-truth structure is 98.617
+optimization of all finished! (rmsd_change: -96.425 < 0)
+
+loading pdb file (id: 7E72_E) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7E72_E_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7E72_E done
+7E72_E backbone structure optimization done! save as 7E72_E_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.065
+rmsd of optimized stucture and ground-truth structure is 184.919
+optimization of all finished! (rmsd_change: -182.854 < 0)
+
+loading pdb file (id: 5B21_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5B21_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5B21_A done
+5B21_A backbone structure optimization done! save as 5B21_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.455
+rmsd of optimized stucture and ground-truth structure is 189.783
+optimization of all finished! (rmsd_change: -187.328 < 0)
+
+loading pdb file (id: 5KAX_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5KAX_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5KAX_A done
+5KAX_A backbone structure optimization done! save as 5KAX_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.190
+rmsd of optimized stucture and ground-truth structure is 176.117
+optimization of all finished! (rmsd_change: -173.927 < 0)
+
+loading pdb file (id: 6HTJ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6HTJ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6HTJ_A done
+6HTJ_A backbone structure optimization done! save as 6HTJ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 1.991
+rmsd of optimized stucture and ground-truth structure is 176.417
+optimization of all finished! (rmsd_change: -174.426 < 0)
+
+loading pdb file (id: 3JV1_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3JV1_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3JV1_A done
+3JV1_A backbone structure optimization done! save as 3JV1_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.148
+rmsd of optimized stucture and ground-truth structure is 157.920
+optimization of all finished! (rmsd_change: -155.772 < 0)
+
+loading pdb file (id: 2YWI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2YWI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2YWI_A done
+2YWI_A backbone structure optimization done! save as 2YWI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.221
+rmsd of optimized stucture and ground-truth structure is 170.687
+optimization of all finished! (rmsd_change: -168.465 < 0)
+
+loading pdb file (id: 5MDT_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5MDT_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5MDT_A done
+5MDT_A backbone structure optimization done! save as 5MDT_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.118
+rmsd of optimized stucture and ground-truth structure is 124.736
+optimization of all finished! (rmsd_change: -122.617 < 0)
+
+loading pdb file (id: 2Q78_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2Q78_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2Q78_A done
+2Q78_A backbone structure optimization done! save as 2Q78_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.107
+rmsd of optimized stucture and ground-truth structure is 173.374
+optimization of all finished! (rmsd_change: -171.267 < 0)
+
+loading pdb file (id: 2ETS_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2ETS_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2ETS_A done
+2ETS_A backbone structure optimization done! save as 2ETS_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.192
+rmsd of optimized stucture and ground-truth structure is 115.075
+optimization of all finished! (rmsd_change: -112.883 < 0)
+
+loading pdb file (id: 4UZZ_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4UZZ_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4UZZ_A done
+4UZZ_A backbone structure optimization done! save as 4UZZ_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.314
+rmsd of optimized stucture and ground-truth structure is 141.348
+optimization of all finished! (rmsd_change: -139.034 < 0)
+
+loading pdb file (id: 3QKG_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3QKG_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3QKG_A done
+3QKG_A backbone structure optimization done! save as 3QKG_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.177
+rmsd of optimized stucture and ground-truth structure is 180.776
+optimization of all finished! (rmsd_change: -178.599 < 0)
+
+loading pdb file (id: 1TUH_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1TUH_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1TUH_A done
+1TUH_A backbone structure optimization done! save as 1TUH_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.162
+rmsd of optimized stucture and ground-truth structure is 162.102
+optimization of all finished! (rmsd_change: -159.940 < 0)
+
+loading pdb file (id: 5EMI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5EMI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5EMI_A done
+5EMI_A backbone structure optimization done! save as 5EMI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.228
+rmsd of optimized stucture and ground-truth structure is 163.998
+optimization of all finished! (rmsd_change: -161.770 < 0)
+
+loading pdb file (id: 5Y69_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5Y69_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5Y69_A done
+5Y69_A backbone structure optimization done! save as 5Y69_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.133
+rmsd of optimized stucture and ground-truth structure is 129.882
+optimization of all finished! (rmsd_change: -127.749 < 0)
+
+loading pdb file (id: 3QZR_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3QZR_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3QZR_A done
+3QZR_A backbone structure optimization done! save as 3QZR_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.115
+rmsd of optimized stucture and ground-truth structure is 182.079
+optimization of all finished! (rmsd_change: -179.964 < 0)
+
+loading pdb file (id: 1JB3_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1JB3_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1JB3_A done
+1JB3_A backbone structure optimization done! save as 1JB3_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.197
+rmsd of optimized stucture and ground-truth structure is 173.202
+optimization of all finished! (rmsd_change: -171.005 < 0)
+
+loading pdb file (id: 6BVC_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6BVC_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6BVC_A done
+6BVC_A backbone structure optimization done! save as 6BVC_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.084
+rmsd of optimized stucture and ground-truth structure is 161.231
+optimization of all finished! (rmsd_change: -159.147 < 0)
+
+loading pdb file (id: 7D8O_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7D8O_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7D8O_A done
+7D8O_A backbone structure optimization done! save as 7D8O_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.101
+rmsd of optimized stucture and ground-truth structure is 163.033
+optimization of all finished! (rmsd_change: -160.931 < 0)
+
+loading pdb file (id: 3R2C_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3R2C_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3R2C_A done
+3R2C_A backbone structure optimization done! save as 3R2C_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.137
+rmsd of optimized stucture and ground-truth structure is 114.172
+optimization of all finished! (rmsd_change: -112.035 < 0)
+
+loading pdb file (id: 2FL4_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2FL4_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2FL4_A done
+2FL4_A backbone structure optimization done! save as 2FL4_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.316
+rmsd of optimized stucture and ground-truth structure is 170.309
+optimization of all finished! (rmsd_change: -167.993 < 0)
+
+loading pdb file (id: 1RG8_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1RG8_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1RG8_A done
+1RG8_A backbone structure optimization done! save as 1RG8_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.159
+rmsd of optimized stucture and ground-truth structure is 183.156
+optimization of all finished! (rmsd_change: -180.997 < 0)
+
+loading pdb file (id: 7EXI_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7EXI_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7EXI_A done
+7EXI_A backbone structure optimization done! save as 7EXI_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.045
+rmsd of optimized stucture and ground-truth structure is 152.772
+optimization of all finished! (rmsd_change: -150.727 < 0)
+
+loading pdb file (id: 4LQE_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4LQE_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4LQE_A done
+4LQE_A backbone structure optimization done! save as 4LQE_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.315
+rmsd of optimized stucture and ground-truth structure is 178.796
+optimization of all finished! (rmsd_change: -176.482 < 0)
+
+loading pdb file (id: 2FZP_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 2FZP_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 2FZP_A done
+2FZP_A backbone structure optimization done! save as 2FZP_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.072
+rmsd of optimized stucture and ground-truth structure is 166.985
+optimization of all finished! (rmsd_change: -164.913 < 0)
+
+loading pdb file (id: 5XZT_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5XZT_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5XZT_A done
+5XZT_A backbone structure optimization done! save as 5XZT_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.011
+rmsd of optimized stucture and ground-truth structure is 168.065
+optimization of all finished! (rmsd_change: -166.055 < 0)
+
+loading pdb file (id: 3FHV_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3FHV_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3FHV_A done
+3FHV_A backbone structure optimization done! save as 3FHV_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.212
+rmsd of optimized stucture and ground-truth structure is 165.850
+optimization of all finished! (rmsd_change: -163.638 < 0)
+
+loading pdb file (id: 3BZ6_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3BZ6_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3BZ6_A done
+3BZ6_A backbone structure optimization done! save as 3BZ6_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.120
+rmsd of optimized stucture and ground-truth structure is 154.278
+optimization of all finished! (rmsd_change: -152.158 < 0)
+
+loading pdb file (id: 3CT6_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3CT6_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3CT6_A done
+3CT6_A backbone structure optimization done! save as 3CT6_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.089
+rmsd of optimized stucture and ground-truth structure is 164.286
+optimization of all finished! (rmsd_change: -162.196 < 0)
+
+loading pdb file (id: 1OSY_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1OSY_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1OSY_A done
+1OSY_A backbone structure optimization done! save as 1OSY_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.283
+rmsd of optimized stucture and ground-truth structure is 180.621
+optimization of all finished! (rmsd_change: -178.338 < 0)
+
+loading pdb file (id: 3UV1_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3UV1_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3UV1_A done
+3UV1_A backbone structure optimization done! save as 3UV1_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.203
+rmsd of optimized stucture and ground-truth structure is 168.817
+optimization of all finished! (rmsd_change: -166.614 < 0)
+
+loading pdb file (id: 6JMK_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 6JMK_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 6JMK_A done
+6JMK_A backbone structure optimization done! save as 6JMK_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.172
+rmsd of optimized stucture and ground-truth structure is 137.926
+optimization of all finished! (rmsd_change: -135.754 < 0)
+
+loading pdb file (id: 7JJA_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7JJA_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7JJA_A done
+7JJA_A backbone structure optimization done! save as 7JJA_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.329
+rmsd of optimized stucture and ground-truth structure is 174.839
+optimization of all finished! (rmsd_change: -172.510 < 0)
+
+loading pdb file (id: 3IVV_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 3IVV_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 3IVV_A done
+3IVV_A backbone structure optimization done! save as 3IVV_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.094
+rmsd of optimized stucture and ground-truth structure is 184.912
+optimization of all finished! (rmsd_change: -182.817 < 0)
+
+loading pdb file (id: 5APG_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 5APG_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 5APG_A done
+5APG_A backbone structure optimization done! save as 5APG_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.260
+rmsd of optimized stucture and ground-truth structure is 162.616
+optimization of all finished! (rmsd_change: -160.356 < 0)
+
+loading pdb file (id: 1JKG_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 1JKG_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 1JKG_A done
+1JKG_A backbone structure optimization done! save as 1JKG_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.063
+rmsd of optimized stucture and ground-truth structure is 173.034
+optimization of all finished! (rmsd_change: -170.971 < 0)
+
+loading pdb file (id: 7L71_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 7L71_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 7L71_A done
+7L71_A backbone structure optimization done! save as 7L71_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.255
+rmsd of optimized stucture and ground-truth structure is 181.267
+optimization of all finished! (rmsd_change: -179.012 < 0)
+
+loading pdb file (id: 4RLE_A) from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/Dataset/PDB/test_set_no_ss as test data...
+save perturbed protein backbone structure done! saved as 4RLE_A_tidy_perturb.pdb
+loading test data done!
+Load checkpoint from /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run3/train/pdb_default/checkpoint882
+pos generation of 4RLE_A done
+4RLE_A backbone structure optimization done! save as 4RLE_A_tidy_opt.pdb
+rmsd of perturbed stucture and ground-truth structure is 2.276
+rmsd of optimized stucture and ground-truth structure is 175.985
+optimization of all finished! (rmsd_change: -173.709 < 0)
+
+optimization of 0 structures succeeded!
+
+rmsd conclusion: 
+mean rmsd(perturbed): nan ± nan
+mean rmsd(optimized): nan ± nan
+mean rmsd_change: nan ± nan

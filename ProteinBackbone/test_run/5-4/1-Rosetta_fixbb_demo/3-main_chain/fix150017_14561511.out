@@ -1,0 +1,145 @@
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: rosetta.source.release-314 r314 2022.11+release.512e589 512e58946eaed9de20d65cdeea465e7690dc9e9a https://www.rosettacommons.org 2022-03-14T17:54:23.772418
+core.init: command: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/rosetta/main/source/bin/fixbb.default.linuxgccrelease -in:file:s 1l2y_main_chain.pdb -resfile resfile.txt -nstruct 1
+basic.random.init_random_generator: 'RNG device' seed mode, using '/dev/urandom', seed=293956461 seed_offset=0 real_seed=293956461
+basic.random.init_random_generator: RandomGenerator:init: Normal mode, seed=293956461 RG_type=mt19937
+core.init: Resolved executable path: /lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/fixbb.default.linuxgccrelease
+core.init: Looking for database based on location of executable: /lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/database/
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: ref2015
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/DonStrength.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/AccStrength.csv
+core.chemical.GlobalResidueTypeSet: Finished initializing fa_standard residue type set.  Created 983 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 1.25 seconds.
+basic.io.database: Database file opened: scoring/score_functions/rama/fd/all.ramaProb
+basic.io.database: Database file opened: scoring/score_functions/rama/fd/prepro.ramaProb
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.all.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.gly.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.pro.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.valile.txt
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+core.scoring.P_AA: shapovalov_lib::shap_p_aa_pp_smooth_level of 1( aka low_smooth ) got activated.
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/shapovalov/10deg/kappa131/a20.prop
+protocols.jd2.PDBJobInputter: Instantiate PDBJobInputter
+protocols.jd2.PDBJobInputter: PDBJobInputter::fill_jobs
+protocols.jd2.PDBJobInputter: pushed 1l2y_main_chain.pdb nstruct index 1
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: Evaluation Creator active ... 
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from PDB 1l2y_main_chain.pdb
+core.import_pose.import_pose: File '1l2y_main_chain.pdb' automatically determined to be of type PDB
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue ASN:NtermProteinFull 1
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue ASN:NtermProteinFull 1
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OD1 on residue ASN:NtermProteinFull 1
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  ND2 on residue ASN:NtermProteinFull 1
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue LEU 2
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue LEU 2
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD1 on residue LEU 2
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD2 on residue LEU 2
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD1 on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD2 on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CE1 on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CE2 on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CZ  on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OH  on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue ILE 4
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG1 on residue ILE 4
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG2 on residue ILE 4
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD1 on residue ILE 4
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue GLN 5
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue GLN 5
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD  on residue GLN 5
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OE1 on residue GLN 5
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  NE2 on residue GLN 5
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD1 on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD2 on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  NE1 on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CE2 on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CE3 on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CZ2 on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CZ3 on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CH2 on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue LEU 7
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue LEU 7
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD1 on residue LEU 7
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD2 on residue LEU 7
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue LYS 8
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue LYS 8
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD  on residue LYS 8
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CE  on residue LYS 8
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  NZ  on residue LYS 8
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue ASP 9
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue ASP 9
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OD1 on residue ASP 9
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OD2 on residue ASP 9
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue PRO 12
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue PRO 12
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD  on residue PRO 12
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue SER 13
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OG  on residue SER 13
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue SER 14
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OG  on residue SER 14
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue ARG 16
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue ARG 16
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD  on residue ARG 16
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  NE  on residue ARG 16
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CZ  on residue ARG 16
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  NH1 on residue ARG 16
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  NH2 on residue ARG 16
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue PRO 17
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue PRO 17
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD  on residue PRO 17
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue PRO 18
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue PRO 18
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD  on residue PRO 18
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue PRO 19
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CG  on residue PRO 19
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CD  on residue PRO 19
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OXT on residue SER:CtermProteinFull 20
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue SER:CtermProteinFull 20
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  OG  on residue SER:CtermProteinFull 20
+core.pack.pack_missing_sidechains: packing residue number 1 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 2 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 3 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 4 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 5 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 6 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 7 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 8 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 9 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 12 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 13 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 14 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 16 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 17 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 18 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 19 because of missing atom number 5 atom name  CB 
+core.pack.pack_missing_sidechains: packing residue number 20 because of missing atom number 6 atom name  CB 
+core.pack.task: Packer task: initialize from command line() 
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: ref2015
+basic.io.database: Database file opened: scoring/score_functions/elec_cp_reps.dat
+core.scoring.elec.util: Read 40 countpair representative atoms
+core.pack.dunbrack.RotamerLibrary: shapovalov_lib_fixes_enable option is true.
+core.pack.dunbrack.RotamerLibrary: shapovalov_lib::shap_dun10_smooth_level of 1( aka lowest_smooth ) got activated.
+core.pack.dunbrack.RotamerLibrary: Binary rotamer library selected: /lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/database/rotamer/shapovalov/StpDwn_0-0-0/Dunbrack10.lib.bin
+core.pack.dunbrack.RotamerLibrary: Using Dunbrack library binary file '/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/database/rotamer/shapovalov/StpDwn_0-0-0/Dunbrack10.lib.bin'.
+core.pack.dunbrack.RotamerLibrary: Dunbrack 2010 library took 0.18 seconds to load from binary
+core.pack.pack_rotamers: built 232 rotamers at 17 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 235 rotamers at 20 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.jd2.JobDistributor: 1l2y_main_chain_0001 reported success in 1 seconds
+protocols.jd2.JobDistributor: no more batches to process... 
+protocols.jd2.JobDistributor: 1 jobs considered, 1 jobs attempted in 1 seconds

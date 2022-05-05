@@ -1,0 +1,83 @@
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: rosetta.source.release-314 r314 2022.11+release.512e589 512e58946eaed9de20d65cdeea465e7690dc9e9a https://www.rosettacommons.org 2022-03-14T17:54:23.772418
+core.init: command: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/rosetta/main/source/bin/fixbb.default.linuxgccrelease -in:file:s 1l2y_main_chain.pdb -in:file:centroid_input -resfile resfile.txt -nstruct 1
+basic.random.init_random_generator: 'RNG device' seed mode, using '/dev/urandom', seed=-1148051485 seed_offset=0 real_seed=-1148051485
+basic.random.init_random_generator: RandomGenerator:init: Normal mode, seed=-1148051485 RG_type=mt19937
+core.init: Resolved executable path: /lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/fixbb.default.linuxgccrelease
+core.init: Looking for database based on location of executable: /lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/database/
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: ref2015
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/DonStrength.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/AccStrength.csv
+core.chemical.GlobalResidueTypeSet: Finished initializing fa_standard residue type set.  Created 983 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 1.31 seconds.
+basic.io.database: Database file opened: scoring/score_functions/rama/fd/all.ramaProb
+basic.io.database: Database file opened: scoring/score_functions/rama/fd/prepro.ramaProb
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.all.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.gly.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.pro.txt
+basic.io.database: Database file opened: scoring/score_functions/omega/omega_ppdep.valile.txt
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+core.scoring.P_AA: shapovalov_lib::shap_p_aa_pp_smooth_level of 1( aka low_smooth ) got activated.
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/shapovalov/10deg/kappa131/a20.prop
+protocols.jd2.PDBJobInputter: Instantiate PDBJobInputter
+protocols.jd2.PDBJobInputter: PDBJobInputter::fill_jobs
+protocols.jd2.PDBJobInputter: pushed 1l2y_main_chain.pdb nstruct index 1
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: Evaluation Creator active ... 
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from PDB 1l2y_main_chain.pdb
+core.chemical.GlobalResidueTypeSet: Finished initializing centroid residue type set.  Created 69 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 0.06 seconds.
+core.import_pose.import_pose: File '1l2y_main_chain.pdb' automatically determined to be of type PDB
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue ASN:NtermProteinFull 1
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue ASN:NtermProteinFull 1
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue LEU 2
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue LEU 2
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue TYR 3
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue ILE 4
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue ILE 4
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue GLN 5
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue GLN 5
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue TRP 6
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue LEU 7
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue LEU 7
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue LYS 8
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue LYS 8
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue ASP 9
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue ASP 9
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue GLY 10
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue GLY 11
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue PRO 12
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue PRO 12
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue SER 13
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue SER 13
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue SER 14
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue SER 14
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue GLY 15
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue ARG 16
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue ARG 16
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue PRO 17
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue PRO 17
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue PRO 18
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue PRO 18
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue PRO 19
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue PRO 19
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CB  on residue SER:CtermProteinFull 20
+core.conformation.Conformation: [ WARNING ] missing heavyatom:  CEN on residue SER:CtermProteinFull 20
+core.pack.task: Packer task: initialize from command line() 
+protocols.jd2.JobDistributor: [ ERROR ] 
+
+[ERROR] Exception caught by JobDistributor for job 1l2y_main_chain_0001
+protocols.jd2.JobDistributor: [ WARNING ] 1l2y_main_chain_0001 reported failure and will NOT retry
+protocols.jd2.JobDistributor: no more batches to process... 
+protocols.jd2.JobDistributor: 1 jobs considered, 1 jobs attempted in 0 seconds

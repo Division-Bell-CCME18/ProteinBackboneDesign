@@ -1,0 +1,55 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2022.11+release.512e589
+[COMMIT_DATE]: 2022-03-14T17:54:23.772418
+[APPLICATION]: /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/rosetta/main/source/bin/fixbb.default.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: GNU/Linux
+[COMPILER]: GCC version "4.8.5 20150623 (Red Hat 4.8.5-36)"
+[STDLIB]: libstdc++ version 20150623
+[START_OPTIONS]
+ -in:file:s=1l2y_main_chain.pdb -in:file:centroid_input -out:nstruct=1 -packing:resfile=resfile.txt
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libutility.so(backtrace_string(int)+0x3a) [0x2ade4bf1291a]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libutility.so(utility::excn::Exception::Exception(char const*, int, std::string const&)+0x51) [0x2ade4bf50651]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libutility.so(utility::exit(char const*, int, std::string const&, int)+0xa5) [0x2ade4bf17a05]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libcore.3.so(core::scoring::etable::AnalyticEtableEnergy::setup_for_scoring_(core::pose::Pose const&, core::scoring::ScoreFunction const&) const+0x2c4) [0x2ade494cb334]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libcore.3.so(core::scoring::etable::BaseEtableEnergy<core::scoring::etable::AnalyticEtableEnergy>::setup_for_scoring(core::pose::Pose&, core::scoring::ScoreFunction const&) const+0x16) [0x2ade494fd4d6]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libcore.3.so(core::scoring::ScoreFunction::setup_for_scoring(core::pose::Pose&) const+0x58) [0x2ade490d8de8]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libcore.3.so(core::scoring::ScoreFunction::operator()(core::pose::Pose&) const+0x8b) [0x2ade490e3d1b]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libcore.5.so(core::pack::pack_rotamers_setup(core::pose::Pose&, core::scoring::ScoreFunction const&, std::shared_ptr<core::pack::task::PackerTask const>, std::shared_ptr<core::pack::rotamer_set::RotamerSets>, std::shared_ptr<core::pack::interaction_graph::AnnealableGraphBase>&, unsigned long)+0x39) [0x2ade4716aaf9]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x215) [0x2ade44d3e815]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x20) [0x2ade44d40450]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libprotocols.1.so(protocols::moves::SequenceMover::apply(core::pose::Pose&)+0xad) [0x2ade462338bd]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::string&, std::string&, unsigned long&, unsigned long&, bool)+0xc52) [0x2ade45f3f952]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0xc1) [0x2ade45f41671]
+/lustre1/lhlai_pkuhpc/lhlai_test/wangyz/deep-learning-proteins/rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x4a) [0x2ade45f30aea]
+/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/rosetta/main/source/bin/fixbb.default.linuxgccrelease() [0x40c5e6]
+/lib64/libc.so.6(__libc_start_main+0xf5) [0x2ade4f19c3d5]
+/home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/rosetta/main/source/bin/fixbb.default.linuxgccrelease() [0x40cd2b]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/scoring/etable/EtableEnergy.cc
+[LINE]: 279
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Illegal attempt to score with non-identical atom set between pose and etable
+	pose   atom_type_set: 'centroid'
+	etable atom_type_set: 'fa_standard'
+
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
