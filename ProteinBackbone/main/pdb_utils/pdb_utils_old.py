@@ -331,27 +331,3 @@ def gen_perturb(data, sigma_perturb=1.0, sigma_end=0.01):
 # update_pdb_info(new_data, '1NWZ_A_CA_noHET.pdb')
 
 
-sketch_file = 'sketch_definition.txt'
-pdb_file = 'initial.pdb'
-
-
-def extract_sketch_info(sketch_file, pdb_file, working_dir=os.getcwd()):
-    """
-    
-    """
-    set_working_dir(working_dir)
-
-
-
-    ss_list, pos_list, edge_list = [], [], []
- 
-
-    node_feature = torch.tensor(ss_list, dtype=torch.long)
-    pos = torch.tensor(pos_list, dtype=torch.float32)
-    edge_index = torch.tensor(edge_list, dtype=torch.long).t().contiguous()
-    edge_type = torch.tensor(edge_type)
-    graph_label = sketch_file[:-4]
-
-    data = Data(x=node_feature, edge_index=edge_index, edge_type=edge_type, pos=pos, y=graph_label)
-
-    return data
