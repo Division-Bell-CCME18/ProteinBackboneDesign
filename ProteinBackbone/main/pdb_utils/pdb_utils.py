@@ -428,7 +428,7 @@ def extract_sketch_info(sketch_file, pdb_id, working_dir=os.getcwd()):
 
     for beta_hb_item in beta_hb_info:
         if beta_hb_item != '':
-            [i, j] = [int(beta_hb_item.split()[0]), int(beta_hb_item.split()[1])]
+            [i, j] = [int(beta_hb_item.split()[0])-1, int(beta_hb_item.split()[1])-1]
             if [i, j] not in edge_list:
                 edge_list.append([i, j])
                 edge_list.append([j, i])
