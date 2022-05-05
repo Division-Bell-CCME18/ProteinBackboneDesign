@@ -11,9 +11,10 @@ import numpy as np
 
 import torch
 from torch_geometric.data import Data, Dataset
+from torch_geometric.transforms import Compose
 
 from pdb_utils import update_pdb_info, extract_sketch_info
-from network_utils import runner, scorenet
+from network_utils import runner, scorenet, transforms
 
 
 
@@ -21,6 +22,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='generate optimized backbone structure of (a single) given protein')
 
     parser.add_argument('--config_path', type=str, required=True)
+    parser.add_argument('--sketch_file', type=str, required=True)
     parser.add_argument('--pdb_id', type=str, required=True)
     parser.add_argument('--seed', type=int, default=2022)
     parser.add_argument('--working_dir', type=str, default=os.getcwd())
@@ -78,7 +80,12 @@ if __name__ == '__main__':
         val_data = []
         test_data = []
 
-        init_data = extract_sketch_info(sketch_file, pdb_id, working_dir=working_dir)
+        transform = Compose([
+            transforms.AddEdgeLength(),
+            transforms.AddPlaceHolder()
+        ])
+
+        init_data = transform(extract_sketch_info(sketch_file, pdb_id, working_dir=working_dir))
         print(f'load initial protein backbone structure (C-alpha trace) done! saved as {pdb_id}_CA.pdb')
 
         model = scorenet.DistanceScoreMatch(config)
