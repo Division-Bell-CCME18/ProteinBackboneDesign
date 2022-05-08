@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -J pyt180944
+#SBATCH -p gpu_4l
+#SBATCH -N 1 
+#SBATCH -o pyt180944_%j.out
+#SBATCH -e pyt180944_%j.err
+#SBATCH --no-requeue
+#SBATCH -A lhlai_g1
+#SBATCH --qos=lhlaig4c
+#SBATCH --gres=gpu:1
+#SBATCH --overcommit
+#SBATCH --mincpus=7
+pkurun python -u model_eval.py --config_path CB.yml --working_dir /home/lhlai_pkuhpc/lhlai_test/lustre1/wangyz/deep-learning-proteins/RunTest/Run5/test/test_set_CB --sigma_perturb 0.2 --steps_pos 2000

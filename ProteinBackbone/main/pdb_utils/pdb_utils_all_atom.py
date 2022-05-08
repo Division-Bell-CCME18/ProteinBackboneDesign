@@ -58,7 +58,7 @@ def pdb_to_data(pdb_file):
             # main chain atom \ ss_type     helix       strand      coil         n
             # N                               0            3          6          3n
             # C-alpha                         1            4          7          3n+1
-            # C-beta                          2            5          8          3n+2
+            # C                               2            5          8          3n+2
 
             ss_type = dssp[dssp_keys[chain_len-1]][2]
             

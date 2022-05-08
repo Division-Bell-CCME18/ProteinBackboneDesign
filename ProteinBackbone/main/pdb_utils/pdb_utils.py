@@ -31,7 +31,7 @@ def set_working_dir(dir):
 # set_working_dir(dir)
 
 
-def pdb_to_data(pdb_file):
+def pdb_to_data(pdb_file, hbond_threshold = -0.5, rsa_threshold = 0.2, CB_dist_threshold = 6):
     """
     Covert a pdb file to a pyg object that can be fed into GNN
     """
@@ -44,17 +44,18 @@ def pdb_to_data(pdb_file):
 
     # print(dssp_keys)
 
-
     chain_len = 0
     pos_list = []
     ss_list = []
+    CB_item_list = []
 
 
     for res in chain.get_residues():
-        # print(res.id)
-        # also include situations like 1OJH_A.pdb ('H_MSE', 25, ' ') 
+        # print(res.id, is_aa(res))
+        # exclude situations like 1OJH_A.pdb ('H_MSE', 25, ' ') 
         if is_aa(res):
             chain_len += 1
+            # print(chain_len)
 
             # 1. obtain secondary structure type
             ss_type = dssp[dssp_keys[chain_len-1]][2]
@@ -67,10 +68,18 @@ def pdb_to_data(pdb_file):
                 ss_list.append(2)
 
 
-            # 2. obtain C-alpha position
+            # 2. obtain C-alpha and C-beta position
             atom_CA = res['CA']
             pos_list.append(list(atom_CA.coord))
 
+            try:
+                atom_CB = res['CB']
+                CB_item_list.append(atom_CB)
+            except:
+                CB_item_list.append('')
+
+
+    # print(CB_pos_list)
     # print(chain_len)
 
     # avoid residue missing in the middle of the sequence (see 1G3J_B.pdb)
@@ -83,15 +92,13 @@ def pdb_to_data(pdb_file):
 
     
     # i) hydrogen-bond-based neighbors
-    threshold = -0.5
-
     for i in range(0, chain_len):
         for col in [6, 8, 10, 12]:
             hbond_id = int(dssp[dssp_keys[i]][col])
             hbond_energy = float(dssp[dssp_keys[i]][col+1])
             
             # only preserve alpha-alpha, alpha-beta, beta-beta
-            if (hbond_energy <= threshold) and (hbond_id != 0) and ([i, i+hbond_id] not in edge_list) and ((i+hbond_id) in range(0, chain_len)) and (dssp[dssp_keys[i]][2] in ['H', 'E']) and (dssp[dssp_keys[i+hbond_id]][2] in ['H', 'E']):
+            if (hbond_energy <= hbond_threshold) and (hbond_id != 0) and ([i, i+hbond_id] not in edge_list) and ((i+hbond_id) in range(0, chain_len)) and (dssp[dssp_keys[i]][2] in ['H', 'E']) and (dssp[dssp_keys[i+hbond_id]][2] in ['H', 'E']):
                 # print(dssp[dssp_keys[i]][2], dssp[dssp_keys[i+hbond_id]][2])
                 edge_list.append([i, i+hbond_id])
                 edge_list.append([i+hbond_id, i])
@@ -103,7 +110,7 @@ def pdb_to_data(pdb_file):
     # ii) sequence-based neighbors 
     # 2^m sequence separation
     for i in range(0, chain_len):
-        for j in range(i, chain_len):
+        for j in range(i+1, chain_len):
             # if ((j-i) & (j-i-1) == 0) and ([i, j] not in edge_list):
             if ((j-i) == 1) and ([i, j] not in edge_list):
                 edge_list.append([i, j])
@@ -162,6 +169,30 @@ def pdb_to_data(pdb_file):
             k += 1
     """
 
+    # iii) hydrophobic-core-based neighbors
+    for i in range(0, chain_len):
+        rsa_i = dssp[dssp_keys[i]][3]
+        # print(rsa_i)
+        if rsa_i <= rsa_threshold:
+            for j in range(i+1, chain_len):
+                rsa_j = dssp[dssp_keys[j]][3]
+                # print(rsa_j)
+                if rsa_j <= rsa_threshold:
+                    # print([i, j])
+                    try:
+                        CB_dist = CB_item_list[i] - CB_item_list[j]
+                        # print(CB_dist)
+                        if (CB_dist <= CB_dist_threshold) and ([i, j] not in edge_list):
+                            edge_list.append([i, j])
+                            edge_list.append([j, i])
+                            edge_type += 2 * [3]
+                            # print([i, j])
+                    except:
+                        pass
+
+
+
+
     node_feature = torch.tensor(ss_list, dtype=torch.long)
     pos = torch.tensor(pos_list, dtype=torch.float32)
     edge_index = torch.tensor(edge_list, dtype=torch.long).t().contiguous()
@@ -173,7 +204,7 @@ def pdb_to_data(pdb_file):
     return data
     
 
-# pdb_to_data(pdb_file)
+# pdb_to_data('1NWZ_A.pdb')
 
 # print(pdb_to_data(pdb_file))
 # print(pdb_to_data(pdb_file).x)
@@ -225,7 +256,7 @@ def filter_pdb_dataset(dataset_dir, save_dir, res_min=40, res_max=200):
     
 
 
-def process_pdb_dataset(dataset_dir, pickle_dir):
+def process_pdb_dataset(dataset_dir, pickle_dir, hbond_threshold = -0.5, rsa_threshold = 0.2, CB_dist_threshold = 6):
     """
     process pdb dataset and save in pickle format
     """
@@ -242,7 +273,7 @@ def process_pdb_dataset(dataset_dir, pickle_dir):
     for i in tqdm(range(len(pdb_list))):
         pdb = pdb_list[i]
         try:
-            data = pdb_to_data(pdb).to_dict()
+            data = pdb_to_data(pdb, hbond_threshold = hbond_threshold, rsa_threshold = rsa_threshold, CB_dist_threshold = CB_dist_threshold).to_dict()
             all_data.append(data)
         except Warning:
             warning_case.append(pdb)
@@ -365,19 +396,8 @@ def extract_sketch_info(sketch_file, pdb_id, working_dir=os.getcwd()):
 
     chain_len = len(pos_list)
 
-    for i in range(0, chain_len):
-        for j in range(i, chain_len):
-            if ((j-i) == 1) and ([i, j] not in edge_list):
-                edge_list.append([i, j])
-                edge_list.append([j, i])
-                edge_type += 2 * [1]
-            elif ((j-i) == 2) and ([i, j] not in edge_list):
-                edge_list.append([i, j])
-                edge_list.append([j, i])
-                edge_type += 2 * [2]
-
     
-    # read out secondary structure information and hydrogen-bond-based neighbors from sketch file
+    # read out secondary structure information, hydrogen-bond-based neighbors and hydrophobic-core-based neighbors from sketch file
     with open(sketch_file, 'r') as sketch_file:
         line_str = ''
         while True:
@@ -389,15 +409,25 @@ def extract_sketch_info(sketch_file, pdb_id, working_dir=os.getcwd()):
        
         line_block = []
         for block in line_str.split('\n\n'):
+            # print(block)
             if block != '' and block != '\n':
                 line_block.append(block)
 
         ss_info = line_block[1].split('\n')
+
         try:
             beta_hb_info = line_block[2].split('\n')
             # print(beta_hb_info)
         except:
+            beta_hb_info = []
             print('no beta-sheet hydrogen bond information found!')
+
+        try:
+            CB_info = line_block[3].split('\n')
+            # print(CB_info)
+        except:
+            CB_info = []
+            print('no hydrophobic-core-based neighbor information found!')
         
     
     chain_len_cnt = 0
@@ -409,7 +439,7 @@ def extract_sketch_info(sketch_file, pdb_id, working_dir=os.getcwd()):
 
         if int(ss_item[6]) == 0: # alpha-helix
             for i in range(chain_len_cnt, chain_len_cnt + ss_len):
-                for j in range(i, chain_len_cnt + ss_len):
+                for j in range(i+1, chain_len_cnt + ss_len):
                     if ((j-i) == 4) and ([i, j] not in edge_list):
                         edge_list.append([i, j])
                         edge_list.append([j, i])
@@ -426,6 +456,8 @@ def extract_sketch_info(sketch_file, pdb_id, working_dir=os.getcwd()):
 
     assert chain_len == chain_len_cnt, 'chain length inconsistent!'
 
+
+    # construct hydrogen-bond-based neighbors
     for beta_hb_item in beta_hb_info:
         if beta_hb_item != '':
             [i, j] = [int(beta_hb_item.split()[0])-1, int(beta_hb_item.split()[1])-1]
@@ -433,7 +465,30 @@ def extract_sketch_info(sketch_file, pdb_id, working_dir=os.getcwd()):
                 edge_list.append([i, j])
                 edge_list.append([j, i])
                 edge_type += 2 * [0]
+
+
+    # construct sequence-based neighbors
+    for i in range(0, chain_len):
+        for j in range(i+1, chain_len):
+            if ((j-i) == 1) and ([i, j] not in edge_list):
+                edge_list.append([i, j])
+                edge_list.append([j, i])
+                edge_type += 2 * [1]
+            elif ((j-i) == 2) and ([i, j] not in edge_list):
+                edge_list.append([i, j])
+                edge_list.append([j, i])
+                edge_type += 2 * [2]
+
+    # construct hydrophobic-core-based neighbors
+    for CB_item in CB_info:
+        if CB_item != '':
+            [i, j] = [int(CB_item.split()[0])-1, int(CB_item.split()[1])-1]
+            if [i, j] not in edge_list:
+                edge_list.append([i, j])
+                edge_list.append([j, i])
+                edge_type += 2 * [3]
         
+
 
     node_feature = torch.tensor(ss_list, dtype=torch.long)
     pos = torch.tensor(pos_list, dtype=torch.float32)
@@ -445,5 +500,6 @@ def extract_sketch_info(sketch_file, pdb_id, working_dir=os.getcwd()):
 
     return data
 
-# print(extract_sketch_info(sketch_file, 'initial'))
+
+# print(extract_sketch_info('sketch_extra_info.txt', 'AlphaBetaModel'))
 
