@@ -37,7 +37,10 @@ def pdb_to_data(pdb_file, hbond_threshold = -0.5, rsa_threshold = 0.2, CB_dist_t
     """
     p = PDBParser(PERMISSIVE=1)
     model = p.get_structure(pdb_file[:4], pdb_file)[0]
-    chain = model[pdb_file[5]]
+    try:
+        chain = model[pdb_file[5]]
+    except:
+        chain = model['A']
 
     dssp = DSSP(model, pdb_file)
     dssp_keys = list(dssp.keys())
@@ -186,7 +189,7 @@ def pdb_to_data(pdb_file, hbond_threshold = -0.5, rsa_threshold = 0.2, CB_dist_t
                             edge_list.append([i, j])
                             edge_list.append([j, i])
                             edge_type += 2 * [3]
-                            # print([i, j])
+                            print(f'{i+1} {j+1}')
                     except:
                         pass
 
@@ -197,14 +200,14 @@ def pdb_to_data(pdb_file, hbond_threshold = -0.5, rsa_threshold = 0.2, CB_dist_t
     pos = torch.tensor(pos_list, dtype=torch.float32)
     edge_index = torch.tensor(edge_list, dtype=torch.long).t().contiguous()
     edge_type = torch.tensor(edge_type)
-    graph_label = pdb_file[:6]
+    graph_label = pdb_file[:-4]
 
     data = Data(x=node_feature, edge_index=edge_index, edge_type=edge_type, pos=pos, y=graph_label)
 
     return data
     
 
-# pdb_to_data('1NWZ_A.pdb')
+# pdb_to_data('alphaBetaModel_fix.pdb', rsa_threshold=0.35, CB_dist_threshold=6)
 
 # print(pdb_to_data(pdb_file))
 # print(pdb_to_data(pdb_file).x)
@@ -502,4 +505,29 @@ def extract_sketch_info(sketch_file, pdb_id, working_dir=os.getcwd()):
 
 
 # print(extract_sketch_info('sketch_extra_info.txt', 'AlphaBetaModel'))
+
+def fix_pdb_info(pdb_file, save_dir=os.getcwd(), suffix='fix'):
+    '''
+    append occupancy (55-60), tempFactor (61-66) and element (77-78) to the pdb file of standard initial protein structure so as to be read by pdb_to_data function
+    standard initial protein structure file: all ALA sequence (N, CA, C, CB, O)
+    '''
+
+    set_working_dir(save_dir)
+
+
+    with open(f'%s_%s.pdb' % (pdb_file[:-4], suffix), 'w') as fix_pdb_file:
+        with open(pdb_file, 'r') as pdb_file:
+            line_cnt = 0
+            line_type_list = ['N', 'C', 'C', 'C', 'O']
+            while True:
+                line = pdb_file.readline()
+                if not line:
+                    break
+                else:
+                    fix_pdb_file.write(line[:30] + ' ' + line[30:-1] + ' ' * (53-len(line[:-1])) + '  1.00  0.00           ' + line_type_list[line_cnt % 5] + '\n')
+                    line_cnt += 1
+
+
+# fix_pdb_info('AlphaBetaModel.pdb')
+
 
