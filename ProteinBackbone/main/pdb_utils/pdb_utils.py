@@ -189,7 +189,7 @@ def pdb_to_data(pdb_file, hbond_threshold = -0.5, rsa_threshold = 0.2, CB_dist_t
                             edge_list.append([i, j])
                             edge_list.append([j, i])
                             edge_type += 2 * [3]
-                            print(f'{i+1} {j+1}')
+                            # print(f'{i+1} {j+1}')
                     except:
                         pass
 
